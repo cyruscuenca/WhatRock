@@ -1,0 +1,238 @@
+@font-face{
+	font-family: "ubuntu";
+	src: url(../fonts/Ubuntu-R.ttf) format("truetype");
+}
+
+@font-face{
+	font-family: "ubuntu-l";
+	src: url(../fonts/Ubuntu-L.ttf) format("truetype");
+}
+
+html, body{
+	background: #fff;
+ }
+	.title-bar{
+		height: 70px;
+		width: auto;
+		background: #fff;
+		border-bottom: 1px solid #cccccc;
+
+	}
+
+	.title-bar p{
+		font-family: 'ubuntu-l';
+		color: grey;
+		font-size: 19pt;
+		padding-top: 15px;
+		text-align: center;
+		color: grey;
+	}
+
+	.title-bar-thin{
+		height: 70px;
+		width: auto;
+		background:  #fff;
+		text-align: center;
+		border-bottom: 1px solid #cccccc;
+	}
+	.title-bar-thin p{
+		font-family: 'ubuntu-l';
+		text-align: center;
+		color: grey;
+		padding-top: 15px;
+		font-size: 19pt;		
+		color: grey;
+	}
+
+	.sidebar{
+		min-height: 1000px;
+		min-width: 200px;
+		width: 18%;
+		background: #fff;
+		border: 1px solid #cccccc;
+		float: right;
+		display: inline-block;
+		border-left: none;
+	}
+
+	.button{
+		height: 42px;
+		margin-top: 4px;
+		width: 104px;
+		font-family: 'ubuntu-l';
+		font-size: 11pt;
+		display: inline-block;
+		background: #fff;
+		border: 2px solid #F661A0;
+		color: grey;
+		border: 1px solid #fff;
+	}
+
+	.button p{
+	}
+
+	.button p:hover{
+		color: grey;
+		text-decoration: underline;
+    }
+
+    .button:hover{
+    	color: grey;
+    }
+
+	.navbar{
+		background: #fff;
+		width: calc(100% - 250px);
+		float: right;
+		border-radius: 0px;
+		border-left: 1px solid #ccc;
+	}
+
+	.sidebar-menu{
+		background: #fff;
+		width: 250px;
+		height: 100%;
+		display: block;
+		position: absolute;
+	}
+
+	.sidebar-menu ul li a{
+		color: grey;
+		font-family: 'ubuntu-l';
+	}
+
+	.sidebar-menu ul li{
+		list-style: none;
+		padding-top: 19px;
+		font-size: 11pt;
+	}
+
+	.sidebar-menu ul{
+		padding-top: 80px;
+		margin-left: -10px;
+		border-bottom: 1px solid #cccccc;
+	}
+
+	.logo{
+		width: 235px;
+		display: inline-block;
+		float: left;
+		margin-top: 7px;
+		padding-left: 13px;
+	}
+
+	.logo-box{
+		height: 71px;
+		width: 250px;
+		background-image: linear-gradient( -135deg, #F761A1 10%, #AC32A6 100%);
+		position: absolute;
+		display: block;
+		border-bottom: 1px solid #cccccc;
+	}
+
+	.body{
+		min-height: 1000px;
+		width: 82%;
+		border-radius: 2px;
+		background: #fff;
+		border: 1px solid #cccccc;
+		display: inline-block;
+	}
+
+	.body-wrapper{
+		width: calc(100% - 35px);
+		margin: 35px; 
+		padding-bottom: 35px;
+		margin-bottom: -50px;
+		margin-right: none;
+	}
+
+	.content-wrapper{
+		width: 100%;
+		height: auto;
+	}
+
+	.grey-box{
+		width: auto;
+		height: auto;
+		min-height: 80vh;
+		background: #f3f3f3;
+		border-top: 1px solid #cccccc;
+		border-bottom: 1px solid #cccccc;
+		margin-top: 50px;
+		padding-bottom: 50px;
+	}
+
+	.search{
+		height: 38px;
+		width: 36%;
+		background: #fff;
+		position: absolute;
+		border: 1px solid #ccc;
+		margin-top: 6px;
+		margin-left: 42px;
+		color: #909090;
+		border-radius: 1px;
+
+	}
+
+	.search:focus{
+		background: #fff;
+		border: 1px solid #ccc;
+	}
+
+	input {  /* Firefox 19+ */
+  		text-indent: 14px;
+  		font-family: 'ubuntu';
+  		font-size: 11pt;
+	}
+	.dropdown-menu{
+		font-family: 'ubuntu-l';
+		box-shadow: none;
+		border: 1px solid #ccc;
+		margin-top: 6px;
+		border-top: none;
+		border-radius: 0 0 0 0;
+		color: #ccc;
+		float: right;
+	}
+	a:hover{
+	    text-decoration: none;
+	}
+	a {
+		text-decoration: none;
+	}
+	.whatstuff div{
+		width: 32px;
+		height: 32px;
+		float: right;
+		margin-top: 5px;
+	}
+	.whatstuff p{
+		margin-right: 10px;
+		margin-top: 8px;
+		float: left;
+		font-size: 11pt;
+		color: grey;
+		font-family: 'ubuntu-l';
+	}
+	.whatstuff{
+		margin-top: 7.5px;
+		margin-right: 140px;
+		float: right;
+		position: relative;
+	}
+	.whatstuff div div{
+		width: 18%;
+		height: 18%;
+		margin-top: 9%;
+		margin-left: 9%;
+		background: #a9a9a9;
+	}
+	.btn-primary{
+		color: grey;
+		background: #fff;
+		border: 1px solid #ccc; 
+		margin-left: 50px; 
+		border-radius: 0 0 0 0;
+	}
