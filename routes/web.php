@@ -36,3 +36,7 @@ Route::get('mod', 'ModController@index')->middleware('mod');
 Route::get('contributer', 'ContributerController@index')->middleware('contributer');
 
 Route::resource('category', 'CategoryController');
+
+Route::get('about', 'PagesController@about');
+Route::get('partners', 'PagesController@partners');
+Route::get('contribute', 'PagesController@contribute');

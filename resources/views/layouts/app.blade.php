@@ -29,9 +29,9 @@
         </a>
             <ul>
                 <li><a href="https://reddit.com/r/whatsthisrock/">WhatRock Community</a></li>
-                <li><a href="#">Partners</a></li>
-                <li><a href="#">Contribute</a></li>
-                <li style="margin-bottom: 25px;"><a href="#">About WhatRock</a></li>
+                <li><a href="{{ url('partners') }}">Partners</a></li>
+                <li><a href="{{ url('contribute') }}">Contribute</a></li>
+                <li style="margin-bottom: 25px;"><a href="{{ url('about') }}">About WhatRock</a></li>
             </ul>
     </div>
     <div class="navbar">
