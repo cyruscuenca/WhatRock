@@ -7,7 +7,7 @@
 				<p>{{$category->name}}</p>
 			</div>
 
-			@foreach ($category->blog as $blog)
+			@foreach ($category->blogs as $blog)
 				<li>{{ $blog->title }}</li>
 			@endforeach
 
