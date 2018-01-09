@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public function blog()
+
+    public function entry()
     {
-    	return $this->belongsToMany(Blog::class);
+    	return $this->belongsToMany(Entry::class);
     }
 }

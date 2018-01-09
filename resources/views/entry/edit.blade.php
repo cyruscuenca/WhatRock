@@ -7,7 +7,7 @@
 				<p>Edit an Entry</p>
 			</div>
 
-				{!! Form::model($blog, ['method' => 'PATCH', 'action' => ['BlogController@update', $blog->id]]) !!}
+				{!! Form::model($entry, ['method' => 'PATCH', 'action' => ['EntryController@update', $entry->id]]) !!}
 
 
 				<div class="form-group" style="width: 65%; margin-left: 17%; margin-top: 35px; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
@@ -24,7 +24,7 @@
 
 			    {!! Form::close() !!}
 
- 				{!! Form::open(['method' => 'DELETE', 'action' => ['BlogController@softDestroy', $blog->id]]) !!}
+ 				{!! Form::open(['method' => 'DELETE', 'action' => ['EntryController@softDestroy', $entry->id]]) !!}
 				<div class="form-group" style="margin-bottom: 40px; margin-top: 30px; margin-left: 17%;">
                     {!! Form::submit("Trash Entry", ['class' => 'btn btn-danger']) !!}
                 </div>

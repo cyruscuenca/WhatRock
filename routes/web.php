@@ -15,19 +15,20 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/entry/trash', 'BlogController@trash');
-Route::get('/entry/trash/{id}/restore', 'BlogController@restore');
-Route::delete('/entry/trash/{id}/destroy', 'BlogController@destroy');
+Route::get('/entry/trash', 'EntryController@trash');
+Route::get('/entry/trash/{id}/restore', 'EntryController@restore');
+Route::delete('/entry/trash/{id}/destroy', 'EntryController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/entry', 'BlogController@index');
-Route::get('/entry/create', 'BlogController@create');
-Route::post('/entry/store', 'BlogController@store');
-Route::get('/entry/{id}', 'BlogController@show');
-Route::get('/entry/{id}/edit', 'BlogController@edit');
-Route::patch('/entry/{id}', 'BlogController@update');
-Route::delete('/entry/{id}', 'BlogController@softDestroy');
+Route::get('/entry', 'EntryController@index');
+Route::get('/entry/create', 'EntryController@create');
+Route::post('/entry/store', 'EntryController@store');
+Route::get('/entry/{id}', 'EntryController@show');
+Route::get('/entry/{id}/edit', 'EntryController@edit');
+Route::patch('/entry/{id}', 'EntryController@update');
+Route::delete('/entry/{id}', 'EntryController@softDestroy');
 
 Route::get('admin', 'AdminController@index')->middleware('admin');
 
@@ -35,7 +36,7 @@ Route::get('mod', 'ModController@index')->middleware('mod');
 
 Route::get('contributer', 'ContributerController@index')->middleware('contributer');
 
-Route::resource('category', 'CategoryController');
+Route::resource('categories', 'CategoryController');
 
 Route::get('about', 'PagesController@about');
 Route::get('partners', 'PagesController@partners');

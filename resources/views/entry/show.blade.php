@@ -4,7 +4,7 @@
 	<div class="body-wrapper">
 			<div class="body">
 			<div class="title-bar">
-				<p style="margin-bottom: 40px;">{{ $blog->title }}</p>
+				<p style="margin-bottom: 40px;">{{ $entry->title }}</p>
 
 				<a href="{{ action('BlogController@edit', [$blog->id]) }}"><div style="margin-left: 50px; margin-top: 35px;" class="button">
 					<p style="font-size: 12pt; margin-top: -11.5px;">Edit</p>
@@ -14,7 +14,7 @@
 				</div></a>
 			</div>
 				<article style="margin-top: 130px; width: 50%; margin-left: 52px;">
-					<p>{{ $blog->body }}</p>
+					<p>{{ $entry->body }}</p>
 				</article>
 	</div>
 			<div class="sidebar">

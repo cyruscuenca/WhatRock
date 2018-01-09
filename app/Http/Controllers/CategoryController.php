@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::latest()->get();
-        return view('category.index', compact('category'));
+        $categories = Category::latest()->get();
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('categories.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class CategoryController extends Controller
     public function show($slug)
     {
         $category = Category::whereSlug($slug)->first();
-        return view('category.show', compact('category'));
+        return view('categories.show', compact('category'));
     }
 
     /**

@@ -7,8 +7,8 @@
 				<p>{{$category->name}}</p>
 			</div>
 
-			@foreach ($category->blogs as $blog)
-				<li>{{ $blog->title }}</li>
+			@foreach ($category->entry as $entry)
+				<li>{{ $entry->title }}</li>
 			@endforeach
 
 			</div>

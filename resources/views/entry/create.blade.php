@@ -7,7 +7,7 @@
 				<p>Create an Entry</p>
 			</div>
 
-				{!! Form::open(['method' => 'POST', 'action' => 'BlogController@store']) !!}
+				{!! Form::open(['method' => 'POST', 'action' => 'EntryController@store']) !!}
 
 				<div class="form-group" style="width: 55%; margin-bottom: 30px; margin-left: 17%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
 		 			{!! Form::label("title", "Title:") !!}
