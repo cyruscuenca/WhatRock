@@ -11,13 +11,13 @@ class EntryController extends Controller
     public  function index()
     {
     	// fetch content from database
-    	$entrys = Entry::latest()->get();
-    	return view('entry.index', compact('entries'));
+    	$entries = Entry::latest()->get();
+    	return view('entries.index', compact('entries'));
     }
 
     public function create()
     {
-    	return view('entry.create');
+    	return view('entries.create');
     }
 
     public function store(Request $request)
@@ -29,13 +29,13 @@ class EntryController extends Controller
     public function show($id)
     {
         $entry = Entry::findOrFail($id);
-        return view('entry.show', compact('entry'));
+        return view('entries.show', compact('entry'));
 
     }
     public function edit($id)
     {
         $entry = Entry::findOrFail($id);
-        return view('entry.edit', compact('entry'));
+        return view('entries.edit', compact('entry'));
 
     }
     public function update(Request $request, $id)
@@ -43,24 +43,24 @@ class EntryController extends Controller
         $input = $request->all();
         $entry = Entry::findOrFail($id);
         $entry->update($input);
-        return redirect('/entry');
+        return redirect('/entries');
     }
     public function trash()
     {
         $deletedEntries = Entry::onlyTrashed()->get();
-        return view('entry.trash', compact('deletedEntries'));
+        return view('entries.trash', compact('deletedEntries'));
     }
     public function restore($id)
     {
         $restoredEntries = Entry::onlyTrashed()->findOrFail($id);
         $restoredEntries->restore($restoredEntries);
-        return redirect('/entry');
+        return redirect('/entries');
     }
     public function softDestroy(Request $request, $id)
     {
         $entry = Entry::findOrFail($id);
         $entry->delete($request->all());
-        return redirect('/entry/trash');
+        return redirect('/entries/trash');
     }
     public function destroy($id)
     {

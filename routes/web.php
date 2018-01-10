@@ -22,13 +22,13 @@ Route::get('/entry/trash/{id}/restore', 'EntryController@restore');
 Route::delete('/entry/trash/{id}/destroy', 'EntryController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/entry', 'EntryController@index');
-Route::get('/entry/create', 'EntryController@create');
-Route::post('/entry/store', 'EntryController@store');
-Route::get('/entry/{id}', 'EntryController@show');
-Route::get('/entry/{id}/edit', 'EntryController@edit');
-Route::patch('/entry/{id}', 'EntryController@update');
-Route::delete('/entry/{id}', 'EntryController@softDestroy');
+Route::get('/entries', 'EntryController@index');
+Route::get('/entries/create', 'EntryController@create');
+Route::post('/entries/store', 'EntryController@store');
+Route::get('/entries/{id}', 'EntryController@show');
+Route::get('/entries/{id}/edit', 'EntryController@edit');
+Route::patch('/entries/{id}', 'EntryController@update');
+Route::delete('/entries/{id}', 'EntryController@softDestroy');
 
 Route::get('admin', 'AdminController@index')->middleware('admin');
 

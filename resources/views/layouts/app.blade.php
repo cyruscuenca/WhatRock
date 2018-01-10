@@ -35,8 +35,8 @@
             </ul>
     </div>
     <div class="navbar">
-        <a class="button" style=" text-decoration: none; float:left; margin-left: 40px; width: 136px;"  href="{{ url('entry') }}"><p style="font-size: 11pt; padding-top: 9px; margin-left: 16px;">Random Rock</p></a>
-        <a class="button" style=" text-decoration: none; float:left; width: 121px;"  href="{{ url('entry') }}"><p style="font-size: 11pt; padding-top: 9px; margin-left: 16px;">New Entries</p></a>
+        <a class="button" style=" text-decoration: none; float:left; margin-left: 40px; width: 136px;"  href="{{ url('entries') }}"><p style="font-size: 11pt; padding-top: 9px; margin-left: 16px;">Random Rock</p></a>
+        <a class="button" style=" text-decoration: none; float:left; width: 121px;"  href="{{ url('entries') }}"><p style="font-size: 11pt; padding-top: 9px; margin-left: 16px;">New Entries</p></a>
 
         <input class="search" type="text" placeholder="Search">
         <a href="">

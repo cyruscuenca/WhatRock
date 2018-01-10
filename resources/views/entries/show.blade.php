@@ -6,7 +6,7 @@
 			<div class="title-bar">
 				<p style="margin-bottom: 40px;">{{ $entry->title }}</p>
 
-				<a href="{{ action('BlogController@edit', [$blog->id]) }}"><div style="margin-left: 50px; margin-top: 35px;" class="button">
+				<a href="{{ action('EntryController@edit', [$entry->id]) }}"><div style="margin-left: 50px; margin-top: 35px;" class="button">
 					<p style="font-size: 12pt; margin-top: -11.5px;">Edit</p>
 				</div></a>
 				<a href=""><div style="margin-left: 25px; margin-top: 35px;" class="button">
