@@ -17,9 +17,9 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/entry/trash', 'EntryController@trash');
-Route::get('/entry/trash/{id}/restore', 'EntryController@restore');
-Route::delete('/entry/trash/{id}/destroy', 'EntryController@destroy');
+Route::get('/entries/trash', 'EntryController@trash');
+Route::get('/entries/trash/{id}/restore', 'EntryController@restore');
+Route::delete('/entries/trash/{id}/destroy', 'EntryController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/entries', 'EntryController@index');

@@ -190,11 +190,16 @@ input {  /* Firefox 19+ */
 	font-family: 'ubuntu-l';
 	box-shadow: none;
 	border: 1px solid #ccc;
-	margin-top: 6px;
+	margin-top: -4px;
 	border-top: none;
 	border-radius: 0 0 0 0;
 	color: #ccc;
 	float: right;
+}
+
+.dropdown-menu li a{
+	color: grey;
+	font-family: 'ubuntu-l';
 }
 a:hover{
 	text-decoration: none;

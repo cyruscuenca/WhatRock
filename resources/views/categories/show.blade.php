@@ -5,6 +5,7 @@
 			<div class="body">
 			<div class="title-bar">
 				<p>{{$category->name}}</p>
+				<p><a href="{{ action('CategoryController@edit', [$category->id])}}">Edit</a></p>
 			</div>
 
 			@foreach ($category->entry as $entry)
