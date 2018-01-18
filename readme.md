@@ -1,5 +1,4 @@
-<p align="center"><div style="background-image: linear-gradient( -135deg, #F761A1 10%, #AC32A6 100%); border-radius: 2px;
-"><img src="http://cyruscuenca.com/host/whatrock-logo.png" width="50%"></div</p>
+<p align="center"><img src="http://cyruscuenca.com/host/whatrock-logo.png" width="50%"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
