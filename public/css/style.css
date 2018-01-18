@@ -155,7 +155,7 @@ html, body{
 .grey-box{
 	width: auto;
 	height: auto;
-	min-height: 80vh;
+	min-height: 92vh;
 	background: #f3f3f3;
 	border-top: 1px solid #cccccc;
 	border-bottom: 1px solid #cccccc;
@@ -185,6 +185,11 @@ input {  /* Firefox 19+ */
 	text-indent: 14px;
 	font-family: 'ubuntu';
 	font-size: 11pt;
+}
+
+.form-control{
+	border-radius: 0 0 0 0;
+	border: 1px solid #ccc;
 }
 .dropdown-menu{
 	font-family: 'ubuntu-l';
@@ -223,7 +228,7 @@ a {
 }
 .whatstuff{
 	margin-top: 7.5px;
-	margin-right: 160px;
+	margin-right: 175px;
 	float: right;
 	position: relative;
 }

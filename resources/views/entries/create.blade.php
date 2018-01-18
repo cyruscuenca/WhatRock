@@ -9,9 +9,13 @@
 
 				{!! Form::open(['method' => 'POST', 'action' => 'EntryController@store']) !!}
 
-				<div class="form-group" style="width: 55%; margin-bottom: 30px; margin-left: 17%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
-		 			{!! Form::label("title", "Title:") !!}
+				<div class="form-group" style="margin-top: 50px; width: 45%; margin-bottom: 30px; display: inline-block; margin-left: 17%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
+		 			{!! Form::label("title", "Name:") !!}
 		 			{!! Form::text("title", null, ['class' => 'form-control']) !!}
+				</div>
+				<div class="form-group" style="margin-top: 50px; width:18.45%; display:inline-block; margin-left: 1%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
+					{!! Form::label("category_id", "Category:") !!}
+					{!! Form::select("category_id[]", $categories, null, ['class' => 'form-control']) !!}
 				</div>
 				<div class="form-group" style="width: 65%; margin-left: 17%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
 					{!! Form::label("body", "Body:") !!}
@@ -31,4 +35,5 @@
 				</div>
 			</div>
 	</div>
+
 @endsection

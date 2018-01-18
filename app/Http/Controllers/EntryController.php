@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Entry;
 
+use App\Category;
+
 class EntryController extends Controller
 {
     public  function index()
@@ -17,13 +19,17 @@ class EntryController extends Controller
 
     public function create()
     {
-    	return view('entries.create');
+        $categories = Category::pluck('name', 'id');
+    	return view('entries.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
         $input = $request->all();
-        Entry::create($input);
+        $entry = Entry::create($input);
+        if ($categoryIds = $request->category_id) {
+            $entry->category()->sync($categoryIds);
+        }
         return back();
     }
     public function show($id)

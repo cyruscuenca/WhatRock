@@ -20,6 +20,10 @@
 
 			    {!! Form::close() !!}
 
+			    {!! Form::open(['method' => 'DELETE', 'action' => ['CategoryController@destroy', $category->id]]) !!}
+			    {!! Form::submit("Delete Category", ['class' => 'btn btn-danger']) !!}
+			    {!! Form::close() !!}
+
 			</div>
 
 			<div class="sidebar">

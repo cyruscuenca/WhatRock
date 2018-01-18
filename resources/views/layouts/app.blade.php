@@ -58,13 +58,12 @@
         <div>
         @guest
         <div style="float: right; margin-top: -36px;">
-            <a class="" style="display: inline-block; font-family: 'ubuntu-l'; color: grey;" href="{{ route('login') }}"><p style="">Login</p></a>
-            <p style="display: inline-block; margin-right: 1px; font-family: 'ubuntu-l'; font-size: 10.5pt; margin-right: 1px;">/</p>
-            <a class="" style="display: inline-block; font-family: 'ubuntu-l'; color: grey; margin-right: 25px;"  href="{{ route('register') }}"><p style="">Register</p></a>
+            <a class="" style="display: inline-block; font-family: 'ubuntu-l'; color: grey; margin-right: 3px;" href="{{ route('register') }}"><p style="">Register</p></a>
+            <a class="" style="border-radius: 3px; display: inline-block; font-family: 'ubuntu-l'; color: #fff; margin-right: 25px; background: #F761A1; height: 25px; width: 58px;"  href="{{ route('login') }}"><p style="padding-left: 11px;">Login</p></a>
         </div>
         @else
         
-        <li class="dropdown" style="float: right; margin-right: 65px; list-style-type: none; padding-top: 5px;">
+        <li class="dropdown" style="float: right; margin-right: 60px; list-style-type: none; padding-top: 5px;">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" style="color: #909090; font-family: 'ubuntu-l'; font-size: 16pt;">
                 <div style="width: 38px; height: 38px; border-radius: 20px; border: 1px solid #ccc; margin-top: -49px;">
                 <p class="initial" style="text-align: center; padding-top: 1px;">{{ substr(auth()->user()->name, 0, 1) }}</p>
