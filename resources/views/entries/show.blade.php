@@ -15,6 +15,10 @@
 			</div>
 				<article style="margin-top: 130px; width: 50%; margin-left: 52px;">
 					<p>{{ $entry->body }}</p>
+					@foreach ($entry->category as $category)
+						<p>{{ $category->name }}</p>
+					@endforeach
+
 				</article>
 	</div>
 			<div class="sidebar">

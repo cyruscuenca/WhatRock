@@ -40,8 +40,9 @@ class EntryController extends Controller
     }
     public function edit($id)
     {
+        $categories = Category::pluck('name', 'id');
         $entry = Entry::findOrFail($id);
-        return view('entries.edit', compact('entry'));
+        return view('entries.edit', compact('entry', 'categories'));
 
     }
     public function update(Request $request, $id)
@@ -49,6 +50,9 @@ class EntryController extends Controller
         $input = $request->all();
         $entry = Entry::findOrFail($id);
         $entry->update($input);
+        if ($categoryIds = $request->category_id) {
+            $entry->category()->sync($categoryIds);
+        }
         return redirect('/entries');
     }
     public function trash()
@@ -65,6 +69,8 @@ class EntryController extends Controller
     public function softDestroy(Request $request, $id)
     {
         $entry = Entry::findOrFail($id);
+        $categoryIds = $request->category_id;
+        $entry->category()->detach($categoryIds);
         $entry->delete($request->all());
         return redirect('/entries/trash');
     }

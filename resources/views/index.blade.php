@@ -7,12 +7,6 @@
 			</div>
 			</div>
 
-			<div class="sidebar">
-				<div class="title-bar-thin">
-					<p>
-					Categories
-					</p>
-				</div>
-			</div>
+			@include('partials.category-sidebar')
 	</div>
 @endsection

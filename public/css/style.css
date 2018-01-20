@@ -73,7 +73,6 @@ html, body{
 
 .button p:hover{
 	color: grey;
-	text-decoration: underline;
 }
 
 .button:hover{

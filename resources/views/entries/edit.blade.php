@@ -18,6 +18,10 @@
 					{!! Form::label("body", "Body:") !!}
 					{!! Form::textarea("body", null, ['class' => 'form-control']) !!}
 				</div>
+				<div class="form-group" style="margin-top: 50px; width:18.45%; display:inline-block; margin-left: 1%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
+					{!! Form::label("category_id", "Category:") !!}
+					{!! Form::select("category_id[]", $categories, null, ['class' => 'form-control']) !!}
+				</div>
 				<div class="form-group" style="margin-bottom: 20px; margin-top: 30px; margin-left: 17%;">
 					{!! Form::submit("Edit Entry", ['class' => 'btn btn-primary']) !!}
 				</div>
