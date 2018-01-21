@@ -14,6 +14,13 @@
 				</div></a>
 			</div>
 				<article style="margin-top: 130px; width: 50%; margin-left: 52px;">
+					<div>
+						@if($entry->photo)
+							<div>
+								<img src="/images/{{ $entry->photo ? $entry->photo->photo : ''}}" alt="Photo of {{$entry->title}}">
+							</div>
+						@endif
+					</div>
 					<p>{{ $entry->body }}</p>
 					@foreach ($entry->category as $category)
 						<p>{{ $category->name }}</p>

@@ -7,7 +7,7 @@
 				<p>Create an Entry</p>
 			</div>
 
-				{!! Form::open(['method' => 'POST', 'action' => 'EntryController@store']) !!}
+				{!! Form::open(['method' => 'POST', 'action' => 'EntryController@store', 'files' => true]) !!}
 
 				<div class="form-group" style="margin-top: 50px; width: 45%; margin-bottom: 30px; display: inline-block; margin-left: 17%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
 		 			{!! Form::label("title", "Name:") !!}
@@ -20,6 +20,10 @@
 				<div class="form-group" style="width: 65%; margin-left: 17%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
 					{!! Form::label("body", "Body:") !!}
 					{!! Form::textarea("body", null, ['class' => 'form-control']) !!}
+				</div>
+				<div class="form-group" style="width: 65%; margin-left: 17%; font-family: 'ubuntu'; font-size: 14pt; color: grey;">
+					{!! Form::label("photo_id", "Featured Image:") !!}
+					{!! Form::file("photo_id", null, ['class' => 'form-control']) !!}
 				</div>
 				<div class="form-group" style="margin-bottom: 40px; margin-top: 30px; margin-left: 17%;">
 					{!! Form::submit("Create Entry", ['class' => 'button']) !!}

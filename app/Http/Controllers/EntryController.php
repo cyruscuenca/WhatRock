@@ -8,6 +8,10 @@ use App\Entry;
 
 use App\Category;
 
+use App\Photo;
+
+use Carbon\Carbon;
+
 class EntryController extends Controller
 {
     public  function index()
@@ -26,6 +30,14 @@ class EntryController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
+        if ($file = $request->file('photo_id')){
+            $name = Carbon::now. '.' .$file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['photo' => $name, 'title' => $name]);
+            $input['photo_id'] = $photo->id;
+        }
+
         $entry = Entry::create($input);
         if ($categoryIds = $request->category_id) {
             $entry->category()->sync($categoryIds);
