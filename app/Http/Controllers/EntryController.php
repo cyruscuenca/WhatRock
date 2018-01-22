@@ -12,6 +12,8 @@ use App\Photo;
 
 use Carbon\Carbon;
 
+use Storage;
+
 class EntryController extends Controller
 {
     public  function index()
@@ -32,7 +34,9 @@ class EntryController extends Controller
         $input = $request->all();
 
         if ($file = $request->file('photo_id')){
-            $name = Carbon::now. '.' .$file->getClientOriginalName();
+            $directory = 'images';
+            $name = uniqid('photo-', true). '.' .$file->getClientOriginalName();
+            $saved = Storage::disk('public')->put($directory.'/'.$name , $file);
             $file->move('images', $name);
             $photo = Photo::create(['photo' => $name, 'title' => $name]);
             $input['photo_id'] = $photo->id;
@@ -61,6 +65,22 @@ class EntryController extends Controller
     {
         $input = $request->all();
         $entry = Entry::findOrFail($id);
+
+        if ($file = $request->file('photo_id')) 
+        {
+
+            if ($entry->photo)
+            {
+                unlink('images/' . $entry->photo->photo);
+                $entry->photo()->delete('photo');
+            }
+
+            $name = Carbon::now(). '.' .$file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['photo' => $name, 'title' => $name]);
+            $input['photo_id'] = $photo->id;
+        }
+
         $entry->update($input);
         if ($categoryIds = $request->category_id) {
             $entry->category()->sync($categoryIds);

@@ -59,7 +59,7 @@
         @guest
         <div style="float: right; margin-top: -36px;">
             <a class="" style="display: inline-block; font-family: 'ubuntu-l'; color: grey; margin-right: 3px;" href="{{ route('register') }}"><p style="">Register</p></a>
-            <a class="" style="border-radius: 3px; display: inline-block; font-family: 'ubuntu-l'; color: #fff; margin-right: 25px; background-image: linear-gradient(190deg, #6D64FD 0%, #764ba2 100%); height: 25px; width: 58px;"  href="{{ route('login') }}"><p style="padding-left: 11px;">Login</p></a>
+            <a class="" style="border-radius: 3px; display: inline-block; font-family: 'ubuntu-l'; color: #fff; margin-right: 25px; background-image: linear-gradient(200deg, #6D64FD 0%, #764ba2 100%); height: 25px; width: 58px;"  href="{{ route('login') }}"><p style="padding-left: 11px;">Login</p></a>
         </div>
         @else
         
