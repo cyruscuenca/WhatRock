@@ -75,7 +75,7 @@ class EntryController extends Controller
                 $entry->photo()->delete('photo');
             }
 
-            $name = Carbon::now(). '.' .$file->getClientOriginalName();
+            $name = uniqid('photo-', true). '.' .$file->getClientOriginalName();
             $file->move('images', $name);
             $photo = Photo::create(['photo' => $name, 'title' => $name]);
             $input['photo_id'] = $photo->id;
