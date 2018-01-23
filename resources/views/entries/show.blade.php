@@ -17,7 +17,7 @@
 					<div>
 						@if($entry->photo)
 							<div>
-								<img src="/images/{{ $entry->photo ? $entry->photo->photo : ''}}" alt="Photo of {{$entry->title}}">
+								<img style="width: 520px;" src="/images/{{ $entry->photo ? $entry->photo->photo : ''}}" alt="Photo of {{$entry->title}}">
 							</div>
 						@endif
 					</div>

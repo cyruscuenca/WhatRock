@@ -37,7 +37,6 @@ class EntryController extends Controller
             $directory = 'images';
             $name = uniqid('photo-', true). '.' .$file->getClientOriginalName();
             $saved = Storage::disk('public')->put($directory.'/'.$name , $file);
-            $file->move('images', $name);
             $photo = Photo::create(['photo' => $name, 'title' => $name]);
             $input['photo_id'] = $photo->id;
         }
@@ -66,8 +65,7 @@ class EntryController extends Controller
         $input = $request->all();
         $entry = Entry::findOrFail($id);
 
-        if ($file = $request->file('photo_id')) 
-        {
+        if ($file = $request->file('photo_id')) {
 
             if ($entry->photo)
             {
@@ -76,7 +74,6 @@ class EntryController extends Controller
             }
 
             $name = uniqid('photo-', true). '.' .$file->getClientOriginalName();
-            $file->move('images', $name);
             $photo = Photo::create(['photo' => $name, 'title' => $name]);
             $input['photo_id'] = $photo->id;
         }
@@ -108,8 +105,14 @@ class EntryController extends Controller
     }
     public function destroy($id)
     {
-        $destroy = Entry::onlyTrashed()->findOrFail($id);
-        $destroy->forceDelete($destroy);
+        $destroyedEntry = Entry::onlyTrashed()->findOrFail($id);
+
+        if ($destroyedEntry->photo) {
+            unlink('images/' . $destroyedEntry->photo->photo);
+            $destroyedEntry->photo()->delete('photo');
+        }
+
+        $destroyedEntry->forceDelete($destroyedEntry);
         return back();
     }
 }
