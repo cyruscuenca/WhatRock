@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function isContributor() 
+    {
+        return strtolower($this->role->name) == 'contributor';
+    }
 }

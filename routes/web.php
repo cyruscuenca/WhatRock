@@ -34,7 +34,7 @@ Route::get('admin', 'AdminController@index')->middleware('admin');
 
 Route::get('mod', 'ModController@index')->middleware('mod');
 
-Route::get('contributer', 'ContributerController@index')->middleware('contributer');
+Route::get('contributor', 'ContributorController@index')->middleware('contributor');
 
 Route::resource('categories', 'CategoryController');
 
