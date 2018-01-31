@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class isContributer
+class isContributor
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,10 @@ class isContributer
      */
     public function handle($request, Closure $next)
     {
-        //return $next($request);
-        $user = $request->user();
-            if ($user->role->name == 'Contributer'){
-                return $next($request);
-            }
-        return redirect('/');
+        if (!$request->user()->isContributor()) {
+            return redirect('/');
+        }
+
+        return $next($request);
     }
 }

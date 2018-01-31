@@ -29,7 +29,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Middleware\\isAdmin' => $baseDir . '/app/Http/Middleware/isAdmin.php',
-    'App\\Http\\Middleware\\isContributer' => $baseDir . '/app/Http/Middleware/isContributer.php',
+    'App\\Http\\Middleware\\isContributor' => $baseDir . '/app/Http/Middleware/isContributor.php',
     'App\\Http\\Middleware\\isMod' => $baseDir . '/app/Http/Middleware/isMod.php',
     'App\\Photo' => $baseDir . '/app/Photo.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
