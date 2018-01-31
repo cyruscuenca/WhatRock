@@ -6,8 +6,8 @@
 				<p>Admin Dashboard<p>
 			</div>
 			<div style="width: 100%; height: auto; display: inline-block; margin-top: 39px">
-				<button class="btn btn-primary" href="{{ url('/entry/create') }}">Create an Entry</button>
-				<button class="btn btn-primary" href="{{ url('/entry/trash') }}">Trashed Entries</button>
+				<a class="btn btn-primary" href="{{ url('/entries/create') }}">Create an Entry</a>
+				<a class="btn btn-primary" href="{{ url('/entries/trash') }}">Trashed Entries</a>
 			</div>
 		</div>
 
