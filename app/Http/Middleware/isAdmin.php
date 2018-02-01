@@ -15,11 +15,10 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-        //return $next($request);
-        $user = $request->user();
-            if ($user->role->name == 'Administrator'){
-                return $next($request);
-            }
-        return redirect('/');
+        if (!$request->user()->hasRole('administrator')) {
+            return redirect('/');
+        }
+
+        return $next($request);
     }
 }

@@ -21,7 +21,7 @@ class RolesTableSeeder extends Seeder
         $role_mod->save();
 
         $role_contributer = new Role();
-        $role_contributer->name = 'Contributer';
+        $role_contributer->name = 'Contributor';
         $role_contributer->save();
     }
 }

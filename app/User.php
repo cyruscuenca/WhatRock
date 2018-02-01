@@ -32,8 +32,15 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function isContributor() 
+    /**
+     * Check if the user has a Role.
+     * 
+     * @param  string  $role
+     * @return boolean
+     * 
+     */
+    public function hasRole($role)
     {
-        return strtolower($this->role->name) == 'contributor';
+        return strtolower($this->role->name) === strtolower($role);
     }
 }

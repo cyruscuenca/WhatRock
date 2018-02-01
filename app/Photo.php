@@ -14,6 +14,6 @@ class Photo extends Model
     }
 	public function photo()
 	{
-	    return $this->photo->photo;
+	    return $this->photo;
 	}
 }
