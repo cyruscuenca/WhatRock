@@ -18,6 +18,7 @@ class CreateEntriesTable extends Migration
             $table->integer('photo_id');
             $table->string('title');
             $table->text('body');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
