@@ -12,4 +12,8 @@ class Photo extends Model
     {
     	return $this->belongsTo(Entry::class);
     }
+	public function photo()
+	{
+	    return $this->photo->photo;
+	}
 }

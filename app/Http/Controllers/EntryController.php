@@ -35,9 +35,9 @@ class EntryController extends Controller
 
         if ($file = $request->file('photo_id')){
             $directory = 'images';
-            $name = uniqid('photo-', true). '.' .$file->getClientOriginalName();
+            $name = uniqid('photo-', true);
             $saved = Storage::disk('public')->put($directory.'/'.$name , $file);
-            $photo = Photo::create(['photo' => $name, 'title' => $name]);
+            $photo = request()->file('photo_id')->store('images', 'public');
             $input['photo_id'] = $photo->id;
         }
 
@@ -64,17 +64,18 @@ class EntryController extends Controller
     {
         $input = $request->all();
         $entry = Entry::findOrFail($id);
+        $directory = 'images';
 
         if ($file = $request->file('photo_id')) {
 
-            if ($entry->photo)
+            if ($entry->has('photo'))
             {
-                unlink('images/' . $entry->photo->photo);
-                $entry->photo()->delete('photo');
+                $saved = Storage::disk('public')->put($directory.'/'.$name , $file);
+                $photo = request()->file('photo_id')->store('images', 'public');
             }
 
-            $name = uniqid('photo-', true). '.' .$file->getClientOriginalName();
-            $photo = Photo::create(['photo' => $name, 'title' => $name]);
+            $saved = Storage::disk('public')->put($directory.'/'.$name , $file);
+            $photo = request()->file('photo_id')->store('images', 'public');
             $input['photo_id'] = $photo->id;
         }
 

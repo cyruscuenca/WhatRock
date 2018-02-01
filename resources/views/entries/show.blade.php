@@ -17,15 +17,44 @@
 					<div>
 						@if($entry->photo)
 							<div>
-								<img style="width: 520px;" src="/images/{{ $entry->photo ? $entry->photo->photo : ''}}" alt="Photo of {{$entry->title}}">
+								<img style="width: 520px;" src="storage/images/{{ $entry->photo ? $entry->photo->photo : ''}}" alt="Photo of {{$entry->title}}">
 							</div>
 						@endif
 					</div>
 					<p>{{ $entry->body }}</p>
-					@foreach ($entry->category as $category)
-						<p>{{ $category->name }}</p>
-					@endforeach
-
+					<div>
+						<div>
+							<p>Quick Information</p>
+						</div>
+						<ul>
+							<li>
+							@foreach ($entry->category as $category)
+								<p>Category: {{ $category->name }}</p>
+							@endforeach
+							</li>
+							<li>
+								<p>Subcategory: Volcanic Glass</p>
+							</li>
+							<li>
+								<p>Mohs scale hardness: 5–6</p>
+							</li>
+							<li>
+								<p>Optical properties: Translucent</p>
+							</li>
+							<li>
+								<p>Color: Black, Black-green</p>
+							</li>
+							<li>
+								<p>Luster: Vitreous</p>
+							</li>
+							<li>
+								<p>Fracture: Conchoidal</p>
+							</li>
+							<li>
+								<p>Specific gravity: c. 2.4</p>
+							</li>
+						</ul>
+					<div>
 				</article>
 	</div>
 			<div class="sidebar">
