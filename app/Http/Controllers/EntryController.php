@@ -2,17 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Entry;
-
-use App\Category;
-
-use App\Photo;
-
-use Carbon\Carbon;
-
 use Storage;
+use Carbon\Carbon;
+use App\{Entry, Category, Photo};
 
 class EntryController extends Controller
 {
@@ -29,11 +21,11 @@ class EntryController extends Controller
     	return view('entries.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $input = $request->all();
+        $input = request()->all();
 
-        if ($file = $request->file('photo_id')){
+        if ($file = request()->file('photo_id')) {
             $directory = 'images';
             $name = uniqid('photo-', true);
             $saved = Storage::disk('public')->put($directory.'/'.$name , $file);
@@ -42,7 +34,7 @@ class EntryController extends Controller
         }
 
         $entry = Entry::create($input);
-        if ($categoryIds = $request->category_id) {
+        if ($categoryIds = request()->category_id) {
             $entry->category()->sync($categoryIds);
         }
         return back();
@@ -60,13 +52,13 @@ class EntryController extends Controller
         return view('entries.edit', compact('entry', 'categories'));
 
     }
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $input = $request->all();
+        $input = request()->all();
         $entry = Entry::findOrFail($id);
         $directory = 'images';
 
-        if ($file = $request->file('photo_id')) {
+        if ($file = request()->file('photo_id')) {
 
             if ($entry->has('photo'))
             {
@@ -80,7 +72,7 @@ class EntryController extends Controller
         }
 
         $entry->update($input);
-        if ($categoryIds = $request->category_id) {
+        if ($categoryIds = request()->category_id) {
             $entry->category()->sync($categoryIds);
         }
         return redirect('/entries');
@@ -96,12 +88,12 @@ class EntryController extends Controller
         $restoredEntries->restore($restoredEntries);
         return redirect('/entries');
     }
-    public function softDestroy(Request $request, $id)
+    public function softDestroy($id)
     {
         $entry = Entry::findOrFail($id);
-        $categoryIds = $request->category_id;
+        $categoryIds = request()->category_id;
         $entry->category()->detach($categoryIds);
-        $entry->delete($request->all());
+        $entry->delete(request()->all());
         return redirect('/entries/trash');
     }
     public function destroy($id)

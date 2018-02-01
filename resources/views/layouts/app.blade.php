@@ -79,7 +79,7 @@
                      <a href="{{ url('/mod') }}">Dashboard</a>
                 @endif
                 @if(Auth::user()->role_id == 3)
-                     <a href="{{ url('/contributer') }}">Dashboard</a>
+                     <a href="{{ url('/contributor') }}">Dashboard</a>
                 @endif
                 <a href="{{ url('/help') }}">Help</a>
 
