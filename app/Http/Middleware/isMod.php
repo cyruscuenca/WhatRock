@@ -15,11 +15,10 @@ class isMod
      */
     public function handle($request, Closure $next)
     {
-        //return $next($request);
-        $user = $request->user();
-            if ($user->role->name == 'Moderator'){
-                return $next($request);
-            }
-        return redirect('/');
+        if (!$request->user()->hasRole('moderator')) {
+            return redirect('/');
+        }
+
+        return $next($request);
     }
 }

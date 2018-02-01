@@ -15,7 +15,7 @@ class isContributor
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->isContributor()) {
+        if (!$request->user()->hasRole('contributor')) {
             return redirect('/');
         }
 
