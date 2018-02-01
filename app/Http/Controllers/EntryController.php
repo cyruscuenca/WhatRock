@@ -23,20 +23,19 @@ class EntryController extends Controller
 
     public function store()
     {
-        $input = request()->all();
+        $data = request()->all();
 
         if ($file = request()->file('photo_id')) {
-            $directory = 'images';
-            $name = uniqid('photo-', true);
-            $saved = Storage::disk('public')->put($directory.'/'.$name , $file);
-            $photo = request()->file('photo_id')->store('images', 'public');
-            $input['photo_id'] = $photo->id;
+            $photo = $file->store('images', 'public');
+            $data['photo_id'] = Photo::create(['title' => $photo, 'photo' => $photo])->id;
         }
 
-        $entry = Entry::create($input);
+        $entry = Entry::create($data);
+
         if ($categoryIds = request()->category_id) {
             $entry->category()->sync($categoryIds);
         }
+
         return back();
     }
     public function show($id)
