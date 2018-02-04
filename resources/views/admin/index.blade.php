@@ -17,6 +17,39 @@
 			<div class="numbers-container">
 				<p>Total Entries: 3,026</p> <p>Total Users: 248</p> <p>Total Views: 143,334</p>
 			</div>
+
+			<div style="margin-left: calc(50px + 1%); margin-right: calc(50px + 1%); margin-top: 70px;">
+				<h3 style="padding-bottom: 10px; margin-left: 2px; font-family: 'ubuntu-l';">Submitted Entries</h3>
+				<div class="table-responsive" style="font-family: 'ubuntu-l'; font-weight: lighter;">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Entry Title</th>
+								<th>Entry Content</th>
+								<th>Status</th>
+								<th>Settings</th>
+							</tr>
+						</thead>
+					<tbody>
+						<tr>
+							@foreach($entry as $entry)
+							<tr>
+								<th>{{ $entry->title }}</th>
+								<th>{{ str_limit($entry->body, 110) }}</th>
+								<th>{{ $entry->status == 0 ? "Draft" : "Published"}}</th>
+								<th>
+									{{ Form::model($entry, ['method' => 'PATCH', 'action' => ['EntryController@publish', $entry->id]]) }}
+										{{ Form::submit("Publish", ['class' => 'btn btn-primary']) }}
+									{{ Form::close() }}
+								</th>
+							</tr>
+							@endforeach
+						</tr>
+					</tbody>
+					</table>
+				</div>
+			</div>
+
 		</div>
 
 			<div class="sidebar">

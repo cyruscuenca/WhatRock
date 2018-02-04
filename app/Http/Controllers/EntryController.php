@@ -11,7 +11,7 @@ class EntryController extends Controller
     public  function index()
     {
     	// fetch content from database
-    	$entries = Entry::latest()->get();
+    	$entries = Entry::where('status', 0)->latest()->get();
     	return view('entries.index', compact('entries'));
     }
 
@@ -24,6 +24,7 @@ class EntryController extends Controller
     public function store()
     {
         $data = request()->all();
+        $data['slug'] = str_slug(request()->title);
 
         if ($file = request()->file('photo_id')) {
             $photo = $file->store('images', 'public');
@@ -75,6 +76,13 @@ class EntryController extends Controller
             $entry->category()->sync($categoryIds);
         }
         return redirect('/entries');
+    }
+    public function publish(Request $request, $id)
+    {
+        $input = $request->all();
+        $entry = Entry::findOrFail($id);
+        $entry->update($input);
+        return back();
     }
     public function trash()
     {

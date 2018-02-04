@@ -27,7 +27,7 @@
 					{!! Form::select("category_id[]", $categories, null, ['class' => 'form-control']) !!}
 				</div>
 				<div class="form-group" style="margin-bottom: 20px; margin-top: 30px; margin-left: 17%;">
-					{!! Form::submit("Edit Entry", ['class' => 'btn btn-primary']) !!}
+					{!! Form::submit("Submit Edit", ['class' => 'btn btn-primary']) !!}
 				</div>
 
 			    {!! Form::close() !!}

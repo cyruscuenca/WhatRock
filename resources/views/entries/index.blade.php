@@ -9,7 +9,7 @@
 			@foreach ($entries as $entry)
 				<article style=" display: block; width: auto; height: auto; margin-left: 40px; margin-right: 40px; margin-bottom: 39px;">
 					<div style=" background: #fff; width: 100%; font-size: 20pt; padding: 15px; margin-left: -3px;"><a href="{{ action('EntryController@show', [$entry->id]) }}">{{ $entry->title }}</a></div>
-					<p style="margin: 15px;">{{ $entry->body }}</p>
+					<p style="margin: 15px;">{{ str_limit($entry->body, 580) }}</p>
 				</article>
 			@endforeach
 			</div>

@@ -15,7 +15,10 @@ class CreateEntriesTable extends Migration
     {
         Schema::create('entries', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug')->unique()->index();
             $table->integer('photo_id');
+            // 0 is drafted, 1 is published
+            $table->integer('status')->default(0);
             $table->string('title');
             $table->text('body');
             $table->softDeletes();

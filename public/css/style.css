@@ -207,7 +207,7 @@ input {  /* Firefox 19+ */
 }
 a:hover{
 	text-decoration: none;
-	color: #764ba2;
+	color: #6D64FD;
 }
 a {
 	text-decoration: none;
@@ -258,4 +258,7 @@ a {
 	margin-left: 2px;
 	font-size: 13pt;
 	font-family: 'ubuntu-l';
+}
+ul{
+	list-style-type: none;
 }

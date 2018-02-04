@@ -1,66 +1,71 @@
 @extends('layouts.app')
 @section('content')
+	<style>
+		.quickinfo{
+			border: 1px solid #ccc;
+			border-radius: 1px;
+			width: 265px;
+			float: right;
+		}
 
+	</style>
 	<div class="body-wrapper">
 			<div class="body">
 			<div class="title-bar">
 				<p style="margin-bottom: 40px;">{{ $entry->title }}</p>
-
-				<a href="{{ action('EntryController@edit', [$entry->id]) }}"><div style="margin-left: 50px; margin-top: 35px;" class="button">
-					<p style="font-size: 12pt; margin-top: -11.5px;">Edit</p>
-				</div></a>
-				<a href=""><div style="margin-left: 25px; margin-top: 35px;" class="button">
-					<p style="font-size: 12pt; margin-top: -11.5px;">History</p>
-				</div></a>
 			</div>
-				<article style="margin-top: 130px; width: 50%; margin-left: 52px;">
+				<article style="margin-top: 50px; width: auto; margin-right: 52px;  margin-left: 52px;">
 					<div>
 						@if($entry->photo)
 							<div>
-								<img style="width: 520px;" src="{{ asset($entry->photo->photo()) }}" alt="Photo of {{$entry->title}}">
+								<img style="width: 520px; border: 1px solid #ccc; border-radius: 1px;" src="/storage/{{ $entry->photo->photo() }}" alt="Photo of {{$entry->title}}">
 							</div>
 						@endif
 					</div>
-					<p>{{ $entry->body }}</p>
-					<div>
-						<div>
-							<p>Quick Information</p>
+					<div style="margin-top: 50px;">
+					<p style="float: left; width: calc(100% - 305px);">{{ $entry->body }}</p>
+					<div class="quickinfo">
+						<div style="border-bottom: 1px solid #ccc; height: 45px;">
+							<p style="text-align: center; padding-top: 10px; font-size: 12pt;">Quick Information</p>
 						</div>
-						<ul>
+						<ul style="margin-top: 30px; margin-bottom: 30px;">
 							<li>
 							@foreach ($entry->category as $category)
-								<p>Category: {{ $category->name }}</p>
+								<p><strong>Category:</strong> <a href="../categories/{{ $category->name }}">{{ $category->name }}</a></p>
 							@endforeach
 							</li>
-							<li>
-								<p>Subcategory: Volcanic Glass</p>
+							<li style="margin-bottom: 30px;">
+								<p><strong>Subcategory:</strong> <a>Volcanic Glass</a></p>
 							</li>
 							<li>
-								<p>Mohs scale hardness: 5–6</p>
+								<p><strong>Mohs scale hardness:</strong> 5–6</p>
 							</li>
 							<li>
-								<p>Optical properties: Translucent</p>
+								<p><strong>Optical properties:</strong> Translucent</p>
 							</li>
 							<li>
-								<p>Color: Black, Black-green</p>
+								<p><strong>Color:</strong> Black, Black-green</p>
 							</li>
 							<li>
-								<p>Luster: Vitreous</p>
+								<p><strong>Luster:</strong> Vitreous</p>
 							</li>
 							<li>
-								<p>Fracture: Conchoidal</p>
+								<p><strong>Fracture:</strong> Conchoidal</p>
 							</li>
 							<li>
-								<p>Specific gravity: c. 2.4</p>
+								<p><strong>Specific gravity:</strong> c. 2.4</p>
 							</li>
 						</ul>
-					<div>
+					</div>
+					</div>
 				</article>
 	</div>
 			<div class="sidebar">
 				<div class="title-bar-thin">
 					<p>Contributers</p>
 				</div>
+									<a href="{{ action('EntryController@edit', [$entry->id]) }}" style="">Edit</a>
+									
 			</div>
 </div>
 

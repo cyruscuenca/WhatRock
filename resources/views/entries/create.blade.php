@@ -26,7 +26,7 @@
 					{!! Form::file("photo_id", null, ['class' => 'form-control']) !!}
 				</div>
 				<div class="form-group" style="margin-bottom: 40px; margin-top: 30px; margin-left: 17%;">
-					{!! Form::submit("Create Entry", ['class' => 'button']) !!}
+					{!! Form::submit("Submit Entry", ['class' => 'button']) !!}
 				</div>
 
 			    {!! Form::close() !!}
