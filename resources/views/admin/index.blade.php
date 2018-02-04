@@ -20,7 +20,7 @@
 
 			<div style="margin-left: calc(50px + 1%); margin-right: calc(50px + 1%); margin-top: 70px;">
 				<h3 style="padding-bottom: 10px; margin-left: 2px; font-family: 'ubuntu-l';">Submitted Entries</h3>
-				<div class="table-responsive" style="font-family: 'ubuntu-l'; font-weight: lighter;">
+				<div class="table-responsive" style="font-family: 'ubuntu-l';">
 					<table class="table table-striped">
 						<thead>
 							<tr>

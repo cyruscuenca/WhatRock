@@ -30,7 +30,7 @@ Route::post('/entries/store', 'EntryController@store');
 Route::get('/entries/{id}', 'EntryController@show');
 Route::get('/entries/{id}/edit', 'EntryController@edit');
 
-Route::patch('/entries/{id}', 'EntryController@publish');
+Route::patch('/entries/{id}/publish', 'EntryController@publish');
 
 Route::patch('/entries/{id}', 'EntryController@update');
 Route::delete('/entries/{id}', 'EntryController@softDestroy');
