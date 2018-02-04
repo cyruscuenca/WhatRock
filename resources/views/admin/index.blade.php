@@ -34,14 +34,18 @@
 						<tr>
 							@foreach($entry as $entry)
 							<tr>
-								<th>{{ $entry->title }}</th>
-								<th>{{ str_limit($entry->body, 110) }}</th>
-								<th>{{ $entry->status == 0 ? "Draft" : "Published"}}</th>
-								<th>
+								<td>{{ $entry->title }}</td>
+								<td>{{ str_limit($entry->body, 110) }}</td>
+								<td>{{ $entry->status == 0 ? "Draft" : "Published"}}</td>
+								<td>
 									{{ Form::model($entry, ['method' => 'PATCH', 'action' => ['EntryController@publish', $entry->id]]) }}
-										{{ Form::submit("Publish", ['class' => 'btn btn-primary']) }}
+									{!! Form::select("status", ['0' => 'Draft', '1' => 'Published'], null, ['class' => 'btn btn-primary']) !!}
+								</td>
+								<td>
+									{{ Form::submit("Submit", ['class' => 'btn btn-primary']) }}
+										
 									{{ Form::close() }}
-								</th>
+								</td>
 							</tr>
 							@endforeach
 						</tr>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use Storage;
 use Carbon\Carbon;
 use App\{Entry, Category, Photo};
@@ -10,8 +10,8 @@ class EntryController extends Controller
 {
     public  function index()
     {
-    	// fetch content from database
-    	$entries = Entry::where('status', 0)->latest()->get();
+    	// fetch entries with status of 1(published) from database
+    	$entries = Entry::where('status', 1)->latest()->get();
     	return view('entries.index', compact('entries'));
     }
 
