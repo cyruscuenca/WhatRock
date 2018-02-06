@@ -38,7 +38,8 @@
         <a class="button" style=" text-decoration: none; float:left; margin-left: 40px; width: 136px;"  href="{{ url('entries') }}"><p style="font-size: 11pt; padding-top: 9px; margin-left: 16px;">Random Rock</p></a>
         <a class="button" style=" text-decoration: none; float:left; width: 121px;"  href="{{ url('entries') }}"><p style="font-size: 11pt; padding-top: 9px; margin-left: 16px;">New Entries</p></a>
 
-        <input class="search" type="text" placeholder="Search">
+            <input class="search" type="text" placeholder="Search" style="background: white url( {{ asset('images/search.png') }} ) right no-repeat; background-size: 6.2%; background-position: center right; ">
+
         <a href="">
         <div class="whatstuff">
             <p>WhatStuff</p>
