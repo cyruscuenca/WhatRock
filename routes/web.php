@@ -46,3 +46,5 @@ Route::resource('categories', 'CategoryController');
 Route::get('about', 'PagesController@about');
 Route::get('partners', 'PagesController@partners');
 Route::get('contribute', 'PagesController@contribute');
+
+Route::resource('/admin/users', 'UserController');
