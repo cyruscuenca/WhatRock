@@ -13,8 +13,8 @@
 								<th>Name</th>
 								<th>Email</th>
 								<th>Joined</th>
-								<th>Role</th>
-								<th>Action</th>
+								<th style="padding-left: 6%;">Role</th>
+								<th style="padding-left: 6%;">Action</th>
 							</tr>
 						</thead>
 					<tbody>

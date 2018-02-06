@@ -27,5 +27,10 @@ class CategoriesTableSeeder extends Seeder
         $category_sedimentary->slug = 'sedimentary ';
         $category_sedimentary->name = 'Sedimentary ';
         $category_sedimentary->save();
+
+        $category_sedimentary  = new Category();
+        $category_sedimentary->slug = 'mineral';
+        $category_sedimentary->name = 'Mineral ';
+        $category_sedimentary->save();
     }
 }
