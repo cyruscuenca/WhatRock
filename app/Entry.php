@@ -10,7 +10,7 @@ class Entry extends Model
 {
 	use SoftDeletes;
 	protected $dates = ['deleted_at'];
-    protected $fillable = ['title', 'body', 'photo_id', 'slug', 'status'];
+    protected $fillable = ['title', 'alt_title', 'summary', 'body', 'photo_id', 'slug', 'status'];
         
     public function category()
     {

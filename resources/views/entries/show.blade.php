@@ -23,7 +23,12 @@
 						@endif
 					</div>
 					<div style="margin-top: 50px;">
-					<p style="float: left; width: calc(100% - 305px);">{{ $entry->body }}</p>
+
+					<div style="float: left; width: calc(100% - 305px);">
+					<p>{{ $entry->summary }}</p>
+					<p>{{ $entry->body }}</p>
+					<a href="{{ action('EntryController@edit', [$entry->id]) }}" style="margin-bottom: 50px; display: block;">Edit</a>
+					</div>
 					<div class="quickinfo">
 						<div style="border-bottom: 1px solid #ccc; height: 45px;">
 							<p style="text-align: center; padding-top: 10px; font-size: 12pt;">Quick Information</p>
@@ -63,9 +68,7 @@
 			<div class="sidebar">
 				<div class="title-bar-thin">
 					<p>Contributers</p>
-				</div>
-									<a href="{{ action('EntryController@edit', [$entry->id]) }}" style="">Edit</a>
-									
+				</div>	
 			</div>
 </div>
 
