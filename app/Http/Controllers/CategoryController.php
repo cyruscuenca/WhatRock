@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Category;
 
+use App\Subcategory;
+
 class CategoryController extends Controller
 {
     /**
@@ -26,7 +28,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-            return view('categories.create');
+            $subcategories = Subcategory::latest();
+            return view('categories.create', compact('subcategories'));
     }
 
     /**
