@@ -4,21 +4,17 @@
 	<div class="body-wrapper">
 			<div class="body">
 			<div class="title-bar">
-				<p>Create a Category</p>
+				<p>Create a Subcategory</p>
 			</div>
 
-				{!! Form::open(['method' => 'POST', 'action' => 'CategoryController@store']) !!}
+				{!! Form::open(['method' => 'POST', 'action' => 'SubcategoryController@store']) !!}
 
 				<div class="form-group" style="margin-top: 50px; width: 55%; margin-bottom: 30px; margin-left: 17%; font-family: 'ubuntu-l'; font-size: 13pt; color: grey;">
 		 			{!! Form::label("name", "Name:") !!}
 		 			{!! Form::text("name", null, ['class' => 'form-control']) !!}
 				</div>
 				<div class="form-group" style="margin-bottom: 40px; margin-top: 30px; margin-left: 12.6%;">
-					{!! Form::submit("Create Category", ['class' => 'btn-primary']) !!}
-				</div>
-				<div class="form-group" style="width: 40%;">
-					{!! Form::label("subcategory_id", "Subcategory:") !!}
-					{!! Form::select("subcategory_id[]", $subcategories, null, ['class' => 'form-control']) !!}
+					{!! Form::submit("Create Subcategory", ['class' => 'btn-primary']) !!}
 				</div>
 
 			    {!! Form::close() !!}

@@ -25,7 +25,7 @@ Route::delete('/entries/trash/{id}/destroy', 'EntryController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/entries', 'EntryController@index');
-Route::get('/entries/create', 'EntryController@create');
+Route::get('/entries/create', 'EntryController@create')->middleware('admin');
 Route::post('/entries/store', 'EntryController@store');
 Route::get('/entries/{id}', 'EntryController@show');
 Route::get('/entries/{id}/edit', 'EntryController@edit');
@@ -42,6 +42,7 @@ Route::get('mod', 'ModController@index')->middleware('mod');
 Route::get('contributor', 'ContributorController@index')->middleware('contributor');
 
 Route::resource('categories', 'CategoryController');
+Route::resource('subcategories', 'SubcategoryController');
 
 Route::get('about', 'PagesController@about');
 Route::get('partners', 'PagesController@partners');
