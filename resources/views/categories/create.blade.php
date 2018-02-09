@@ -17,7 +17,7 @@
 					{!! Form::submit("Create Category", ['class' => 'btn-primary']) !!}
 				</div>
 				<div class="form-group" style="width: 40%;">
-					{!! Form::label("subcategory_id", "Subcategory:") !!}
+					{!! Form::label("subcategory_id", "Subcategories:") !!}
 					{!! Form::select("subcategory_id[]", $subcategories, null, ['class' => 'form-control']) !!}
 				</div>
 

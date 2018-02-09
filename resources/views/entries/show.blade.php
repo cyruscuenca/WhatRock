@@ -12,7 +12,7 @@
 	<div class="body-wrapper">
 			<div class="body">
 			<div class="title-bar">
-				<p style="margin-bottom: 40px;">{{ $entry->title }}</p>
+				<p>{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
 			</div>
 				<article style="margin-top: 50px; width: auto; margin-right: 52px;  margin-left: 52px;">
 					<div>
