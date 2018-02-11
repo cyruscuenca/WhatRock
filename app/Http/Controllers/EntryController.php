@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 use Carbon\Carbon;
-use App\{Entry, Category, Photo};
+use App\{Entry, Category, Photo, Color};
 
 class EntryController extends Controller
 {
@@ -18,7 +18,8 @@ class EntryController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-    	return view('entries.create', compact('categories'));
+        $colors = Color::pluck('name', 'id');
+    	return view('entries.create', compact('categories', 'colors'));
     }
 
     public function store()
@@ -35,6 +36,10 @@ class EntryController extends Controller
 
         if ($categoryIds = request()->category_id) {
             $entry->category()->sync($categoryIds);
+        }
+
+        if ($colorIds = request()->color_id) {
+            $entry->color()->sync($colorIds);
         }
 
         return back();

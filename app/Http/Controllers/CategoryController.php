@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-            $subcategories = Subcategory::latest();
+            $subcategories = Subcategory::pluck('name', 'id');
             return view('categories.create', compact('subcategories'));
     }
 

@@ -35,6 +35,15 @@
 				</div>
 
 				</div>
+
+				<div style="width: 100%;">
+				<div class="form-group" style="width: 40%;">
+					{!! Form::label("color_id", "Color:") !!}
+					{!! Form::select("color_id[]", $colors, null, ['class' => 'form-control']) !!}
+				</div>
+
+				</div>
+
 				<div style="width: 100%;">
 				<div class="form-group">
 					{!! Form::label("summary", "Summary:") !!}
