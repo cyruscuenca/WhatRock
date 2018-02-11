@@ -4,15 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Color extends Model
 {
 	protected $fillable = ['name', 'slug',];
     public function entry()
     {
     	return $this->belongsToMany(Entry::class);
-    }
-    public function subcategory()
-    {
-    	return $this->belongsToMany(Subcategory::class);
     }
 }

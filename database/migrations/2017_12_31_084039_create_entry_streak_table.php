@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryEntryTable extends Migration
+class CreateEntryStreakTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCategoryEntryTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_entry', function (Blueprint $table) {
+        Schema::create('entry_streak', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('entry_id')->unsigned();;
-            $table->integer('category_id')->unsigned();;
+            $table->integer('streak_id')->unsigned();;
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCategoryEntryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_entry');
+        Schema::dropIfExists('entry_streak');
     }
 }

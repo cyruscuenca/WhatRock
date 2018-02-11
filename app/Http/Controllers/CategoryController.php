@@ -43,8 +43,6 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->name;
         $category->slug = str_slug($request->name);
-        $category->save();
-        return back();
     }
 
     /**

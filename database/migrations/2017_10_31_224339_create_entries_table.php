@@ -17,10 +17,11 @@ class CreateEntriesTable extends Migration
             $table->increments('id');
             $table->string('slug')->unique()->index();
             $table->integer('photo_id');
-            // 0 is draft, 1 is published
+            // 0 = draft
+            // 1 = published
             $table->integer('status')->default(0);
             $table->string('title');
-            $table->string('alt_title');
+            $table->string('alt_title')->nullable();
             $table->text('summary');
             $table->text('body');
             $table->softDeletes();
