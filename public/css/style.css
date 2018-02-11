@@ -16,7 +16,7 @@ html, body{
 	width: auto;
 	background: #fff;
 	border-bottom: 1px solid #cccccc;
-
+	border-radius: 3px 0 0 3px;
 }
 
 .title-bar p{
@@ -47,7 +47,7 @@ html, body{
 .sidebar{
 	min-height: 1000px;
 	min-width: 200px;
-	width: 18%;
+	width: 20%;
 	background: #fff;
 	border: 1px solid #cccccc;
 	float: right;
@@ -131,8 +131,8 @@ html, body{
 
 .body{
 	min-height: 1000px;
-	width: 82%;
-	border-radius: 2px;
+	width: 80%;
+	border-radius: 3px;
 	background: #fff;
 	border: 1px solid #cccccc;
 	display: inline-block;
