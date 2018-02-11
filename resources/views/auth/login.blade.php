@@ -3,9 +3,9 @@
 @section('content')
 <div class="container" style="margin-top: 35px; padding-bottom: 20px;">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading" style="font-family: 'ubuntu-l'; color: grey; text-align: center; font-size: 14pt;">Login</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
