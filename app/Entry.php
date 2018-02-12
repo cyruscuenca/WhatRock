@@ -17,8 +17,23 @@ class Entry extends Model
     	return $this->belongsToMany(Category::class);
     }
 
+    public function color()
+    {
+        return $this->belongsToMany(Color::class);
+    }
+
+    public function streak()
+    {
+        return $this->belongsToMany(Streak::class);
+    }
+
+    public function lustre()
+    {
+    	return $this->belongsToMany(Lustre::class);
+    }
+
     public function photo()
     {
-    	return $this->belongsTo(Photo::class);
+        return $this->belongsTo(Photo::class);
     }
 }

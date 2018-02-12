@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 use Carbon\Carbon;
-use App\{Entry, Category, Photo, Color};
+use App\{Entry, Category, Photo, Color, Streak, Lustre};
 
 class EntryController extends Controller
 {
@@ -19,7 +19,9 @@ class EntryController extends Controller
     {
         $categories = Category::pluck('name', 'id');
         $colors = Color::pluck('name', 'id');
-    	return view('entries.create', compact('categories', 'colors'));
+        $streaks = Streak::pluck('name', 'id');
+        $lustres = Lustre::pluck('name', 'id');
+    	return view('entries.create', compact('categories', 'colors', 'streaks', 'lustres'));
     }
 
     public function store()
@@ -42,6 +44,14 @@ class EntryController extends Controller
             $entry->color()->sync($colorIds);
         }
 
+        if ($lustreIds = request()->lustre_id) {
+            $entry->lustre()->sync($lustreIds);
+        }
+
+        if ($streakIds = request()->streak_id) {
+            $entry->streak()->sync($streakIds);
+        }
+
         return back();
     }
     public function show($id)
@@ -53,8 +63,11 @@ class EntryController extends Controller
     public function edit($id)
     {
         $categories = Category::pluck('name', 'id');
+        $colors = Color::pluck('name', 'id');
+        $streaks = Streak::pluck('name', 'id');
+        $lustres = Lustre::pluck('name', 'id');
         $entry = Entry::findOrFail($id);
-        return view('entries.edit', compact('entry', 'categories'));
+        return view('entries.edit', compact('entry', 'categories', 'colors', 'streaks', 'lustres'));
 
     }
     public function update($id)
@@ -79,6 +92,15 @@ class EntryController extends Controller
         $entry->update($input);
         if ($categoryIds = request()->category_id) {
             $entry->category()->sync($categoryIds);
+        }
+        if ($colorIds = request()->color_id) {
+            $entry->color()->sync($colorIds);
+        }
+        if ($streakIds = request()->streak_id) {
+            $entry->streak()->sync($streakIds);
+        }
+        if ($lustreIds = request()->lustre_id) {
+            $entry->lustre()->sync($lustreIds);
         }
         return redirect('/entries');
     }

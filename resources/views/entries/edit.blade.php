@@ -26,6 +26,26 @@
 					{!! Form::label("category_id", "Category:") !!}
 					{!! Form::select("category_id[]", $categories, null, ['class' => 'form-control']) !!}
 				</div>
+				<div style="width: 100%;">
+				<div class="form-group" style="width: 100%;">
+					{!! Form::label("color_id", "Color:") !!}
+					{!! Form::select("color_id[]", $colors, null, ['class' => 'form-control']) !!}
+				</div>
+				</div>
+
+				<div style="width: 100%;">
+				<div class="form-group" style="width: 100%;">
+					{!! Form::label("streak_id", "Streak:") !!}
+					{!! Form::select("streak_id[]", $streaks, null, ['class' => 'form-control']) !!}
+				</div>
+				</div>
+
+				<div style="width: 100%;">
+				<div class="form-group" style="width: 100%;">
+					{!! Form::label("lustre_id", "Lustre:") !!}
+					{!! Form::select("lustre_id[]", $lustres, null, ['class' => 'form-control']) !!}
+				</div>
+				</div>
 				<div class="form-group" style="margin-bottom: 20px; margin-top: 30px; margin-left: 17%;">
 					{!! Form::submit("Submit Edit", ['class' => 'btn btn-primary']) !!}
 				</div>

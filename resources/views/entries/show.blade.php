@@ -49,10 +49,19 @@
 								<p><strong>Optical properties:</strong> Translucent</p>
 							</li>
 							<li>
-								<p><strong>Color:</strong> Black, Black-green</p>
+							@foreach ($entry->color as $color)
+								<p><strong>Color:</strong> <a href="../colors/{{ $color->name }}">{{ $color->name }}</a></p>
+							@endforeach
 							</li>
 							<li>
-								<p><strong>Luster:</strong> Vitreous</p>
+							@foreach ($entry->lustre as $lustre)
+								<p><strong>Lustre:</strong> <a href="../lustres/{{ $lustre->name }}">{{ $lustre->name }}</a></p>
+							@endforeach
+							</li>
+							<li>
+							@foreach ($entry->streak as $streak)
+								<p><strong>Streak:</strong> <a href="../streaks/{{ $streak->name }}">{{ $streak->name }}</a></p>
+							@endforeach
 							</li>
 							<li>
 								<p><strong>Fracture:</strong> Conchoidal</p>
