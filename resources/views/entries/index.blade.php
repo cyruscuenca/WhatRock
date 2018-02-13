@@ -23,7 +23,11 @@
 					</a>
 				</article>
 			@endforeach
+
 			</div>
+			</div>
+			<div class="text-center" style="margin-bottom: 25px;">
+				{!! $entries->links() !!}
 			</div>
 		</div>
 

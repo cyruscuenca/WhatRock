@@ -11,7 +11,7 @@ class EntryController extends Controller
     public  function index()
     {
     	// fetch entries with status of 1(published) from database
-    	$entries = Entry::where('status', 1)->latest()->get();
+    	$entries = Entry::where('status', 1)->latest()->paginate(12);
     	return view('entries.index', compact('entries'));
     }
 
