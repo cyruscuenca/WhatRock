@@ -262,3 +262,17 @@ a {
 ul{
 	list-style-type: none;
 }
+.pagination > li > a,
+.pagination > li > span {
+	color: #6D64FD;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+	background-image: linear-gradient(135deg, #7452BA 0%, #764ba2 100%);
+    border-color:  #764ba2;
+}
