@@ -15,8 +15,8 @@ class CreateEntryStreakTable extends Migration
     {
         Schema::create('entry_streak', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entry_id')->unsigned();;
-            $table->integer('streak_id')->unsigned();;
+            $table->integer('entry_id')->unsigned();
+            $table->integer('streak_id')->unsigned();
             $table->timestamps();
         });
     }

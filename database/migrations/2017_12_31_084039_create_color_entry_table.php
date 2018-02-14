@@ -15,8 +15,8 @@ class CreateColorEntryTable extends Migration
     {
         Schema::create('color_entry', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entry_id')->unsigned();;
-            $table->integer('color_id')->unsigned();;
+            $table->integer('entry_id')->unsigned();
+            $table->integer('color_id')->unsigned();
             $table->timestamps();
         });
     }

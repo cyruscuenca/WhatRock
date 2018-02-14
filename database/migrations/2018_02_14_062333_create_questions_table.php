@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEntryLustreTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateEntryLustreTable extends Migration
      */
     public function up()
     {
-        Schema::create('entry_lustre', function (Blueprint $table) {
+         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entry_id')->unsigned();
-            $table->integer('lustre_id')->unsigned();
-            $table->timestamps();
+            $table->integer('parent')->nullable($value = true)->unsigned();
+            $table->integer('level')->unsigned();
+            $table->integer('answer')->nullable($value = true)->unsigned();
+            $table->string('content');
         });
     }
 
@@ -28,6 +29,6 @@ class CreateEntryLustreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entry_lustre');
+        Schema::dropIfExists('questions');
     }
 }

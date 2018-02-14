@@ -12,7 +12,7 @@ class CategoriesTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {  
         $category_metamorphic = new Category();
         $category_metamorphic->slug = 'metamorphic';
         $category_metamorphic->name = 'Metamorphic';
