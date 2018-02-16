@@ -33,5 +33,13 @@ class QuestionsTableSeeder extends Seeder
             $c->answer = 2;
             $c->content = 'Is it made up of different color rocks?';
             $c->save();
+
+            $d = new Question();
+            $d->parent = 3;
+            $d->level = 3;
+            $d->answer = 1;
+            $d->content = 'Are the rocks big or small?';
+            $d->save();
+
     }
 }

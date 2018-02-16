@@ -58,7 +58,6 @@ class EntryController extends Controller
     {
         $entry = Entry::findOrFail($id);
         return view('entries.show', compact('entry'));
-
     }
     public function edit($id)
     {

@@ -165,19 +165,17 @@ html, body{
 .search{
 	height: 38px;
 	width: 36%;
-	background: #fff;
 	position: absolute;
 	border: 1px solid #ccc;
 	margin-top: 6px;
 	margin-left: 42px;
 	color: #909090;
-	border-radius: 1px;
-
+	border-radius: 1.5px;
 }
 
 .search:focus{
 	background: #fff;
-	border: 1px solid #ccc;
+	border: 1px solid #715AD8;
 }
 
 input {  /* Firefox 19+ */
@@ -274,5 +272,5 @@ ul{
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
 	background-image: linear-gradient(135deg, #7452BA 0%, #764ba2 100%);
-    border-color:  #764ba2;
+    border-color:  #7452BA;
 }

@@ -17,6 +17,9 @@ Route::get('/', function () {
 View::share('entry', App\Entry::all());
 
 Auth::routes();
+
+Route::get('/entries/id/', 'QuestionController@index');	
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/entries/trash', 'EntryController@trash');
