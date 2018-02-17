@@ -33,6 +33,9 @@ Route::post('/entries/store', 'EntryController@store');
 Route::get('/entries/{id}', 'EntryController@show');
 Route::get('/entries/{id}/edit', 'EntryController@edit');
 
+Route::post('/entries/getQuestion', 'QuestionController@getQuestion');
+
+
 Route::patch('/entries/{id}/publish', 'EntryController@publish');
 
 Route::patch('/entries/{id}', 'EntryController@update');

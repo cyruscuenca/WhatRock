@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
-	protected $fillable = ['id', 'question_id', 'answer_id'];
+	protected $fillable = ['id', 'content', 'button_color'];
+	public $timestamps = false;
 
     public function question()
     {

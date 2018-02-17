@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         //$this->call(ColorsTableSeeder::class);
         //$this->call(StreaksTableSeeder::class);
         //$this->call(LustresTableSeeder::class);
-        $this->call(QuestionsTableSeeder::class);
+        //$this->call(QuestionsTableSeeder::class);
+        $this->call(AnswersTableSeeder::class);
+        //$this->call(AnswersQuestionsTableSeeder::class);
     }
 }
