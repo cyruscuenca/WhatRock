@@ -15,96 +15,95 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <style>
-    .logo{
-        margin-left: auto;
-        margin-right: auto;
+    #menu-toggle{
+        display: none;
     }
+    #menu-toggle:checked ~ .menu{ 
+     position:absolute;
+     left:0px;
+     }﻿
+
     </style>
 
 </head>
 <body>
     <div class="sidebar-menu">
-        <a href="{{ url('/') }}" class="logo-box">
-            <img href="{{ url('/') }}" src="{{ asset('images/logorock.png') }}" class="logo">
-        </a>
-            <ul>
-                <li><a href="https://reddit.com/r/whatsthisrock/">WhatRock Community</a></li>
-                <li><a href="{{ url('partners') }}">Partners</a></li>
-                <li><a href="{{ url('contribute') }}">Contribute</a></li>
-                <li style="margin-bottom: 25px;"><a href="{{ url('about') }}">About WhatRock</a></li>
-            </ul>
+        <ul>
+            <li><a href="https://reddit.com/r/whatsthisrock/">WhatRock Community</a></li>
+            <li><a href="{{ url('partners') }}">Partners</a></li>
+            <li><a href="{{ url('contribute') }}">Contribute</a></li>
+            <li style="margin-bottom: 25px;"><a href="{{ url('about') }}">About WhatRock</a></li>
+        </ul>
     </div>
+
     <div class="navbar">
-        <a class="button" style=" text-decoration: none; float:left; margin-left: 40px; width: 136px;"  href="{{ url('entries') }}"><p style="font-size: 11pt; padding-top: 9px; margin-left: 16px;">Random Rock</p></a>
-        <a class="button" style=" text-decoration: none; float:left; width: 121px;"  href="{{ url('entries') }}"><p style="font-size: 11pt; padding-top: 9px; margin-left: 16px;">New Entries</p></a>
+    <input type="checkbox" id="menu-toggle">
+     <label for="menu-toggle" class="hamburger">&#9776;</label>
 
-            <input class="search" type="text" placeholder="Search" style="background: white url( {{ asset('images/search.png') }} ) right no-repeat; background-size: 6.2%; background-position: center right; ">
+       <img href="{{ url('/') }}" src="{{ asset('images/logorock.png') }}" class="logo">
 
-        <a href="">
-        <div class="whatstuff">
-            <p>WhatStuff</p>
-            <div>
-                    <div></div>
-                    <div></div>
-                    <div></div> 
-                    <div></div>
-                    <div></div>
-                    <div></div> 
-                    <div></div>
-                    <div></div>
-                    <div></div> 
-            </div>
-        </div>
-        </a>
-        <div>
-        @guest
-        <div style="float: right; margin-top: -39px;">
-            <a class="" style="border-radius: 2px; display: inline-block; font-family: 'ubuntu-l'; color: #fff; margin-right: 57px; background-image: linear-gradient(200deg, #6D64FD 0%, #764ba2 100%); height: 30px; width: 64px;"  href="{{ route('login') }}"><p style="padding-left: 11px; margin-top: 3px;">Sign in</p></a>
-        </div>
-        @else
-        
-        <li class="dropdown" style="float: right; margin-right: 70px; list-style-type: none; padding-top: 5px;">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" style="color: #909090; font-family: 'ubuntu-l'; font-size: 16pt;">
-                <div style="width: 38px; height: 38px; border-radius: 20px; border: 1px solid #ccc; margin-top: -49px;">
+       <a class="button" style="border: none; background: rgba(0,0,0,0); color: #fff;
+ text-decoration: none; float: left; width: 100px; margin-top: 11px;"  href="{{ url('entries/id') }}"><p style="font-size: 11pt; padding-top: 7px; margin-left: 5%;">ID Rocks</p></a>
+       <input class="search" type="text" placeholder="Search" style="background: #455A64 url( {{ asset('images/search.png') }} ) right no-repeat; background-size: 6.2%; background-position: center right; ">
+       @guest
+       <div style="float: right;">
+        <a class="" style="border-radius: 2px; display: inline-block; font-family: 'ubuntu-l'; color: #fff; margin-right: 57px; background: #2CBD4E; height: 30px; width: 64px; margin-top: 15px;"  href="{{ route('login') }}"><p style="padding-left: 11px; margin-top: 3px;">Sign in</p></a>
+    </div>
+    @else
+    <li class="dropdown" style="float: right; margin-right: 70px; list-style-type: none; padding-top: 5px;">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" style="color: #909090; font-family: 'ubuntu-l'; font-size: 16pt;">
+            <div style="width: 38px; height: 38px; border-radius: 20px; border: 1px solid #ccc; margin-top: -49px;">
                 <p class="initial" style="text-align: center; padding-top: 1px;">{{ substr(auth()->user()->name, 0, 1) }}</p>
-                </div>
-            </a>
+            </div>
+        </a>
 
-            <ul class="dropdown-menu">
-                <li>
+        <ul class="dropdown-menu">
+            <li>
 
                 @if(Auth::user()->role_id == 1)
-                     <a href="{{ url('/admin') }}">Dashboard</a>
+                <a href="{{ url('/admin') }}">Dashboard</a>
                 @endif
                 @if(Auth::user()->role_id == 2)
-                     <a href="{{ url('/mod') }}">Dashboard</a>
+                <a href="{{ url('/mod') }}">Dashboard</a>
                 @endif
                 @if(Auth::user()->role_id == 3)
-                     <a href="{{ url('/contributor') }}">Dashboard</a>
+                <a href="{{ url('/contributor') }}">Dashboard</a>
                 @endif
                 <a href="{{ url('/help') }}">Help</a>
 
                 <a href="{{ route('logout') }}"
-                    onclick="event.preventhefault();
-                    document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
+                onclick="event.preventhefault();
+                document.getElementById('logout-form').submit();">
+                Logout
+            </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
 
-                </li>
-            </ul>
         </li>
-        @endguest
-    <div class="grey-box">
+    </ul>
+</li>
+@endguest
+<a href="">
+    <div class="whatstuff">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div> 
+            <div></div>
+            <div></div>
+            <div></div> 
+            <div></div>
+            <div></div>
+            <div></div> 
+        </div>
+    </div>
+</a>
 
+</div>
 
 @yield('content')
-
-    </div>
-</div>
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>

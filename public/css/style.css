@@ -9,14 +9,13 @@
 }
 
 html, body{
-	background: #fff;
+	background: #ECEFF1;
 }
 .title-bar{
 	height: 70px;
 	width: auto;
-	background: #fff;
-	border-bottom: 1px solid #cccccc;
-	border-radius: 3px 0 0 3px;
+	background: rgba(0,0,0,0);
+	border-radius: 3px 3px 0 0;
 }
 
 .title-bar p{
@@ -31,9 +30,8 @@ html, body{
 .title-bar-thin{
 	height: 70px;
 	width: auto;
-	background:  #fff;
+	background: rgba(0,0,0,0);
 	text-align: center;
-	border-bottom: 1px solid #cccccc;
 }
 .title-bar-thin p{
 	font-family: 'ubuntu-l';
@@ -45,14 +43,11 @@ html, body{
 }
 
 .sidebar{
-	min-height: 1000px;
-	min-width: 200px;
+	height: 100%;
 	width: 20%;
-	background: #fff;
-	border: 1px solid #cccccc;
+	background: rgba(0,0,0,0);
 	float: right;
 	display: inline-block;
-	border-left: none;
 }
 
 .button{
@@ -80,102 +75,84 @@ html, body{
 }
 
 .navbar{
-	background: #fff;
-	width: calc(100% - 250px);
-	float: right;
+	width: 100%;
+	background: #263238;
+	height: 60px;
+	position: fixed;
 	border-radius: 0px;
-	border-left: 1px solid #ccc;
+	box-shadow: 0 6px 6px rgba(0,0,0,0.10), 0 2px 2px rgba(0,0,0,0.10);
+	margin-top: -60px;
 }
 
-.sidebar-menu{
-	background: #fff;
-	width: 250px;
-	height: 100%;
-	display: block;
-	position: absolute;
+.sidebar-menu {
+	width: 150pt;
+	min-width: 200px;
+	height:100%;
+	position:fixed;
+	background: #ECEFF1;
+	transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out; -ms-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
 }
-
 .sidebar-menu ul li a{
-	color: grey;
-	font-family: 'ubuntu-l';
+	color: #455A64;
+	font-family: 'ubuntu';
 }
 
 .sidebar-menu ul li{
 	list-style: none;
 	padding-top: 19px;
-	font-size: 11pt;
+	font-size: 11.4pt;
 }
 
 .sidebar-menu ul{
-	padding-top: 80px;
+	padding-top: 15px;
 	margin-left: -10px;
-	border-bottom: 1px solid #cccccc;
 }
 
 .logo{
-	width: 235px;
 	display: inline-block;
 	float: left;
-	margin-top: 7px;
-	padding-left: 13px;
-}
-
-.logo-box{
-	height: 71px;
-	width: 250px;
-	background-image: linear-gradient(200deg, #6D64FD 0%, #764ba2 100%);
-	position: absolute;
-	display: block;
-	border-bottom: 1px solid #cccccc;
+	height: 35px;
+	margin-top: 11px;
+	padding-right: 15%;
 }
 
 .body{
-	min-height: 1000px;
-	width: 80%;
-	border-radius: 3px;
-	background: #fff;
-	border: 1px solid #cccccc;
+	height: 100%;
+	width: 100%;
+	background: ;
 	display: inline-block;
 }
 
 .body-wrapper{
-	width: calc(100% - 35px);
-	margin: 35px; 
-	padding-bottom: 35px;
-	margin-bottom: -50px;
-	margin-right: none;
-}
-
-.content-wrapper{
-	width: 100%;
-	height: auto;
-}
-
-.grey-box{
-	width: auto;
-	height: auto;
-	min-height: 92vh;
-	background: #f3f3f3;
-	border-top: 1px solid #cccccc;
-	border-bottom: 1px solid #cccccc;
-	margin-top: 50px;
-	padding-bottom: 50px;
+	width: 70%;
+	margin-left: 15%;
+	margin-top: 60px;
 }
 
 .search{
-	height: 38px;
+	height: 42px;
 	width: 36%;
 	position: absolute;
-	border: 1px solid #ccc;
-	margin-top: 6px;
-	margin-left: 42px;
-	color: #909090;
-	border-radius: 1.5px;
+	border: 1px solid #455A64;
+	margin-top: 8px;
+	color: #fff;
+	border-radius: 4px;
 }
 
 .search:focus{
-	background: #fff;
-	border: 1px solid #715AD8;
+	border: 1px solid #607D8B;
+}
+
+.search:active{
+	background-color: #fff;
+}
+
+.search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #fff;
+	opacity: .90; /* Firefox */
 }
 
 input {  /* Firefox 19+ */
@@ -205,14 +182,14 @@ input {  /* Firefox 19+ */
 }
 a:hover{
 	text-decoration: none;
-	color: #6D64FD;
+	color: #78909C;
 }
 a {
 	text-decoration: none;
-	color: #6D64FD;
+	color: #607D8B;
 }
 .whatstuff div{
-	width: 30px;
+	width: 29.9px;
 	height: 30px;
 	float: right;
 	margin-top: 6px;
@@ -222,21 +199,23 @@ a {
 	margin-top: 8px;
 	float: left;
 	font-size: 11pt;
-	color: grey;
+	color: #fff;
 	font-family: 'ubuntu-l';
 }
 .whatstuff{
-	margin-top: 7.5px;
-	margin-right: 175px;
+	margin-top: 11.1px;
+	margin-right: 75px;
 	float: right;
 	position: relative;
+	opacity: .90;
 }
 .whatstuff div div{
 	width: 18%;
 	height: 18%;
 	margin-top: 8.5%;
 	margin-left: 8.5%;
-	background: #a9a9a9;
+	background: #fff;
+	border-radius: .5px;
 }
 .btn-primary{
 	color: grey;
@@ -272,5 +251,17 @@ ul{
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
 	background-image: linear-gradient(135deg, #7452BA 0%, #764ba2 100%);
-    border-color:  #7452BA;
+	border-color:  #7452BA;
+}
+
+.hamburger{
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+	float: left;
+	margin-left: 20px;
+	margin-top: 16px;
+	font-size: 14pt;
+	color: #fff;
+	cursor:pointer;
 }

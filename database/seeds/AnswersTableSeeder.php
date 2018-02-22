@@ -15,12 +15,12 @@ class AnswersTableSeeder extends Seeder
     {
         $a = new Answer();
         $a->content = 'Yes';
-        $a->button_color = '#33CC33';
+        $a->button_color = '#2CBD4E';
         $a->save();
 
         $b= new Answer();
         $b->content = 'No';
-        $b->button_color = '#FF0033';
+        $b->button_color = '##e80b37';
         $b->save();
     }
 }
