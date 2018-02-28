@@ -10,8 +10,8 @@ class QuestionController extends Controller
 {
     public  function index()
     {
-        // fetch entries with status of 1(published) from database
-        $entries = Entry::where('status', 1)->latest()->paginate(8);
+        // fetch published entries from database
+        $entries = Entry::where('status', 1)->latest()->paginate(12);
 
     	// fetch first question from database
     	$question = Question::where('level', 1)->first();
@@ -19,13 +19,13 @@ class QuestionController extends Controller
     	return view('entries.id')->with('question', $question)->with('entries', $entries);
     }
 
-    public function get($id, $answer)
+    public function get($question, $answer)
     {
 		$question = Question::where('parent', $id)->where('answers', $answer)->first();
 
     	//$question = contents column in row where $id = parent_id AND $answer = the value in the answer column;
     	//$id = row column in row where $id = parent_id AND $answer = the vlue in the answer column;
 
-        return view('entries.id', compact('question'));
+        return $question;
     }
 }

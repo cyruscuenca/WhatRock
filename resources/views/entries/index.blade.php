@@ -2,38 +2,33 @@
 @section('content')
 	<div class="body-wrapper">
 			<div class="body">
-			<div class="title-bar">
-				<p>New Entries<p>
+			<div style="width: 100%; height: 166pt; border-radius:0 0 3px 3px; background: #455A64; box-shadow: 0 6px 6px rgba(0,0,0,0.10), 0 2px 2px rgba(0,0,0,0.10);">
+				<p style="padding-top: 56pt; text-align: center; font-size: 26pt; font-family: 'ubuntu-l'; color: #fff;">New Entries<p>
 			</div>
-			<div style="width: calc(100% - 40px); margin-left: 40px; margin-right: 40px; margin-top: 40px;">
-			<div style="column-width: 275px; column-gap: 24px; column-count: 3; height: auto; display: inline-block;">
+			<div style="column-width: 22%; column-gap: 25px; column-count: 4; height: auto; display: inline-block; margin-top: 25px;">
 			@foreach ($entries as $entry)
-				<article style="width: 100%; height: auto; margin-bottom: 24px; background: #455A64; display: inline-block; column-break-inside: avoid;">
+				<article style="width: 100%; height: auto; margin-bottom: 25px; background: #455A64;  box-shadow: 0 6px 6px rgba(0,0,0,0.10), 0 2px 2px rgba(0,0,0,0.10); display: inline-block; column-break-inside: avoid; border-radius: 3px;\">
 					<a href="{{ action('EntryController@show', [$entry->id]) }}">
-					<div 
-					style="display: inline-block; padding-left: 5%; font-size: 13.5pt; height: 28px; margin-top: 2%; margin-bottom: 2%;">{{ $entry->title }}
-					<p 
-					style="color: #fff; display: inline-block; font-family: 'ubuntu-l';">
+					<img style="width: 100%; border-radius: 3px 3px 0 0;" src="/storage/{{ $entry->photo->photo() }}" alt="Photo of {{$entry->title}}">
+					<div style="display: block; padding-left: 5%; font-size: 18pt; height: 28px; margin-top: 2%; margin-bottom: 2%; color: #ffff; font-family: 'ubuntu-l';">{{ $entry->title }}
+					<p style="display: block;">
 					@if(!is_null($entry->alt_title)) &nbsp;({{ $entry->alt_title }})@endif
 					</p>
 					</div>
-					<div style="display: inline-block; padding-right: 1%; margin-bottom: 2%; font-size: 10pt; float: right; margin-top: 3.5%;">
+					<div style="display: block; padding-left: 5.5%; margin-bottom: 3%; font-size: 10.5pt; float: left; margin-top: 1.5%;">
 					@foreach ($entry->category as $category)
-					<a style="color: red;" href="../categories/{{ $category->name }}">{{ $category->name }}</a>
+					<a style="color: #fff;" href="../categories/{{ $category->name }}">{{ $category->name }}</a>
 					@endforeach
-					</div>
-					<img style="width: 100%;" src="/storage/{{ $entry->photo->photo() }}" alt="Photo of {{$entry->title}}">
-					<div style="height: auto;">
 					</div>
 					</a>
 				</article>
 			@endforeach
-
 			</div>
-			</div>
-			<div class="text-center" style="margin-bottom: 25px;">
+			<div class="text-center" style="margin-bottom: 10px;">
 				{!! $entries->links() !!}
 			</div>
+			@include('partials.footer')
+
 		</div>
 	</div>
 @endsection

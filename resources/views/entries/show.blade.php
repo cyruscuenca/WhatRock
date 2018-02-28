@@ -74,11 +74,7 @@
 					</div>
 				</article>
 	</div>
-			<div class="sidebar">
-				<div class="title-bar-thin">
-					<p>Contributers</p>
-				</div>	
-			</div>
+
 </div>
 
 

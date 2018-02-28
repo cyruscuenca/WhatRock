@@ -86,12 +86,4 @@
 			</div>
 		</div>
 	</div>
-
-
-	<div class="sidebar">
-		<div class="title-bar-thin">
-			<p>Categories</p>
-		</div>
-	</div>
-
 	@endsection

@@ -10,6 +10,7 @@
 
 html, body{
 	background: #ECEFF1;
+	overflow-x: hidden; 
 }
 .title-bar{
 	height: 70px;
@@ -76,27 +77,25 @@ html, body{
 
 .navbar{
 	width: 100%;
-	background: #263238;
 	height: 60px;
-	position: fixed;
+	position: absolute;
 	border-radius: 0px;
-	box-shadow: 0 6px 6px rgba(0,0,0,0.10), 0 2px 2px rgba(0,0,0,0.10);
-	margin-top: -60px;
+	background: #263238;
 }
 
 .sidebar-menu {
-	width: 150pt;
-	min-width: 200px;
+	width: 175pt;
 	height:100%;
 	position:fixed;
-	background: #ECEFF1;
+	left: -175pt;
+	background: #37474F;
 	transition: all .3s ease-in-out;
 	-webkit-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out; -ms-transition: all .3s ease-in-out;
 	-o-transition: all .3s ease-in-out;
 }
 .sidebar-menu ul li a{
-	color: #455A64;
+	color: #fff;
 	font-family: 'ubuntu';
 }
 
@@ -119,27 +118,19 @@ html, body{
 	padding-right: 15%;
 }
 
-.body{
-	height: 100%;
-	width: 100%;
-	background: ;
-	display: inline-block;
-}
-
 .body-wrapper{
-	width: 70%;
-	margin-left: 15%;
+	width: 100%;
 	margin-top: 60px;
 }
 
 .search{
 	height: 42px;
-	width: 36%;
+	width: 35%;
 	position: absolute;
 	border: 1px solid #455A64;
 	margin-top: 8px;
 	color: #fff;
-	border-radius: 4px;
+	border-radius: 3px;
 }
 
 .search:focus{
@@ -207,7 +198,6 @@ a {
 	margin-right: 75px;
 	float: right;
 	position: relative;
-	opacity: .90;
 }
 .whatstuff div div{
 	width: 18%;
@@ -222,7 +212,6 @@ a {
 	background: #fff;
 	border: 1px solid #ccc; 
 	margin-left: 50px; 
-	border-radius: 0 0 0 0;
 }
 .numbers-container{
 	width: auto;
@@ -250,8 +239,8 @@ ul{
 .pagination > .active > span,
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
-	background-image: linear-gradient(135deg, #7452BA 0%, #764ba2 100%);
-	border-color:  #7452BA;
+	background-image: linear-gradient(135deg, #2E3C43 0%, #2E3C43 100%);
+	border-color:  #2E3C43;
 }
 
 .hamburger{
@@ -263,5 +252,5 @@ ul{
 	margin-top: 16px;
 	font-size: 14pt;
 	color: #fff;
-	cursor:pointer;
+	cursor: pointer;
 }

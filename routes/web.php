@@ -33,7 +33,7 @@ Route::post('/entries/store', 'EntryController@store');
 Route::get('/entries/{id}', 'EntryController@show');
 Route::get('/entries/{id}/edit', 'EntryController@edit');
 
-Route::get('/questions/get', 'QuestionController@get');
+Route::post('/questions/get', 'QuestionController@get');
 
 
 Route::patch('/entries/{id}/publish', 'EntryController@publish');
