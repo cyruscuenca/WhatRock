@@ -19,13 +19,15 @@ class QuestionController extends Controller
     	return view('entries.id')->with('question', $question)->with('entries', $entries);
     }
 
-    public function get($question, $answer)
+    public function get(Request $request)
     {
 		$question = Question::where('parent', $id)->where('answers', $answer)->first();
 
     	//$question = contents column in row where $id = parent_id AND $answer = the value in the answer column;
     	//$id = row column in row where $id = parent_id AND $answer = the vlue in the answer column;
 
-        return $question;
+        return response()->json([
+        'question' => $question,
+        ]);
     }
 }

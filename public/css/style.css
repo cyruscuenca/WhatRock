@@ -133,14 +133,6 @@ html, body{
 	border-radius: 3px;
 }
 
-.search:focus{
-	border: 1px solid #607D8B;
-}
-
-.search:active{
-	background-color: #fff;
-}
-
 .search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: #fff;
 	opacity: .90; /* Firefox */
