@@ -21,13 +21,14 @@ class QuestionController extends Controller
 
     public function get(Request $request)
     {
-		$question = Question::where('parent', $id)->where('answers', $answer)->first();
+        $question = $request->question;
+        $answer = $request->answer;
+        $id = Question::where('content', $question)->first()->pluck('id');
 
-    	//$question = contents column in row where $id = parent_id AND $answer = the value in the answer column;
-    	//$id = row column in row where $id = parent_id AND $answer = the vlue in the answer column;
+		$newQuestion = Question::where('parent', $id)->where('answer_to', $answer)->first();
 
         return response()->json([
-        'question' => $question,
+        'question' => $newQuestion,
         ]);
     }
 }

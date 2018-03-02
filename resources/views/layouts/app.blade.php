@@ -40,7 +40,7 @@
     <input type="checkbox" id="menu-toggle">
      <label for="menu-toggle" class="hamburger">&#9776;</label>
 
-       <img href="{{ url('/') }}" src="{{ asset('images/logorock.png') }}" class="logo">
+       <a href="{{ url('/') }}"><img src="{{ asset('images/logorock.png') }}" class="logo"></a>
 
        <a class="button" style="border: none; background: rgba(0,0,0,0); color: #fff;
  text-decoration: none; float: left; width: 100px; margin-top: 11px;"  href="{{ url('entries/id') }}"><p style="font-size: 11pt; padding-top: 7px; margin-left: 5%;">ID Rocks</p></a>

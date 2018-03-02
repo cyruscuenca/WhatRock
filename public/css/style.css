@@ -9,7 +9,7 @@
 }
 
 html, body{
-	background: #ECEFF1;
+	background: #fff;
 	overflow-x: hidden; 
 }
 .title-bar{
@@ -78,7 +78,7 @@ html, body{
 .navbar{
 	width: 100%;
 	height: 60px;
-	position: absolute;
+	position: fixed;
 	border-radius: 0px;
 	background: #263238;
 }
