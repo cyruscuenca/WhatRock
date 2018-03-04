@@ -85,21 +85,6 @@
     </ul>
 </li>
 @endguest
-<a href="">
-    <div class="whatstuff">
-        <div>
-            <div></div>
-            <div></div>
-            <div></div> 
-            <div></div>
-            <div></div>
-            <div></div> 
-            <div></div>
-            <div></div>
-            <div></div> 
-        </div>
-    </div>
-</a>
 
 </div>
 
