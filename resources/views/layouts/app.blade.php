@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,29 +15,43 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    <style>
+    <style >
     #menu-toggle{
         display: none;
     }
-    #menu-toggle:checked ~ .menu{ 
-     position:absolute;
-     left:0px;
+    #menu-toggle:checked ~ .sidebar-menu { 
      }﻿
 
+    .sidebar {
+        width: 200pt; 
+        height: 100%; 
+        background: #37474F; 
+        z-index: 1; 
+        position: fixed; 
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.16);
+    }
+    .sidebar-menu ul li a{
+        color: #fff;
+    }
+
+    .sidebar-menu ul li{
+        list-style: none;
+        padding-top: 18pt;
+        font-size: 12pt;
+    }
+
+    .sidebar-menu ul{
+        padding-top: 60px;
+    }
+    .navbar {
+        background: red;
+    }
     </style>
 
 </head>
 <body>
-    <div class="sidebar-menu">
-        <ul>
-            <li><a href="https://reddit.com/r/whatsthisrock/">WhatRock Community</a></li>
-            <li><a href="{{ url('partners') }}">Partners</a></li>
-            <li><a href="{{ url('contribute') }}">Contribute</a></li>
-            <li style="margin-bottom: 25px;"><a href="{{ url('about') }}">About WhatRock</a></li>
-        </ul>
-    </div>
-
     <div class="navbar">
+
     <input type="checkbox" id="menu-toggle">
      <label for="menu-toggle" class="hamburger">&#9776;</label>
 
@@ -86,6 +101,15 @@
 </li>
 @endguest
 
+</div>
+
+<div class="sidebar">
+    <ul>
+        <li><a href="https://reddit.com/r/whatsthisrock/">WhatRock Community</a></li>
+        <li><a href="{{ url('partners') }}">Profile</a></li>
+        <li><a href="{{ url('contribute') }}">Wiki</a></li>
+        <li><a href="{{ url('about') }}">Notifications</a></li>
+    </ul>
 </div>
 
 @yield('content')

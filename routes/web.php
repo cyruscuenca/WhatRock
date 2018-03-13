@@ -16,6 +16,8 @@ Route::get('/', function () {
 
 View::share('entry', App\Entry::all());
 
+Route::post('/questions/get', 'QuestionController@get')->name('/questions/get');
+
 Auth::routes();
 
 Route::get('/entries/id/', 'QuestionController@index');	
@@ -32,9 +34,6 @@ Route::get('/entries/create', 'EntryController@create')->middleware('admin');
 Route::post('/entries/store', 'EntryController@store');
 Route::get('/entries/{id}', 'EntryController@show');
 Route::get('/entries/{id}/edit', 'EntryController@edit');
-
-Route::post('/questions/get', 'QuestionController@get');
-
 
 Route::patch('/entries/{id}/publish', 'EntryController@publish');
 

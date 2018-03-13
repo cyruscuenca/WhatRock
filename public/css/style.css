@@ -9,7 +9,7 @@
 }
 
 html, body{
-	background: #fff;
+	background: #ECEFF1;
 	overflow-x: hidden; 
 }
 .title-bar{
@@ -43,14 +43,6 @@ html, body{
 	color: grey;
 }
 
-.sidebar{
-	height: 100%;
-	width: 20%;
-	background: rgba(0,0,0,0);
-	float: right;
-	display: inline-block;
-}
-
 .button{
 	height: 42px;
 	margin-top: 4px;
@@ -81,33 +73,8 @@ html, body{
 	position: fixed;
 	border-radius: 0px;
 	background: #263238;
-}
-
-.sidebar-menu {
-	width: 175pt;
-	height:100%;
-	position:fixed;
-	left: -175pt;
-	background: #37474F;
-	transition: all .3s ease-in-out;
-	-webkit-transition: all .3s ease-in-out;
-	-moz-transition: all .3s ease-in-out; -ms-transition: all .3s ease-in-out;
-	-o-transition: all .3s ease-in-out;
-}
-.sidebar-menu ul li a{
-	color: #fff;
-	font-family: 'ubuntu';
-}
-
-.sidebar-menu ul li{
-	list-style: none;
-	padding-top: 19px;
-	font-size: 11.4pt;
-}
-
-.sidebar-menu ul{
-	padding-top: 15px;
-	margin-left: -10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.16);
+    z-index: 2;
 }
 
 .logo{
@@ -124,11 +91,11 @@ html, body{
 }
 
 .search{
-	height: 42px;
+	height: 45px;
 	width: 35%;
 	position: absolute;
-	border: 1px solid #455A64;
-	margin-top: 8px;
+	border: none;
+	margin-top: 7px;
 	color: #fff;
 	border-radius: 3px;
 }
