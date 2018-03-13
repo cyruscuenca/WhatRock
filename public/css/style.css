@@ -12,177 +12,211 @@ html, body{
 	background: #ECEFF1;
 	overflow-x: hidden; 
 }
-.title-bar{
-	height: 70px;
-	width: auto;
-	background: rgba(0,0,0,0);
-	border-radius: 3px 3px 0 0;
-}
+	#menu-toggle{
+		display: none;
+	}
 
-.title-bar p{
-	font-family: 'ubuntu-l';
-	color: grey;
-	font-size: 19pt;
-	padding-top: 15px;
-	text-align: center;
-	color: grey;
-}
+	#menu-toggle:checked ~ .sidebar{
+		display: inline-block;
+		left: 0;
+	}
 
-.title-bar-thin{
-	height: 70px;
-	width: auto;
-	background: rgba(0,0,0,0);
-	text-align: center;
-}
-.title-bar-thin p{
-	font-family: 'ubuntu-l';
-	text-align: center;
-	color: grey;
-	padding-top: 15px;
-	font-size: 19pt;		
-	color: grey;
-}
+	.sidebar {
+		left: -195pt;
+		width: 195pt; 
+		height: 100%; 
+		background: #37474F; 
+		z-index: 1; 
+		position: fixed; 
+		box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.16);
+	}
+	.sidebar ul li a{
+		color: #fff;
+	}
 
-.button{
-	height: 42px;
-	margin-top: 4px;
-	width: 104px;
-	font-family: 'ubuntu-l';
-	font-size: 11pt;
-	display: inline-block;
-	background: #fff;
-	border: 2px solid #F661A0;
-	color: grey;
-	border: 1px solid #fff;
-}
+	.sidebar ul li{
+		list-style: none;
+		padding-top: 18pt;
+		font-size: 12pt;
+	}
 
-.button p{
-}
+	.sidebar ul{
+		padding-top: 60px;
+	}
+	.navbar {
+		background: red;
+	}
+	.title-bar{
+		height: 70px;
+		width: auto;
+		background: rgba(0,0,0,0);
+		border-radius: 3px 3px 0 0;
+	}
 
-.button p:hover{
-	color: grey;
-}
+	.title-bar p{
+		font-family: 'ubuntu-l';
+		color: grey;
+		font-size: 19pt;
+		padding-top: 15px;
+		text-align: center;
+		color: grey;
+	}
 
-.button:hover{
-	color: grey;
-}
+	.title-bar-thin{
+		height: 70px;
+		width: auto;
+		background: rgba(0,0,0,0);
+		text-align: center;
+	}
+	.title-bar-thin p{
+		font-family: 'ubuntu-l';
+		text-align: center;
+		color: grey;
+		padding-top: 15px;
+		font-size: 19pt;		
+		color: grey;
+	}
 
-.navbar{
-	width: 100%;
-	height: 60px;
-	position: fixed;
-	border-radius: 0px;
-	background: #263238;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.16);
-    z-index: 2;
-}
+	.button{
+		height: 42px;
+		margin-top: 4px;
+		width: 104px;
+		font-family: 'ubuntu-l';
+		font-size: 11pt;
+		display: inline-block;
+		background: #fff;
+		border: 2px solid #F661A0;
+		color: grey;
+		border: 1px solid #fff;
+	}
 
-.logo{
-	display: inline-block;
-	float: left;
-	height: 35px;
-	margin-top: 11px;
-	padding-right: 15%;
-}
+	.button p{
+	}
 
-.body-wrapper{
-	width: 100%;
-	margin-top: 60px;
-}
+	.button p:hover{
+		color: grey;
+	}
 
-.search{
-	height: 45px;
-	width: 35%;
-	position: absolute;
-	border: none;
-	margin-top: 7px;
-	color: #fff;
-	border-radius: 3px;
-}
+	.button:hover{
+		color: grey;
+	}
 
-.search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	color: #fff;
-	opacity: .90; /* Firefox */
-}
+	.navbar{
+		width: 100%;
+		height: 60px;
+		position: fixed;
+		border-radius: 0px;
+		background: #263238;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.16);
+		z-index: 2;
+	}
 
-input {  /* Firefox 19+ */
-	text-indent: 14px;
-	font-family: 'ubuntu';
-	font-size: 11pt;
-}
+	.logo{
+		display: inline-block;
+		float: left;
+		height: 35px;
+		margin-top: 11px;
+		padding-right: 15%;
+	}
 
-.form-control{
-	border-radius: 0 0 0 0;
-	border: 1px solid #ccc;
-}
-.dropdown-menu{
-	font-family: 'ubuntu-l';
-	box-shadow: none;
-	border: 1px solid #ccc;
-	margin-top: -4px;
-	border-top: none;
-	border-radius: 0 0 0 0;
-	color: #ccc;
-	float: right;
-}
+	.body-wrapper{
+		width: 100%;
+		margin-top: 60px;
+	}
 
-.dropdown-menu li a{
-	color: grey;
-	font-family: 'ubuntu-l';
-}
-a:hover{
-	text-decoration: none;
-	color: #78909C;
-}
-a {
-	text-decoration: none;
-	color: #607D8B;
-}
+	.search{
+		height: 45px;
+		width: 35%;
+		position: absolute;
+		border: none;
+		margin-top: 7px;
+		color: #fff;
+		border-radius: 3px;
+	}
 
-.btn-primary{
-	color: grey;
-	background: #fff;
-	border: 1px solid #ccc; 
-	margin-left: 50px; 
-}
-.numbers-container{
-	width: auto;
-	margin-left: calc(50px + 1%);
-	margin-top: 38px;
-}
-.numbers-container p{
-	display: inline-block;
-	margin-right: 5%;
-	margin-left: 2px;
-	font-size: 13pt;
-	font-family: 'ubuntu-l';
-}
-ul{
-	list-style-type: none;
-}
-.pagination > li > a,
-.pagination > li > span {
-	color: #6D64FD;
-}
+	.search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		color: #fff;
+		opacity: .90; /* Firefox */
+	}
 
-.pagination > .active > a,
-.pagination > .active > a:focus,
-.pagination > .active > a:hover,
-.pagination > .active > span,
-.pagination > .active > span:focus,
-.pagination > .active > span:hover {
-	background-image: linear-gradient(135deg, #2E3C43 0%, #2E3C43 100%);
-	border-color:  #2E3C43;
-}
+	input {  /* Firefox 19+ */
+		text-indent: 14px;
+		font-family: 'ubuntu';
+		font-size: 11pt;
+	}
 
-.hamburger{
-	height: 50px;
-	width: 50px;
-	display: inline-block;
-	float: left;
-	margin-left: 20px;
-	margin-top: 16px;
-	font-size: 14pt;
-	color: #fff;
-	cursor: pointer;
-}
+	.form-control{
+		border-radius: 0 0 0 0;
+		border: 1px solid #ccc;
+	}
+	.dropdown-menu{
+		font-family: 'ubuntu-l';
+		box-shadow: none;
+		border: 1px solid #ccc;
+		margin-top: -4px;
+		border-top: none;
+		border-radius: 0 0 0 0;
+		color: #ccc;
+		float: right;
+	}
+
+	.dropdown-menu li a{
+		color: grey;
+		font-family: 'ubuntu-l';
+	}
+	a:hover{
+		text-decoration: none;
+		color: #78909C;
+	}
+	a {
+		text-decoration: none;
+		color: #607D8B;
+	}
+
+	.btn-primary{
+		color: grey;
+		background: #fff;
+		border: 1px solid #ccc; 
+		margin-left: 50px; 
+	}
+	.numbers-container{
+		width: auto;
+		margin-left: calc(50px + 1%);
+		margin-top: 38px;
+	}
+	.numbers-container p{
+		display: inline-block;
+		margin-right: 5%;
+		margin-left: 2px;
+		font-size: 13pt;
+		font-family: 'ubuntu-l';
+	}
+	ul{
+		list-style-type: none;
+	}
+	.pagination > li > a,
+	.pagination > li > span {
+		color: #6D64FD;
+	}
+
+	.pagination > .active > a,
+	.pagination > .active > a:focus,
+	.pagination > .active > a:hover,
+	.pagination > .active > span,
+	.pagination > .active > span:focus,
+	.pagination > .active > span:hover {
+		background-image: linear-gradient(135deg, #2E3C43 0%, #2E3C43 100%);
+		border-color:  #2E3C43;
+	}
+
+	.hamburger{
+		height: 50px;
+		width: 50px;
+		display: inline-block;
+		float: left;
+		margin-left: 20px;
+		margin-top: 16px;
+		font-size: 14pt;
+		color: #fff;
+		cursor: pointer;
+	}

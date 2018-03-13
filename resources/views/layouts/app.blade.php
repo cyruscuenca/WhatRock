@@ -15,44 +15,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    <style >
-    #menu-toggle{
-        display: none;
-    }
-    #menu-toggle:checked ~ .sidebar-menu { 
-     }﻿
-
-    .sidebar {
-        width: 200pt; 
-        height: 100%; 
-        background: #37474F; 
-        z-index: 1; 
-        position: fixed; 
-        box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.16);
-    }
-    .sidebar-menu ul li a{
-        color: #fff;
-    }
-
-    .sidebar-menu ul li{
-        list-style: none;
-        padding-top: 18pt;
-        font-size: 12pt;
-    }
-
-    .sidebar-menu ul{
-        padding-top: 60px;
-    }
-    .navbar {
-        background: red;
-    }
-    </style>
-
 </head>
 <body>
     <div class="navbar">
-
-    <input type="checkbox" id="menu-toggle">
      <label for="menu-toggle" class="hamburger">&#9776;</label>
 
        <a href="{{ url('/') }}"><img src="{{ asset('images/logorock.png') }}" class="logo"></a>
@@ -102,6 +67,7 @@
 @endguest
 
 </div>
+    <input type="checkbox" id="menu-toggle">
 
 <div class="sidebar">
     <ul>
@@ -116,5 +82,6 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+</script>
 </body>
 </html>
