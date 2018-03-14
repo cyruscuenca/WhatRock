@@ -22,29 +22,53 @@ html, body{
 	}
 
 	.sidebar {
-		left: -195pt;
-		width: 195pt; 
+		left: -185pt;
+		width: 185pt; 
 		height: 100%; 
-		background: #37474F; 
+		background: #2e3d44; 
 		z-index: 1; 
 		position: fixed; 
-		box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.16);
+		border-right: 1px solid #455A64;
+ 		transition: all .3s ease-in-out;
+ 		 -webkit-transition: all .1s ease-in-out;
+ 		 -moz-transition: all .1s ease-in-out;
+ 		 -ms-transition: all .1s ease-in-out;
+ 		 -o-transition: all .1s ease-in-out;
 	}
+
 	.sidebar ul li a{
 		color: #fff;
+		padding-left: 18pt;
+		font-family: 'Roboto';
 	}
 
 	.sidebar ul li{
-		list-style: none;
-		padding-top: 18pt;
-		font-size: 12pt;
+		list-style-type: none;
+		padding-top: 9pt;
+		font-size: 11.5pt;
+		height: 35pt;
 	}
 
+	.sidebar ul li:hover{
+		background: #455A64;
+	}
+
+	.sidebar-label:hover{
+		background: #2E3D44;
+	}
+
+	.sidebar-label{
+		list-style-type: none;
+		padding-top: 10pt;
+		font-size: 12pt;
+		height: 35pt;
+	}
 	.sidebar ul{
-		padding-top: 60px;
+		padding-top: 62pt;
+	    list-style:none;
+	    padding-left:0;	
 	}
 	.navbar {
-		background: red;
 	}
 	.title-bar{
 		height: 70px;
