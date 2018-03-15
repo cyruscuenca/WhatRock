@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="navbar" >
-     <label for="menu-toggle" class="hamburger">&#9776;</label>
+     <label for="menu-toggle" class="hamburger noselect">&#9776;</label>
 
        <a href="{{ url('/') }}"><img src="{{ asset('images/logorock.png') }}" class="logo"></a>
 

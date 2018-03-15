@@ -12,7 +12,8 @@ class EntryController extends Controller
     {
     	// fetch entries with status of 1(published) from database
     	$entries = Entry::where('status', 1)->latest()->paginate(12);
-    	return view('entries.index', compact('entries'));
+        $colors = Color::pluck('name', 'id', 'hex');
+    	return view('entries.index', compact('entries', 'colors'));
     }
 
     public function create()

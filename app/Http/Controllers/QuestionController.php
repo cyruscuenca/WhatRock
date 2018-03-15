@@ -4,19 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\{Question, Answer, Entry};
+use App\{Question, Answer, Entry, Color};
 
 class QuestionController extends Controller
 {
     public  function index()
     {
         // fetch published entries from database
-        $entries = Entry::where('status', 1)->latest()->paginate(12);
+        $entries = Entry::where('status', 1)->latest()->paginate(1);
 
     	// fetch first question from database
     	$question = Question::where('level', 1)->first();
 
-    	return view('entries.id')->with('question', $question)->with('entries', $entries);
+        //$colors = $entries->colors->pluck('hex');
+
+    	return view('entries.id', compact('entries'))->with('question', $question);
     }
 
     public function get(Request $request)
