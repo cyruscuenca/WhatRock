@@ -20,7 +20,7 @@ class AnswersTableSeeder extends Seeder
 
         $b= new Answer();
         $b->content = 'No';
-        $b->button_color = '##e80b37';
+        $b->button_color = '#e80b37';
         $b->save();
     }
 }
