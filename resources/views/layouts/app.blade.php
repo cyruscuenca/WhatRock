@@ -76,7 +76,8 @@
         <li style="margin-bottom: 14pt;"><img style="padding-left: 14pt;" src="{{ asset('images/bell.svg') }}"><a href="{{ url('about') }}">Notifications</a></li>
         <div style="border-top: 1px solid #455A64; font-family: 'Roboto'; color: #fff; padding-left: 14pt;" class="sidebar-label">LINKS</div>
         <li><img style="padding-left: 14pt;" src="{{ asset('images/wiki.svg') }}"><a href="{{ url('contribute') }}">Wiki</a></li>
-        <li style="margin-bottom: 15pt;"><img style="padding-left: 14pt;" src="{{ asset('images/community.svg') }}"><a href="https://reddit.com/r/whatsthisrock/">Community</a></li>
+        <li><img style="padding-left: 14pt;" src="{{ asset('images/community.svg') }}"><a href="https://reddit.com/r/whatsthisrock/">Community</a></li>
+        <li style="margin-bottom: 15pt;"><img style="padding-left: 16pt; height: 15pt;" src="{{ asset('images/discord.svg') }}"><a href="https://discord.gg/VSfSheQ">Chat</a></li>
         <div style="border-top: 1px solid #455A64; font-family: 'Roboto'; color: #fff; padding-left: 14pt;" class="sidebar-label">TOOLS</div>
         <li><img style="padding-left: 14pt;" src="{{ asset('images/id.svg') }}"><a href="{{ url('contribute') }}">ID a Rock</a></li>
     </ul>
@@ -89,4 +90,3 @@
 </script>
 </body>
 </html>
-0
