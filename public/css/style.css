@@ -9,9 +9,20 @@
 }
 
 html, body{
-	background: #ECEFF1;
+	background: #455A64;
 	overflow-x: hidden; 
 }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 	#menu-toggle{
 		display: none;
 	}
@@ -22,18 +33,18 @@ html, body{
 	}
 
 	.sidebar {
+		box-shadow: 0 3px 6px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.2);
 		left: -185pt;
 		width: 185pt; 
 		height: 100%; 
 		background: #2e3d44; 
 		z-index: 1; 
 		position: fixed; 
-		border-right: 1px solid #455A64;
- 		transition: all .3s ease-in-out;
- 		 -webkit-transition: all .1s ease-in-out;
- 		 -moz-transition: all .1s ease-in-out;
- 		 -ms-transition: all .1s ease-in-out;
- 		 -o-transition: all .1s ease-in-out;
+ 		transition: all .07s ease-in-out;
+ 		 -webkit-transition: all .07s ease-in-out;
+ 		 -moz-transition: all .07s ease-in-out;
+ 		 -ms-transition: all .07s ease-in-out;
+ 		 -o-transition: all .07s ease-in-out;
 	}
 
 	.sidebar ul li a{
@@ -46,7 +57,7 @@ html, body{
 		list-style-type: none;
 		padding-top: 9pt;
 		font-size: 11.5pt;
-		height: 35pt;
+		height: 34pt;
 	}
 
 	.sidebar ul li:hover{
@@ -64,11 +75,9 @@ html, body{
 		height: 35pt;
 	}
 	.sidebar ul{
-		padding-top: 62pt;
+		padding-top: 61pt;
 	    list-style:none;
 	    padding-left:0;	
-	}
-	.navbar {
 	}
 	.title-bar{
 		height: 70px;
@@ -131,7 +140,7 @@ html, body{
 		position: fixed;
 		border-radius: 0px;
 		background: #263238;
-		box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.16);
+		box-shadow: 0 3px 5px rgba(0,0,0,0.12), 0 3px 5px rgba(0,0,0,0.10);
 		z-index: 2;
 	}
 
@@ -139,7 +148,7 @@ html, body{
 		display: inline-block;
 		float: left;
 		height: 35px;
-		margin-top: 11px;
+		margin-top: 12px;
 		padding-right: 15%;
 	}
 

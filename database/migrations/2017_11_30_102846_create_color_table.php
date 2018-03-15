@@ -17,6 +17,7 @@ class CreateColorTable extends Migration
             $table->increments('id');
             $table->string('slug')->unique()->index();
             $table->string('name');
+            $table->string('hex');
             $table->timestamps();
         });
     }
