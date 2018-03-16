@@ -11,14 +11,14 @@ class QuestionController extends Controller
     public  function index()
     {
         // fetch published entries from database
-        $entries = Entry::where('status', 1)->latest()->paginate(1);
+        $entries = Entry::where('status', 1)->latest()->paginate(12);
 
     	// fetch first question from database
     	$question = Question::where('level', 1)->first();
 
         //$colors = $entries->colors->pluck('hex');
 
-    	return view('entries.id', compact('entries'))->with('question', $question);
+    	return view('entries.id')->with('question', $question)->with('entries', $entries);
     }
 
     public function get(Request $request)

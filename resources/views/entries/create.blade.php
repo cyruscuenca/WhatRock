@@ -45,12 +45,10 @@
 					</div>
 
 				</div>
-				{!! Form::close() !!}
 
 			</div>
 
 			<div style="background: #f3f3f3; border-radius: 2px; width: 25%; display: inline-block; float: right;">
-				{!! Form::open(['method' => 'POST', 'action' => 'EntryController@store', 'files' => true]) !!}
 
 				<div style="width: 85%; margin-left: 7.5%; margin-top: 7.5%; margin-bottom: 7.5%;">
 					<div style="width: 100%;">
