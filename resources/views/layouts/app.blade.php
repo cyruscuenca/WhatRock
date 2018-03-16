@@ -18,12 +18,12 @@
 </head>
 <body>
     <div class="navbar" >
-     <label for="menu-toggle" class="hamburger noselect">&#9776;</label>
+       <label for="menu-toggle" class="hamburger noselect">&#9776;</label>
 
        <a href="{{ url('/') }}"><img src="{{ asset('images/logorock.png') }}" class="logo"></a>
 
        <a class="button" style="border: none; background: rgba(0,0,0,0); color: #fff;
- text-decoration: none; float: left; width: 100px; margin-top: 11px;"  href="{{ url('entries/id') }}"><p style="font-size: 11pt; padding-top: 7px; margin-left: 5%;">ID Rocks</p></a>
+       text-decoration: none; float: left; width: 100px; margin-top: 11px;"  href="{{ url('entries/id') }}"><p style="font-size: 11pt; padding-top: 7px; margin-left: 5%;">ID Rocks</p></a>
        <input class="search" type="text" placeholder="Search" style="background: #455A64 url( {{ asset('images/search.png') }} ) right no-repeat; background-size: 6.2%; background-position: center right; ">
        @guest
        <div style="float: right;">
@@ -67,17 +67,18 @@
 @endguest
 
 </div>
-    <input type="checkbox" id="menu-toggle">
+<input type="checkbox" id="menu-toggle">
 
 <div class="sidebar">
     <ul>
         <li><img style="padding-left: 14pt;" src="{{ asset('images/home.svg') }}"><a href="{{ url('about') }}">Dashboard</a></li>
         <li><img style="padding-left: 14pt;" src="{{ asset('images/profile.svg') }}"><a href="{{ url('partners') }}">Profile</a></li>
-        <li style="margin-bottom: 14pt;"><img style="padding-left: 14pt;" src="{{ asset('images/bell.svg') }}"><a href="{{ url('about') }}">Notifications</a></li>
-        <div style="border-top: 1px solid #455A64; font-family: 'Roboto'; color: #fff; padding-left: 14pt;" class="sidebar-label">LINKS</div>
+        <li style="margin-bottom: 6pt;"><img style="padding-left: 14pt;" src="{{ asset('images/bell.svg') }}"><a href="{{ url('about') }}">Notifications</a></li>
+        <div style="font-family: 'Roboto'; color: #607D8B; padding-left: 14pt;" class="sidebar-label">LINKS</div>
         <li><img style="padding-left: 14pt;" src="{{ asset('images/wiki.svg') }}"><a href="{{ url('contribute') }}">Wiki</a></li>
-        <li style="margin-bottom: 15pt;"><img style="padding-left: 14pt;" src="{{ asset('images/community.svg') }}"><a href="https://reddit.com/r/whatsthisrock/">Community</a></li>
-        <div style="border-top: 1px solid #455A64; font-family: 'Roboto'; color: #fff; padding-left: 14pt;" class="sidebar-label">TOOLS</div>
+        <li><img style="padding-left: 14pt;" src="{{ asset('images/community.svg') }}"><a href="https://reddit.com/r/whatsthisrock/">Community</a></li>
+        <li style="margin-bottom: 6pt;"><img style="padding-left: 16pt; height: 15pt;" src="{{ asset('images/discord.svg') }}"><a href="https://discord.gg/VSfSheQ">Chat</a></li>
+        <div style=" font-family: 'Roboto'; color: #607D8B; padding-left: 14pt;" class="sidebar-label">TOOLS</div>
         <li><img style="padding-left: 14pt;" src="{{ asset('images/id.svg') }}"><a href="{{ url('contribute') }}">ID a Rock</a></li>
     </ul>
 </div>
