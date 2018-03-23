@@ -15,6 +15,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}"/>
+
 </head>
 <body>
     <div class="navbar" >
@@ -71,15 +73,15 @@
 
 <div class="sidebar">
     <ul>
-        <li><img style="padding-left: 14pt;" src="{{ asset('images/home.svg') }}"><a href="{{ url('about') }}">Dashboard</a></li>
-        <li><img style="padding-left: 14pt;" src="{{ asset('images/profile.svg') }}"><a href="{{ url('partners') }}">Profile</a></li>
-        <li style="margin-bottom: 6pt;"><img style="padding-left: 14pt;" src="{{ asset('images/bell.svg') }}"><a href="{{ url('about') }}">Notifications</a></li>
-        <div style="font-family: 'Roboto'; color: #607D8B; padding-left: 14pt;" class="sidebar-label">LINKS</div>
-        <li><img style="padding-left: 14pt;" src="{{ asset('images/wiki.svg') }}"><a href="{{ url('contribute') }}">Wiki</a></li>
-        <li><img style="padding-left: 14pt;" src="{{ asset('images/community.svg') }}"><a href="https://reddit.com/r/whatsthisrock/">Community</a></li>
-        <li style="margin-bottom: 6pt;"><img style="padding-left: 16pt; height: 15pt;" src="{{ asset('images/discord.svg') }}"><a href="https://discord.gg/VSfSheQ">Chat</a></li>
-        <div style=" font-family: 'Roboto'; color: #607D8B; padding-left: 14pt;" class="sidebar-label">TOOLS</div>
-        <li><img style="padding-left: 14pt;" src="{{ asset('images/id.svg') }}"><a href="{{ url('contribute') }}">ID a Rock</a></li>
+        <li id="sidebar-item-1"><img style="padding-left: 14pt;" src="{{ asset('images/home.svg') }}"><a id="sidebar-item-1-text" href="{{ url('about') }}">Dashboard</a></li>
+        <li id="sidebar-item-2"><img style="padding-left: 14pt;" src="{{ asset('images/profile.svg') }}"><a id="sidebar-item-2-text" href="{{ url('partners') }}">Profile</a></li>
+        <li id="sidebar-item-3" style="margin-bottom: 5pt;"><img style="padding-left: 14pt;" src="{{ asset('images/bell.svg') }}"><a id="sidebar-item-3-text" href="{{ url('about') }}">Notifications</a></li>
+        <div style="font-family: 'Roboto'; color: #485d68; padding-left: 14pt;" class="sidebar-label">LINKS</div>
+        <li id="sidebar-item-4"><img style="padding-left: 14pt;" src="{{ asset('images/wiki.svg') }}"><a id="sidebar-item-4-text" href="{{ url('contribute') }}">Wiki</a></li>
+        <li id="sidebar-item-5"><img style="padding-left: 14pt;" src="{{ asset('images/community.svg') }}"><a id="sidebar-item-5-text" href="https://reddit.com/r/whatsthisrock/">Community</a></li>
+        <li id="sidebar-item-6" style="margin-bottom: 6pt;"><img style="padding-left: 16pt; height: 15pt;" src="{{ asset('images/discord.svg') }}"><a id="sidebar-item-6-text" href="https://discord.gg/VSfSheQ">Chat</a></li>
+        <div style=" font-family: 'Roboto'; color: #485d68; padding-left: 14pt;" class="sidebar-label">TOOLS</div>
+        <li id="sidebar-item-7"><img style="padding-left: 14pt;" src="{{ asset('images/id.svg') }}"><a id="sidebar-item-7-text" href="{{ url('contribute') }}">ID a Rock</a></li>
     </ul>
 </div>
 
