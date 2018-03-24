@@ -8,9 +8,11 @@
 	src: url(../fonts/Ubuntu-L.ttf) format("truetype");
 }
 
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 html, body{
 	background: #ECEFF1;
-	overflow-x: hidden; 
+	overflow-x: hidden;
 }
 
 .noselect {
@@ -33,38 +35,38 @@ html, body{
 	}
 
 	.sidebar {
-		left: -190pt;
-		width: 190pt; 
-		height: 100%; 
-		background: #CFD8DC; 
-		z-index: 1; 
-		position: fixed; 
- 		transition: all .07s ease-in-out;
- 		 -webkit-transition: all .07s ease-in-out;
- 		 -moz-transition: all .07s ease-in-out;
- 		 -ms-transition: all .07s ease-in-out;
- 		 -o-transition: all .07s ease-in-out;
+		left: -170pt;
+		width: 170pt;
+		height: 100%;
+		background: rgba(0,0,0,0);
+		z-index: 1;
+		position: fixed;
+ 		transition: all .15s ease-in-out;
+ 		 -webkit-transition: all .15s ease-in-out;
+ 		 -moz-transition: all .15s ease-in-out;
+ 		 -ms-transition: all .15s ease-in-out;
+ 		 -o-transition: all .15s ease-in-out;
 	}
 
 	.sidebar ul li a{
-		color: #607D8B;
+		color: #485d68;
 		padding-left: 18pt;
 		font-family: 'Roboto';
 	}
 
 	.sidebar ul li{
 		list-style-type: none;
-		padding-top: 9pt;
-		font-size: 11.5pt;
+		padding-top: 8pt;
+		font-size: 11.6pt;
 		height: 34pt;
 	}
 
 	.sidebar ul li:hover{
-		background: #B0BEC5;
+		background: #dce0e2;
 	}
 
 	.sidebar-label:hover{
-		background: #CFD8DC;
+		background: rgba(0,0,0,0);
 	}
 
 	.sidebar-label{
@@ -74,9 +76,9 @@ html, body{
 		height: 35pt;
 	}
 	.sidebar ul{
-		padding-top: 60pt;
+		padding-top: 59pt;
 	    list-style:none;
-	    padding-left:0;	
+	    padding-left:0;
 	}
 	.title-bar{
 		height: 70px;
@@ -105,7 +107,7 @@ html, body{
 		text-align: center;
 		color: grey;
 		padding-top: 15px;
-		font-size: 19pt;		
+		font-size: 19pt;
 		color: grey;
 	}
 
@@ -138,7 +140,7 @@ html, body{
 		height: 60px;
 		position: fixed;
 		border-radius: 0px;
-		background: #546E7A;
+		background: #263238;
 		z-index: 2;
 	}
 
@@ -157,7 +159,7 @@ html, body{
 
 	.search{
 		height: 45px;
-		width: 35%;
+		width: 36%;
 		position: absolute;
 		border: none;
 		margin-top: 7px;
@@ -166,13 +168,13 @@ html, body{
 	}
 
 	.search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-		color: #fff;
+		color: #B0BEC5;
 		opacity: 1; /* Firefox */
 	}
 
 	input {  /* Firefox 19+ */
 		text-indent: 14px;
-		font-family: 'ubuntu';
+		font-family: 'Open Sans', sans-serif;
 		font-size: 11pt;
 	}
 
@@ -207,8 +209,8 @@ html, body{
 	.btn-primary{
 		color: grey;
 		background: #fff;
-		border: 1px solid #ccc; 
-		margin-left: 50px; 
+		border: 1px solid #ccc;
+		margin-left: 50px;
 	}
 	.numbers-container{
 		width: auto;

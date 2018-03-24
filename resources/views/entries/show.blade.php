@@ -3,12 +3,19 @@
 <style type="text/css">
 ul{
     list-style:none;
-    padding-left:0;	
+    padding-left:0;
 }
 
+.fadeInUp{
+	animation-duration: .45s;
+}
+.slideInRight{
+  animation-delay: .30s;
+  animation-duration: .40s;
+}
 </style>
 	@foreach ($entry->color as $color)
-<div style="width: 275pt; height: 100%; position: fixed; background: {{ $color->hex }}; margin-top: 60px; float: right; color: #fff; right: 0; ">
+<div class="animated slideInRight" style="width: 275pt; height: 100%; position: fixed; background: {{ $color->hex }}; margin-top: 60px; float: right; color: #fff; right: 0;">
 	@endforeach
 
 	<img style="width: 100%; " src="/storage/{{ $entry->photo->photo() }}" alt="Photo of {{$entry->title}}">
@@ -61,15 +68,17 @@ ul{
 		</div>
 		@endif
 	</div>
-		<div style="background: #fff; margin-top: calc(40px + 50px);">
+  <div style="overflow-y: hidden; margin-top: calc(40px + 50px);">
+		<div class="animated fadeInUp" style="background: #fff;">
 			<p style="padding: 12pt 16pt;">{{ $entry->summary }}</p>
 		</div>
-		<div style="background: #fff; margin-top: 40px;">
+		<div class="animated fadeInUp" style="animation-delay: .005s; background: #fff; margin-top: 40px;">
 			<div style="padding: 12pt 16pt;">
-			<p style="">{!!html_entity_decode($entry->body)!!}</p>
+			<p style="padding: 12pt 16pt;">{!!html_entity_decode($entry->body)!!}</p>
 			<a href="{{ action('EntryController@edit', [$entry->id]) }}" style="">Edit</a>
 			</div>
 		</div>
+  </div>
 </article>
 
 
