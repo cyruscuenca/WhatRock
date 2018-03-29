@@ -10,52 +10,58 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('index');
+Route::domain('learn.whatrock.local')->group(function () {
+	Route::view('/', 'learn.index')->where('/', '.*');
 });
 
-View::share('entry', App\Entry::all());
+Route::domain('whatrock.local')->group(function () {
+	Route::get('/', function () {
+		return view('index');
+	});
 
-Route::post('/questions/get', 'QuestionController@get')->name('/questions/get');
+	View::share('entry', App\Entry::all());
 
-Auth::routes();
+	Route::post('/questions/get', 'QuestionController@get')->name('/questions/get');
 
-Route::get('/entries/id', 'QuestionController@index')->name('/entries/id');
+	Auth::routes();
 
-Route::get('/learn', 'PagesController@index')->name('/learn');
-Route::get('/learn/properties', 'PagesController@properties')->name('/learn/properties');
-Route::get('/learn/properties/hardness', 'PagesController@hardness')->name('/learn/properties/hardness');
-Route::get('/learn/properties/breakage', 'PagesController@breakage')->name('/learn/properties/breakage');
+	Route::get('/entries/id', 'QuestionController@index')->name('/entries/id');
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+	Route::get('/learn/properties', 'PagesController@properties')->name('/learn/properties');
+	Route::get('/learn/properties/hardness', 'PagesController@hardness')->name('/learn/properties/hardness');
+	Route::get('/learn/properties/breakage', 'PagesController@breakage')->name('/learn/properties/breakage');
 
-Route::get('/entries/trash', 'EntryController@trash');
-Route::get('/entries/trash/{id}/restore', 'EntryController@restore');
-Route::delete('/entries/trash/{id}/destroy', 'EntryController@destroy');
+	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/entries', 'EntryController@index')->name('/entries');
-Route::get('/entries/create', 'EntryController@create')->middleware('admin');
-Route::post('/entries/store', 'EntryController@store');
-Route::get('/entries/{id}', 'EntryController@show');
-Route::get('/entries/{id}/edit', 'EntryController@edit');
+	Route::get('/entries/trash', 'EntryController@trash');
+	Route::get('/entries/trash/{id}/restore', 'EntryController@restore');
+	Route::delete('/entries/trash/{id}/destroy', 'EntryController@destroy');
 
-Route::patch('/entries/{id}/publish', 'EntryController@publish');
+	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/entries', 'EntryController@index')->name('/entries');
+	Route::get('/entries/create', 'EntryController@create')->middleware('admin');
+	Route::post('/entries/store', 'EntryController@store');
+	Route::get('/entries/{id}', 'EntryController@show');
+	Route::get('/entries/{id}/edit', 'EntryController@edit');
 
-Route::patch('/entries/{id}', 'EntryController@update');
-Route::delete('/entries/{id}', 'EntryController@softDestroy');
+	Route::patch('/entries/{id}/publish', 'EntryController@publish');
 
-Route::get('admin', 'AdminController@index')->middleware('admin');
+	Route::patch('/entries/{id}', 'EntryController@update');
+	Route::delete('/entries/{id}', 'EntryController@softDestroy');
 
-Route::get('mod', 'ModController@index')->middleware('mod');
+	Route::get('admin', 'AdminController@index')->middleware('admin');
 
-Route::get('contributor', 'ContributorController@index')->middleware('contributor');
+	Route::get('mod', 'ModController@index')->middleware('mod');
 
-Route::resource('categories', 'CategoryController');
-Route::resource('subcategories', 'SubcategoryController');
+	Route::get('contributor', 'ContributorController@index')->middleware('contributor');
 
-Route::get('about', 'PagesController@about');
-Route::get('partners', 'PagesController@partners');
-Route::get('contribute', 'PagesController@contribute');
+	Route::resource('categories', 'CategoryController');
+	Route::resource('subcategories', 'SubcategoryController');
 
-Route::resource('/admin/users', 'UserController');
+	Route::get('about', 'PagesController@about');
+	Route::get('partners', 'PagesController@partners');
+	Route::get('contribute', 'PagesController@contribute');
+
+	Route::resource('/admin/users', 'UserController');
+});
+
