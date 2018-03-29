@@ -20,7 +20,12 @@ Route::post('/questions/get', 'QuestionController@get')->name('/questions/get');
 
 Auth::routes();
 
-Route::get('/entries/id/', 'QuestionController@index');	
+Route::get('/entries/id', 'QuestionController@index')->name('/entries/id');
+
+Route::get('/learn', 'PagesController@index')->name('/learn');
+Route::get('/learn/properties', 'PagesController@properties')->name('/learn/properties');
+Route::get('/learn/properties/hardness', 'PagesController@hardness')->name('/learn/properties/hardness');
+Route::get('/learn/properties/breakage', 'PagesController@breakage')->name('/learn/properties/breakage');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -29,7 +34,7 @@ Route::get('/entries/trash/{id}/restore', 'EntryController@restore');
 Route::delete('/entries/trash/{id}/destroy', 'EntryController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/entries', 'EntryController@index');
+Route::get('/entries', 'EntryController@index')->name('/entries');
 Route::get('/entries/create', 'EntryController@create')->middleware('admin');
 Route::post('/entries/store', 'EntryController@store');
 Route::get('/entries/{id}', 'EntryController@show');
