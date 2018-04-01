@@ -11,25 +11,29 @@
 |
 */
 Route::domain('learn.whatrock.local')->group(function () {
-	Route::view('/', 'learn.index')->where('/', '.*');
+	Route::view('/', 'learn.index')->where('/', '.*')->name('learn/index');
+	Route::get('/properties', 'PagesController@properties')->name('/learn/properties');
+	Route::get('/properties/hardness', 'PagesController@hardness')->name('/learn/properties/hardness');
+	Route::get('/properties/breakage', 'PagesController@breakage')->name('/learn/properties/breakage');
 });
 
 Route::domain('whatrock.local')->group(function () {
 	Route::get('/', function () {
 		return view('index');
-	});
+
+});
+
+Route::domain('identify.whatrock.local')->group(function () {
+	Route::view('/', 'identify.index')->where('/', '.*')->name('identify');
+	Route::get('/', 'QuestionController@index')->name('/identify/index');
+
+});
 
 	View::share('entry', App\Entry::all());
 
 	Route::post('/questions/get', 'QuestionController@get')->name('/questions/get');
 
 	Auth::routes();
-
-	Route::get('/entries/id', 'QuestionController@index')->name('/entries/id');
-
-	Route::get('/learn/properties', 'PagesController@properties')->name('/learn/properties');
-	Route::get('/learn/properties/hardness', 'PagesController@hardness')->name('/learn/properties/hardness');
-	Route::get('/learn/properties/breakage', 'PagesController@breakage')->name('/learn/properties/breakage');
 
 	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

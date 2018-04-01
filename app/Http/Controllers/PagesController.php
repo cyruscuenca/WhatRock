@@ -16,10 +16,10 @@ class PagesController extends Controller
     	return view('contribute');
     }
     public function index(){
-        return view('learn/index');
+        return view('index');
     }
     public function properties(){
-        return view('learn/properties/index');
+        return view('/learn/properties/index');
     }
     public function hardness(){
     	return view('learn/properties/hardness');

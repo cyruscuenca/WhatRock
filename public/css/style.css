@@ -8,7 +8,18 @@
 	src: url(../fonts/Ubuntu-L.ttf) format("truetype");
 }
 
- @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+
+*{
+}
+
+.text{
+    font-family: 'IBM Plex Sans', sans-serif;
+	color: #78909C;
+	line-height: 19pt;
+}
 
 html, body{
 	background: #ECEFF1;
@@ -35,34 +46,41 @@ html, body{
 	}
 
 	.sidebar {
-		left: -170pt;
-		width: 170pt;
+		left: -225.5pt;
+		width: 225.5pt;
 		height: 100%;
 		background: rgba(0,0,0,0);
 		z-index: 1;
 		position: fixed;
- 		transition: all .15s ease-in-out;
- 		 -webkit-transition: all .15s ease-in-out;
- 		 -moz-transition: all .15s ease-in-out;
- 		 -ms-transition: all .15s ease-in-out;
- 		 -o-transition: all .15s ease-in-out;
+ 		transition: all .12s ease-in-out;
+ 		 -webkit-transition: all .12s ease-in-out;
+ 		 -moz-transition: all .12s ease-in-out;
+ 		 -ms-transition: all .12s ease-in-out;
+ 		 -o-transition: all .12s ease-in-out;
+ 		 background: #37474F;
 	}
 
 	.sidebar ul li a{
-		color: #485d68;
-		padding-left: 18pt;
+		color: #fff;
+		padding-left: 50pt;
 		font-family: 'Roboto';
+		margin-top: -20pt;
+		display: block;
+	}
+
+	.sidebar ul li img{
+		margin-top: 7pt;
 	}
 
 	.sidebar ul li{
 		list-style-type: none;
-		padding-top: 8pt;
-		font-size: 11.6pt;
-		height: 34pt;
+		padding-top: 4pt;
+		font-size: 12.5pt;
+		height: 38pt;
 	}
 
 	.sidebar ul li:hover{
-		background: #dce0e2;
+		background: #455A64;
 	}
 
 	.sidebar-label:hover{
@@ -71,9 +89,9 @@ html, body{
 
 	.sidebar-label{
 		list-style-type: none;
-		padding-top: 10pt;
+		padding-top: 6pt;
 		font-size: 12pt;
-		height: 35pt;
+		height: 34pt;
 	}
 	.sidebar ul{
 		padding-top: 59pt;
@@ -149,7 +167,7 @@ html, body{
 		float: left;
 		height: 35px;
 		margin-top: 12px;
-		padding-right: 15%;
+		margin-right: 90px;
 	}
 
 	.body-wrapper{
@@ -158,24 +176,38 @@ html, body{
 	}
 
 	.search{
+		width: 100%;
+		background: #3A4950;
 		height: 45px;
-		width: 36%;
-		position: absolute;
 		border: none;
-		margin-top: 7px;
-		color: #fff;
-		border-radius: 2px;
+		border-radius: 1.5pt;
+	}
+
+	.search:focus{
+	    background: #fff;
+	    color: #90A4AE;
+ 		transition: background .2s;
+	}
+
+	.search:focus button[type=submit] svg#search-icon {
+	    fill: red !important;
+	}
+
+	#search-icon{
+		fill: #fff;
 	}
 
 	.search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-		color: #B0BEC5;
+		color: #90A4AE;
 		opacity: 1; /* Firefox */
 	}
 
 	input {  /* Firefox 19+ */
-		text-indent: 14px;
+		text-indent: 16px;
 		font-family: 'Open Sans', sans-serif;
-		font-size: 11pt;
+		padding-top: 1.5pt;
+		font-size: 12pt;
+		color: #fff;
 	}
 
 	.form-control{

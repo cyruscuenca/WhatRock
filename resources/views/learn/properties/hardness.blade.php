@@ -9,16 +9,19 @@ ul{
 .fadeInUp{
 	animation-duration: .4s;
 }
+#sidebar-item-6{
+	background: #455A64;
+}
 </style>
 @extends('layouts.pages.sidebar')
 <div class="body-wrapper">
 	<div class="body" style="overflow-y: hidden; margin-top: calc(40px + 50px); ">
-		<div class="animated fadeInUp" style="max-width: 550pt; width: 50%; margin-right: auto; margin-left: auto; background: #fff;">
+		<div class="animated fadeInUp" style="max-width: 575pt; width: 55%; margin-right: auto; margin-left: auto; background: #fff;">
 			<div style="padding: 12pt 16pt; height: 500pt;">
-				<p style="font-size: 25pt; color: #37474F; font-family: 'Roboto';">Hardness</p>
+				<p style=" margin-left: -1pt; padding: 6pt 0; font-size: 26pt; color: #37474F; font-family: 'Roboto'; font-weight: bold;">Hardness</p>
 
-				<p>Hardness is a measure of how easily a mineral or rock can scratch or be scratched. In the 19th century, mineralogist, Fredrich Mohs created a mineral hardness scale, which is now knows as <i>Mohs hardness scale</i>. The scale rates minerals from 1-10 based on hardness. 10 being the hardest mineral, and 1 being the softest.</p>
-				<table class="table table-striped" style="border: 1pt solid #DCDCDC; width: 45%; float: right; margin-left: 14pt;">
+				<p class="text">Hardness is a measure of how easily a mineral or rock can scratch or be scratched. In the 19th century, mineralogist, Fredrich Mohs created a mineral hardness scale, which is now knows as <i>Mohs hardness scale</i>. The scale rates minerals from 1-10 based on hardness. 10 being the hardest mineral, and 1 being the softest.</p>
+				<table class="table table-striped text" style="border: 1pt solid #DCDCDC; width: 40%; float: right; margin-left: 14pt;">
 					<tr>
 						<th>Hardness Number</th>
 						<th>Mineral</th> 
@@ -64,8 +67,8 @@ ul{
 						<td>Talc</td> 
 					</tr>
 				</table>
-				<p><i>Mohs hardness scale</i> is a <i>relative</i> scale, which means that minerals classified with the scale can only scratch minerals that are lower on the scale. For example, Flourite can scrath minerals like Talc and Gypsum, but cannot scratch minerals like Quartz and Diamond.</p>
-				<p>To determine the hardness of a mineral, use the scale and see which minerals it can scratch or be scratched by. Alternitively, you could always look up your mineral and see what hardness it has been rated at.</p>
+				<p class="text"><i>Mohs hardness scale</i> is a <i>relative</i> scale, which means that minerals classified with the scale can only scratch minerals that are lower on the scale. For example, Flourite can scrath minerals like Talc and Gypsum, but cannot scratch minerals like Quartz and Diamond.</p>
+				<p class="text">To determine the hardness of a mineral, use the scale and see which minerals it can scratch or be scratched by. Alternitively, you could always look up your mineral and see what hardness it has been rated at.</p>
 
 
 			</div>
