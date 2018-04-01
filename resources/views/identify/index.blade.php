@@ -2,51 +2,56 @@
 @section('content')
 <style type="text/css">
 .tag{
-	background-image: linear-gradient(to left, #fff 0%, #fff 100%);
+	background-image: linear-gradient(to right, #fff 0%, #fff 100%);
 	background-attachment: fixed;
-	margin: 5pt 0;
+	margin: 5pt 3.5px;
 	height: 25pt;
-  width: 85pt;
-  border-radius: 12.5pt;
-  display: inline-block;
-  margin-right: 6px;
+	width: 85pt;
+	border-radius: 12.5pt;
+	display: inline-block;
 }
 .sidebar{
 }
 #sidebar-item-7{
-	background: #dce0e2;
+	background: #455A64;
 }
 #sidebar-item-7-text{
 }
 .card:hover{
-		-webkit-filter: brightness(105%); /* Safari 6.0 - 9.0 */
-		filter: brightness(105%);
+	-webkit-filter: brightness(105%); /* Safari 6.0 - 9.0 */
+	filter: brightness(108%);
+ 	transition: filter .25s;
 }
 .fadeInUp{
-  animation-delay: .26s;
+	animation-delay: .268;
 	animation-duration: .36s;
 }
 .fadeInDown{
-	animation-duration: .45s;
+	animation-duration: .50s;
 }
+	input[type=text]:focus{
+	    background: #fff;
+	    color: #90A4AE;
+ 		transition: background .2s;
+	}
 </style>
 
-<div style="width: 70%; margin-left: auto; margin-right: auto; height: 162pt; background: #455A64; margin-top: 60px; max-width: 850pt;">
+<div style="width: 70%; margin-left: auto; margin-right: auto; height: 162pt; background-image: url(https://i.redd.it/vrplv0hn5gm01.jpg); background-position: center; background-size: cover; margin-top: 60px; max-width: 850pt;">
 	<div style="text-align: center; padding-top: 14pt;">
-		<p style="font-size: 34pt; font-family: 'Open Sans', sans-serif; color: #fff; " class="animated fadeInDown" id="question">{{ $question->content }}</p>
+		<p style="font-size: 34pt; font-family: 'Open Sans', sans-serif; color: #fff;  text-shadow: 2px 2px 10px #535761;"  class="animated fadeInDown" id="question" data-level="{{ $question->level }}">{{ $question->content }}</p>
 		@foreach ($question->answer as $answer)
-		<button class="animated fadeInDown" onclick="get(this.innerHTML);" type="button" style="margin: 5pt; margin-left: 10pt; border-radius: 1px; display: inline-block; border: none; color: #fff; background: {{ $answer->button_color }}; width: auto; ">{{ $answer->content }}</button>
+		<button class="animated fadeInDown" onclick="console.log(this.children[0].innerHTML);" type="button" style="margin: 5pt; margin-left: 10pt; border-radius: 1px; display: inline-block; border: none; color: #fff; background: {{ $answer->button_color }}; width: auto; "><p style="font-weight: bold; margin: 3pt 10pt; padding-top: 2pt; font-family: 'Roboto', sans-serif; font-size: 12.5pt; text-transform: uppercase;">{{ $answer->content }}</p></button>
 		@endforeach
 	</div>
 
 	<button class="animated fadeInDown" style="animation-duration: .4s; display: inline-block; float: right; background: #fff; border: none; border-radius: 1px; font-family: 'Roboto', sans-serif; margin-top: 6pt; height: 32pt; ; margin-right: 15pt;">
-		<p style="padding: 0 14pt; font-size: 13pt; margin-top: 6pt; color: #263238;">SKIP</p>
+		<p style="font-weight: bold; padding: 0 14pt; font-size: 13pt; margin-top: 6pt; color: #263238;">SKIP</p>
 	</button>
 </div>
 <div style="max-width: 850pt; width: 70%; margin-left: auto; margin-right: auto;">
 	<div style="width: 100%; display: inline-block;">
-		<div style="height: calc(25pt + 10pt); background: #37474F;">
-			<div style="height: 100%; width: 30pt; float: left; background: #303e44; display: inline-block;"><img style="width: 100%; display: inline-block; margin-top: 3.5pt;" src="{{ asset('images/left-arrow.svg') }}"></div>
+		<div style="height: calc(25pt + 10pt); background: #37474F; border-radius: 0 0 2pt 2pt;">
+			<div style="border-radius: 0 0 0 2pt; height: 100%; width: 30pt; float: left; background: #303e44; display: inline-block;"><img style="width: 100%; display: inline-block; margin-top: 3.5pt;" src="{{ asset('images/left-arrow.svg') }}"></div>
 			<div class="tag"></div>
 			<div class="tag"></div>
 			<div class="tag"></div>
@@ -55,11 +60,11 @@
 			<div class="tag"></div>
 			<div class="tag"></div>
 			<div class="tag"></div>
-			<div style="height: 100%; width: 30pt; background: #303e44; display: inline-block; float: right;"><img style="width: 100%; display: inline-block; margin-top: 3.5pt;" src="{{ asset('images/right-arrow.svg') }}"></div>
+			<div style="border-radius: 0 0 2pt 0; height: 100%; width: 30pt; background: #303e44; display: inline-block; float: right;"><img style="width: 100%; display: inline-block; margin-top: 3.5pt;" src="{{ asset('images/right-arrow.svg') }}"></div>
 		</div>
-		<div style=" width: 100%; margin-top: 14px; font-family: 'Roboto', sans-serif; font-size: 12pt;">
-		<p class="animated fadeInUp" style="display: inline-block; float: left; color: #455A64;">Possible Results:</p>
-		<a class="animated fadeInUp" href="#" style="display: inline-block; float: right; color: #4588F4;">ALL ENTRIES</a>
+		<div style=" width: 100%; margin-top: 10pt; font-family: 'Roboto', sans-serif; font-size: 12pt;">
+			<p class="animated fadeInUp" style="display: inline-block; float: left; color: #546E7A; font-weight: bold;">Possible Results:</p>
+			<a class="animated fadeInUp" href="{{ route('/entries') }}" style="display: inline-block; float: right; color: #4588F4; font-weight: bold;">ALL ENTRIES</a>
 		</div>
 		<div style="column-width: 22%; column-gap: 15px; column-count: 4; height: auto; display: inline-block; overflow-y: hidden;;">
 			@foreach ($entries as $entry)
@@ -105,7 +110,7 @@ $.ajaxSetup({
 		var question = document.getElementById("question").innerHTML;
 		$.ajax({
 			type: "POST",
-   			contentType: "application/json",
+			contentType: "application/json",
 			url: url,
 			data: JSON.stringify({
 				question: question,
