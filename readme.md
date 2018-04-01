@@ -1,4 +1,4 @@
-<p align="center"><img src="http://cyruscuenca.com/host/whatrock-logo.png" width="50%"></p>
+<p align="center"><img src="http://cyruscuenca.com/host/whatrock-logo.png" width="40%"></p>
 
 ## About WhatRock
 
