@@ -13,6 +13,28 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
 
 *{
+	font-family: 'Raleway', sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1b2528;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #36474E; 
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
 }
 
 .text{
@@ -21,8 +43,12 @@
 	line-height: 19pt;
 }
 
+html{
+	min-height: 101%;
+}
+
 html, body{
-	background: #ECEFF1;
+	background: #fff;
 	overflow-x: hidden;
 }
 
@@ -178,11 +204,10 @@ html, body{
 	.search{
 		width: 100%;
 		background: #3A4950;
-		height: 45px;
+		height: 47px;
 		border: none;
 		border-radius: 1.5pt;
 	}
-
 	.search:focus{
 	    background: #fff;
 	    color: #90A4AE;
@@ -203,9 +228,9 @@ html, body{
 	}
 
 	input {  /* Firefox 19+ */
-		text-indent: 16px;
+		text-indent: 17.5px;
 		font-family: 'Open Sans', sans-serif;
-		padding-top: 1.5pt;
+		padding-top: 1.8pt;
 		font-size: 12pt;
 		color: #fff;
 	}
