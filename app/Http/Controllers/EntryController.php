@@ -4,16 +4,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 use Carbon\Carbon;
-use App\{Entry, Category, Photo, Color, Streak, Lustre};
+use App\{Entry, Category, Photo, Color, Streak, Lustre, Tag};
 
 class EntryController extends Controller
 {
+
     public  function index()
     {
-    	// fetch entries with status of 1(published) from database
-    	$entries = Entry::where('status', 1)->latest()->paginate(12);
+        // fetch entries with status of 1(published) from database
+        $entries = Entry::where('status', 1)->latest()->paginate(12);
         $colors = Color::pluck('name', 'id', 'hex');
-    	return view('entries.index', compact('entries', 'colors'));
+        return view('entries.index', compact('entries', 'colors'));
+    }
+
+    public  function search(Request $request)
+    {
+        if (Entry::where('status', 1)->latest()->paginate(8)){
+            $entries = Entry::where(function($query) use ($request) {
+            if($term = $request->get('term')) {
+                $query->orWhere('title', 'like', '%' . $term . '%');
+            }
+            })
+            ->orderBy("id", "desc")
+            ->paginate(8);
+            return view('search.index', compact('entries'));
+        }
     }
 
     public function create()
@@ -22,7 +37,8 @@ class EntryController extends Controller
         $colors = Color::pluck('name', 'id');
         $streaks = Streak::pluck('name', 'id');
         $lustres = Lustre::pluck('name', 'id');
-    	return view('entries.create', compact('categories', 'colors', 'streaks', 'lustres'));
+        $tags = Tag::pluck('name', 'id');
+    	return view('entries.create', compact('categories', 'colors', 'tags', 'streaks', 'lustres'));
     }
 
     public function store()
