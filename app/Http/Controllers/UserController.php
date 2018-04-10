@@ -22,6 +22,13 @@ class UserController extends Controller
         return view('admin.users.index', compact('users', 'roles'));
     }
 
+    public function list()
+    {
+        $users = User::all();
+        $roles = Role::pluck('name', 'id');
+        return view('users.list', compact('users', 'roles'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -49,9 +56,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name)
     {
-        //
+        $user = User::whereName($name)->first();
+        dd($user);
     }
 
     /**

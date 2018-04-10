@@ -12,34 +12,56 @@ class QuestionsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
             $a = new Question();
-            //$a->parent = 1;
             $a->level = 1;
-            //$a->answer_to = 1;
-            $a->content = 'Is it one color?';
+            $a->content = 'Does the rock have grains?';
             $a->save();
 
-            $b = new Question();
-            $b->parent = 1;
-            $b->level = 2;
-            $b->answer_to = 1;
-            $b->content = 'What color is it?';
-            $b->save();
-
-            $c = new Question();
-            $c->parent = 1;
-            $c->level = 2;
-            $c->answer_to = 2;
-            $c->content = 'Is it made up of different color rocks?';
-            $c->save();
-
             $d = new Question();
-            $d->parent = 3;
-            $d->level = 3;
+            $d->parent = 1;
+            $d->level = 2;
             $d->answer_to = 1;
-            $d->content = 'Are the rocks big or small?';
+            $d->content = 'Are the grains big or small?';
             $d->save();
 
+            $b = new Question();
+            $b->parent = 2;
+            $b->level = 3;
+            $b->answer_to = 1;
+            $b->content = 'Are the grains crystals?';
+            $b->save();
+
+            $g = new Question();
+            $g->level = 1;
+            $g->content = 'Is the rock layered?';
+            $g->save();
+
+            $e = new Question();
+            $e->level = 1;
+            $e->content = 'Can you scratch it with your fingernail?';
+            $e->save();
+
+            $h = new Question();
+            $h->parent = 6;
+            $h->level = 2;
+            $h->answer_to = 2;
+            $h->content = 'Can the rock scratch glass?';
+            $h->save();
+
+            $f = new Question();
+            $f->level = 1;
+            $f->content = 'What is it\'s texture like?';
+            $f->save();
+
+            $g = new Question();
+            $g->level = 1;
+            $g->content = 'Does the rock have gas bubbles in it?';
+            $g->save();
+
+            $h = new Question();
+            $h->level = 1;
+            $h->content = 'Does the rock react with hydrochloric acid?';
+            $h->save();
     }
 }

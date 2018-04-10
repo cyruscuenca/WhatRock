@@ -15,9 +15,10 @@
 	}
 	ul{
 		padding-top: 4pt;
+		list-style-type: none;
 	}
 	#sidebar-item-6{
-		background: #455A64;
+		background: #546E7A;
 	}
 </style>
 

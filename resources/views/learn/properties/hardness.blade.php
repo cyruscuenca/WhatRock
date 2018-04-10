@@ -21,7 +21,7 @@ ul{
 				<p style=" margin-left: -1pt; padding: 6pt 0; font-size: 26pt; color: #37474F; font-family: 'Roboto'; font-weight: bold;">Hardness</p>
 
 				<p class="text">Hardness is a measure of how easily a mineral or rock can scratch or be scratched. In the 19th century, mineralogist, Fredrich Mohs created a mineral hardness scale, which is now knows as <i>Mohs hardness scale</i>. The scale rates minerals from 1-10 based on hardness. 10 being the hardest mineral, and 1 being the softest.</p>
-				<table class="table table-striped text" style="border: 1pt solid #DCDCDC; width: 40%; float: right; margin-left: 14pt;">
+				<table class="table table-striped text" style="border: 1pt solid #DCDCDC; width: 42%; float: right; margin-left: 14pt;">
 					<tr>
 						<th>Hardness Number</th>
 						<th>Mineral</th> 

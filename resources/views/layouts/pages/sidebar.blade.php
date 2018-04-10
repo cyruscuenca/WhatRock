@@ -36,7 +36,7 @@
 	<div style="width: 100%; height: 100pt; background: #546E7A;">
 		<p style="display: inline-block; padding: 0 14pt; margin-left: 22pt; border-radius: 1pt; margin-top: 30pt; font-size: 25pt; font-family: 'Roboto'; color: #fff; font-weight: bold; background-color: #455A64;">Directory</p>
 	</div>
-	<ul class="pages-sidebar-menu" style="font-family: 'Roboto'; margin-top: 8pt;">
+	<ul class="pages-sidebar-menu" style="font-family: 'Roboto';">
 		<button class="dropdown-btn">Properties
 			<i class="fa fa-caret-down"></i>
 		</button>

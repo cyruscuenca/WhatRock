@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="margin-top: 35px; padding-bottom: 20px;">
+<div class="container" style="margin-top: calc(60pt + 8%);">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">

@@ -23,18 +23,17 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #1b2528;
+    background: #37474F;
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #36474E; 
-    border-radius: 6px;
+    background: #546d7a; 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+    background: #546d7a; 
 }
 
 .text{
@@ -48,7 +47,7 @@ html{
 }
 
 html, body{
-	background: #fff;
+	background: #ECEFF1;
 	overflow-x: hidden;
 }
 
@@ -72,8 +71,8 @@ html, body{
 	}
 
 	.sidebar {
-		left: -225.5pt;
-		width: 225.5pt;
+		left: -198.5pt;
+		width: 198.5pt;
 		height: 100%;
 		background: rgba(0,0,0,0);
 		z-index: 1;
@@ -83,7 +82,7 @@ html, body{
  		 -moz-transition: all .12s ease-in-out;
  		 -ms-transition: all .12s ease-in-out;
  		 -o-transition: all .12s ease-in-out;
- 		 background: #37474F;
+ 		 background: #546E7A;
 	}
 
 	.sidebar ul li a{
@@ -100,13 +99,13 @@ html, body{
 
 	.sidebar ul li{
 		list-style-type: none;
-		padding-top: 4pt;
+		padding-top: 2pt;
 		font-size: 12.5pt;
 		height: 38pt;
 	}
 
 	.sidebar ul li:hover{
-		background: #455A64;
+		background: #546E7A;
 	}
 
 	.sidebar-label:hover{
@@ -184,16 +183,16 @@ html, body{
 		height: 60px;
 		position: fixed;
 		border-radius: 0px;
-		background: #263238;
+		background: #455A64;
 		z-index: 2;
 	}
 
 	.logo{
 		display: inline-block;
 		float: left;
-		height: 35px;
-		margin-top: 12px;
-		margin-right: 90px;
+		height: 34px;
+		margin-top: 12.5px;
+		margin-right: 57.5px;
 	}
 
 	.body-wrapper{
@@ -203,8 +202,8 @@ html, body{
 
 	.search{
 		width: 100%;
-		background: #3A4950;
-		height: 47px;
+		background: #546E7A;
+		height: 47.5px;
 		border: none;
 		border-radius: 1.5pt;
 	}
@@ -228,7 +227,7 @@ html, body{
 	}
 
 	input {  /* Firefox 19+ */
-		text-indent: 17.5px;
+		text-indent: 18px;
 		font-family: 'Open Sans', sans-serif;
 		padding-top: 1.8pt;
 		font-size: 12pt;
