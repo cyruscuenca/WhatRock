@@ -22,18 +22,12 @@
 
 
 </head>
-<body onload="finishNanobar()">
-  <style type="text/css">
-    
-  </style>
-  <div class="nanobar" style="position: fixed;">
-    <div class="bar"></div>
-  </div>
+<body >
 <div class="navbar" >
          <label for="menu-toggle" class="hamburger noselect">&#9776;</label>
 
          <a href="http://whatrock.local"><img src="{{ asset('images/logorock.png') }}" class="logo"></a>   
-         <div style="height: 48px; width: 32.5%; position: relative; display: inline-block; float: left; margin-top: 6px;">
+         <div style="height: 47.5px; width: 30.75%; position: relative; display: inline-block; float: left; margin-top: 6px;">
          {!! Form::open(['action' => 'EntryController@search', 'method' => 'GET', 'role' => 'search']) !!}
             {!! Form::text('term', Request::get('term'), ['class' => 'search', 'placeholder' => 'Search entries and lessons']) !!}
               <button style="z-index: 2; position: absolute; display: inline-block; border: none; background: rgba(0,0,0,0); top: 9pt; right: 2.6pt;" type="submit">
@@ -45,8 +39,8 @@
          {!! Form::close() !!}
          </div>
          <div style="margin-top: 14pt;">
-         <a href="{{ route('/identify/index') }}" style="margin-left: 50px; position: relative; color: #fff;">ID a Rock</a>
-         <a style="position: relative; color: #fff; margin-left: 50px">Store</a>
+         <a href="{{ route('/identify/index') }}" style="margin-left: 48px; position: relative; color: #fff;">ID a Rock</a>
+         <a style="position: relative; color: #fff; margin-left: 48px">Store</a>
          </div>
 
       @guest
@@ -110,20 +104,3 @@
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
-
-<script src="{{ asset('js/nanobar.min.js') }}">
-  function finishNanobar() {
-    var options = {
-    id: 'nanobar',
-    };
-
-  var nanobar = new Nanobar( options );
-
-  //move bar
-  nanobar.go( 30 ); // size bar 30%
-  nanobar.go( 76 ); // size bar 76%
-
-  // size bar 100% and and finish
-  nanobar.go(100);
-  }
-</script>
