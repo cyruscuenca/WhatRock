@@ -7,15 +7,22 @@
 </style>
 @extends('layouts.pages.sidebar')
 <style type="text/css">
-	ul li{
-		margin-top: 4pt;
+  li{
+		padding-top: 3pt;
+		padding-bottom: 3pt;
 	}
 	.learn-directory{
-		padding-top: 10pt;
+		padding-top: 1pt;
+		margin-left: -18pt;
+	}
+	.learn-directory > li{
+		margin-top: 4pt;
 	}
 	ul{
-		padding-top: 4pt;
-		list-style-type: none;
+		margin-bottom: 0pt;
+		margin-top: -4pt;
+		padding-left: -4pt;
+		list-style-type: square;
 	}
 	#sidebar-item-6{
 		background: #546E7A;
@@ -28,31 +35,32 @@
 			<div style="padding: 12pt 16pt;">
 				<p style=" margin-left: -1pt; padding: 6pt 0; font-size: 26pt; color: #37474F; font-family: 'Roboto'; font-weight: bold;">Learn</p>
 
-				<p class="text">In addition to tools and a rock database, <a href="https://whatrock.org">whatrock.org</a> provides free lessons on concepts in the field of geology. All lessons are free to distribute for educational purposes.</p>
+				<p class="text">In addition to tools and a rock database, <a href="https://whatrock.org">whatrock.org</a> provides free geology lessons. All lessons are free to distribute for educational purposes.</p>
 				<ul class="learn-directory">
 					<li>
-						<p><a href="{{route('/learn/properties')}}">Properties</a></p>
+						<p><a class="text" href="{{route('/learn/properties')}}">Properties</a></p>
 							<ul>
-								<li><a href="{{route('/learn/properties/hardness')}}">Hardness<a></li>
-								<li><a href="{{route('/learn/properties/breakage')}}">Breakage<a></li>
-							</ul>
-					</li>
-					<li>Plate Tectonics</li>
-					<li><p>Earthquakes</p>
-
-							<ul>
-								<li><a href="{{route('/learn/properties/breakage')}}">Richter magnitude scale<a></li>
+								<li><a class="text" href="{{route('/learn/properties/hardness')}}">Hardness<a></li>
+								<li><a class="text" href="{{route('/learn/properties/breakage')}}">Breakage<a></li>
+								<li><a class="text" href="{{route('/learn/properties/cleavage')}}">Cleavage<a></li>
 							</ul>
 					</li>
 					<li>
-						<p>Water</p>
+						<p class="text">Earthquakes</p>
 							<ul>
-								<li><a href="{{route('/learn/properties/breakage')}}">Groundwater<a></li>
-								<li><a href="{{route('/learn/properties/breakage')}}">Streams<a></li>
-								<li><a href="{{route('/learn/properties/breakage')}}">Glaciers<a></li>
+								<li><a class="text" href="{{route('/learn/properties/breakage')}}">Plate tectonics<a></li>
+								<li><a class="text" href="{{route('/learn/properties/breakage')}}">Richter magnitude scale<a></li>
 							</ul>
 					</li>
-					<li>Landscapes</li>
+					<li>
+						<p class="text">Water</p>
+							<ul>
+								<li><a class="text" href="{{route('/learn/properties/breakage')}}">Groundwater<a></li>
+								<li><a class="text" href="{{route('/learn/properties/breakage')}}">Streams<a></li>
+								<li><a class="text" href="{{route('/learn/properties/breakage')}}">Glaciers<a></li>
+							</ul>
+					</li>
+					<li><p class="text">Landscapes</p></li>
 				</ul>
 		</div>
 		</div>

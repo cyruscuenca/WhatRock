@@ -27,4 +27,7 @@ class PagesController extends Controller
     public function breakage(){
         return view('learn/properties/breakage');
     }
+    public function cleavage(){
+        return view('learn/properties/cleavage');
+    }
 }

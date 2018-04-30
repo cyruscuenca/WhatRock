@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\{Question, Answer, Entry, Color};
+use App\{Question, Answer, Entry, Tag};
 
 class QuestionController extends Controller
 {
@@ -13,10 +13,11 @@ class QuestionController extends Controller
         // fetch published entries from database
         $entries = Entry::where('status', 1)->latest()->paginate(12);
 
-    	// fetch first question from database
+        $categories = Tag::where('type_id', 2)->pluck('name');
+        $colors = Tag::where('type_id', 4)->pluck('hex');
+    	  // fetch first question from database
         $question = Question::where('level', 1)->where('id', 1)->first();
-
-        return view('identify.index')->with('question', $question)->with('entries', $entries);
+        return view('identify.index', compact('entries', 'colors', 'categories'))->with('question', $question);
     }
 
     public function get(Request $request)

@@ -9,10 +9,11 @@
 	}
 	.dropdown-container {
 		display: none;
-		padding-left: 16pt;
+		padding-left: 28pt;
 	}
 	.sidenav a, .dropdown-btn {
 		text-decoration: none;
+		display: block;
 		font-size: 12.5pt;
 		color: #fff;
 		background-color: #455A64;
@@ -26,7 +27,7 @@
 		margin-top: 12pt;
 		margin-left: 2pt;
 	}
-	ul{
+	.pages-sidebar-menu{
 		list-style:none;
 		padding-left: 0;
 	}
@@ -37,34 +38,58 @@
 		<p style="display: inline-block; padding: 0 14pt; margin-left: 22pt; border-radius: 1pt; margin-top: 30pt; font-size: 25pt; font-family: 'Roboto'; color: #fff; font-weight: bold; background-color: #455A64;">Directory</p>
 	</div>
 	<ul class="pages-sidebar-menu" style="font-family: 'Roboto';">
-		<button class="dropdown-btn">Properties
-			<i class="fa fa-caret-down"></i>
+		<button class="dropdown-btn">
+			<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+			Properties
 		</button>
 		<div class="dropdown-container">
 			<div>
-				<button class="dropdown-btn" style="font-weight: lighter;">Hardness
-					<i class="fa fa-caret-down"></i>
+				<button class="dropdown-btn" style="font-weight: lighter;">
+					<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+					Hardness
 				</button>
 			</div>
 			<div>
-				<button class="dropdown-btn" style="font-weight: lighter;">Luster
-					<i class="fa fa-caret-down"></i>
+				<button class="dropdown-btn" style="font-weight: lighter;">
+					<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+					Luster
+				</button>
+			</div>
+			<div>
+				<button class="dropdown-btn" style="font-weight: lighter;">
+					<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+					Cleavage
+				</button>
+			</div>
+		</div>
+		<button class="dropdown-btn">
+			<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+			Earthquakes
+		</button>
+		<div class="dropdown-container">
+			<div>
+				<button class="dropdown-btn" style="font-weight: lighter;">
+					<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+					Plate tectonics
+				</button>
+			</div>
+			<div>
+				<button class="dropdown-btn" style="font-weight: lighter;">
+					<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+					Richter magnitude scale
 				</button>
 			</div>
 		</div>
 		<div>
-			<button class="dropdown-btn">Plate tectonics
-				<i class="fa fa-caret-down"></i>
+			<button class="dropdown-btn">
+				<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+				Landscapes
 			</button>
 		</div>
 		<div>
-			<button class="dropdown-btn">Landscapes
-				<i class="fa fa-caret-down"></i>
-			</button>
-		</div>
-		<div>
-			<button class="dropdown-btn">Geologic history
-				<i class="fa fa-caret-down"></i>
+			<button class="dropdown-btn">
+				<img style="margin-right: 4pt;" src="{{ asset('images/newtab.svg') }}">
+				Geologic history
 			</button>
 		</div>
 	</ul>

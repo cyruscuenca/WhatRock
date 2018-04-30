@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLustreTable extends Migration
+class CreateTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateLustreTable extends Migration
      */
     public function up()
     {
-        Schema::create('lustres', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug')->unique()->index();
             $table->string('name');
-            $table->timestamps();
         });
     }
 
@@ -28,6 +26,6 @@ class CreateLustreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lustres');
+        Schema::dropIfExists('types');
     }
 }

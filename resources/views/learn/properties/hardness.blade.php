@@ -10,7 +10,7 @@ ul{
 	animation-duration: .4s;
 }
 #sidebar-item-6{
-	background: #455A64;
+	background: #4c606b;
 }
 </style>
 @extends('layouts.pages.sidebar')
@@ -24,50 +24,50 @@ ul{
 				<table class="table table-striped text" style="border: 1pt solid #DCDCDC; width: 42%; float: right; margin-left: 14pt;">
 					<tr>
 						<th>Hardness Number</th>
-						<th>Mineral</th> 
+						<th>Mineral</th>
 					</tr>
 					<tr>
 						<td>10</td>
-						<td>Diamond</td> 
+						<td>Diamond</td>
 					</tr>
 					<tr>
 						<td>9</td>
-						<td>Corundom</td> 
+						<td>Corundom</td>
 					</tr>
 					<tr>
 						<td>8</td>
-						<td>Topaz</td> 
+						<td>Topaz</td>
 					</tr>
 					<tr>
 						<td>7</td>
-						<td>Quartz</td> 
+						<td>Quartz</td>
 					</tr>
 					<tr>
 						<td>6</td>
-						<td>Orthoclase</td> 
+						<td>Orthoclase</td>
 					</tr>
 					<tr>
 						<td>5</td>
-						<td>Apitite</td> 
+						<td>Apitite</td>
 					</tr>
 					<tr>
 						<td>4</td>
-						<td>Fluorite</td> 
+						<td>Fluorite</td>
 					</tr>
 					<tr>
 						<td>3</td>
-						<td>Calcite</td> 
+						<td>Calcite</td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td>Gypsum</td> 
+						<td>Gypsum</td>
 					</tr>
 					<tr>
 						<td>1</td>
-						<td>Talc</td> 
+						<td>Talc</td>
 					</tr>
 				</table>
-				<p class="text"><i>Mohs hardness scale</i> is a <i>relative</i> scale, which means that minerals classified with the scale can only scratch minerals that are lower on the scale. For example, Flourite can scrath minerals like Talc and Gypsum, but cannot scratch minerals like Quartz and Diamond.</p>
+				<p class="text"><i>Mohs hardness scale</i> is a <i>relative</i> scale, which means that minerals classified with the scale can only scratch minerals that are lower on the scale. For example, Flourite can scratch minerals like Talc and Gypsum, but cannot scratch minerals like Quartz and Diamond.</p>
 				<p class="text">To determine the hardness of a mineral, use the scale and see which minerals it can scratch or be scratched by. Alternitively, you could always look up your mineral and see what hardness it has been rated at.</p>
 
 

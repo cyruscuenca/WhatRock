@@ -17,8 +17,6 @@ class CreateEntriesTable extends Migration
             $table->increments('id');
             $table->string('slug')->unique()->index();
             $table->integer('photo_id');
-            // 0 = draft
-            // 1 = published
             $table->integer('status')->default(0);
             $table->string('title');
             $table->string('alt_title')->nullable();
@@ -36,6 +34,6 @@ class CreateEntriesTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('entries');
+        Schema::dropIfExists('entries');
     }
 }

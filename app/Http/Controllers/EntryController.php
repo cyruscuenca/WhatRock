@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 use Carbon\Carbon;
-use App\{Entry, Category, Photo, Color, Streak, Lustre, Tag};
+use App\{Entry, Photo, Tag};
 
 class EntryController extends Controller
 {
@@ -13,8 +13,9 @@ class EntryController extends Controller
     {
         // fetch entries with status of 1(published) from database
         $entries = Entry::where('status', 1)->latest()->paginate(12);
-        $colors = Color::pluck('name', 'id', 'hex');
-        return view('entries.index', compact('entries', 'colors'));
+        $categories = Tag::where('type_id', 2)->pluck('name');
+        $colors = Tag::where('type_id', 5)->pluck('hex');
+        return view('entries.index', compact('entries', 'colors', 'categories'));
     }
 
     public function search(Request $request)
@@ -34,12 +35,12 @@ class EntryController extends Controller
 
     public function create()
     {
-        $categories = Category::pluck('name', 'id');
-        $colors = Color::pluck('name', 'id');
-        $streaks = Streak::pluck('name', 'id');
-        $lustres = Lustre::pluck('name', 'id');
-        $tags = Tag::pluck('content', 'id');
-    	return view('entries.create', compact('categories', 'colors', 'tags', 'streaks', 'lustres'));
+        $categories = Tag::where('type_id', 2)->pluck('name');
+        $colors = Tag::where('type_id', 4)->pluck('name');
+        $streaks = Tag::where('type_id', 5)->pluck('name');
+        $lustres = Tag::where('type_id', 3)->pluck('name');
+        $tags = Tag::where('type_id', 1)->pluck('name');
+       	return view('entries.create', compact('categories', 'colors', 'tags', 'streaks', 'lustres'));
     }
 
     public function store()
@@ -55,19 +56,19 @@ class EntryController extends Controller
         $entry = Entry::create($data);
 
         if ($categoryIds = request()->category_id) {
-            $entry->category()->sync($categoryIds);
+            $entry->tag()->sync($categoryIds);
         }
 
         if ($colorIds = request()->color_id) {
-            $entry->color()->sync($colorIds);
+            $entry->tag()->sync($colorIds);
         }
 
         if ($lustreIds = request()->lustre_id) {
-            $entry->lustre()->sync($lustreIds);
+            $entry->tag()->sync($lustreIds);
         }
 
         if ($streakIds = request()->streak_id) {
-            $entry->streak()->sync($streakIds);
+            $entry->tag()->sync($streakIds);
         }
 
         return back();
@@ -79,10 +80,10 @@ class EntryController extends Controller
     }
     public function edit($id)
     {
-        $categories = Category::pluck('name', 'id');
-        $colors = Color::pluck('name', 'id');
-        $streaks = Streak::pluck('name', 'id');
-        $lustres = Lustre::pluck('name', 'id');
+        $categories = Tag::where('type_id', 2)->lists('name', 'id');
+        $colors = Tag::where('type_id', 4)->lists('name', 'id');
+        $streaks = Tag::where('type_id', 5)->lists('name', 'id');
+        $lustres = Tag::where('type_id', 3)->lists('name', 'id');
         $entry = Entry::findOrFail($id);
         return view('entries.edit', compact('entry', 'categories', 'colors', 'streaks', 'lustres'));
 
@@ -160,4 +161,3 @@ class EntryController extends Controller
         return back();
     }
 }
-

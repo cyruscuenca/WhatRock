@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+    <title>{{ $entry->title }} | WhatRock</title>
+
+
 <style type="text/css">
 ul{
 	list-style:none;
