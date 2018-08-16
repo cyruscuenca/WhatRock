@@ -22,6 +22,7 @@ class CreateEntriesTable extends Migration
             $table->string('alt_title')->nullable();
             $table->text('summary');
             $table->text('body');
+            $table->integer('user_id')->unsigned()->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -34,6 +35,6 @@ class CreateEntriesTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('entries');
+        Schema::dropIfExists('entries');
     }
 }
