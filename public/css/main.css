@@ -1,0 +1,147 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans";
+@import "https://fonts.googleapis.com/css?family=IBM+Plex+Sans";
+@font-face {
+  font-family: "ubuntu";
+  src: url(../fonts/Ubuntu-R.ttf) format("truetype"); }
+@font-face {
+  font-family: "ubuntu-l";
+  src: url(../fonts/Ubuntu-L.ttf) format("truetype"); }
+/*# sourceMappingURL=main.css.map */
+* {
+  font-family: "Raleway", sans-serif; }
+
+html {
+  min-height: 101%;
+  background: #ECEFF1;
+  overflow-x: hidden; }
+
+body {
+  background: #ECEFF1;
+  overflow-x: hidden; }
+
+h1 {
+  color: #546E7A; }
+
+h2 {
+  color: #546E7A; }
+
+h3 {
+  color: #546E7A; }
+
+h4 {
+  color: #546E7A; }
+
+h5 {
+  color: #546E7A; }
+
+h6 {
+  color: #546E7A; }
+
+.standard-btn {
+  background: #607D8B;
+  padding: 6.5pt 14pt;
+  color: #fff;
+  border-radius: 2pt;
+  font-weight: bold;
+  font-size: 12pt;
+  border: none; }
+  .standard-btn:hover {
+    color: #fff; }
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.button {
+  height: 42px;
+  margin-top: 4px;
+  width: 104px;
+  font-family: "ubuntu-l";
+  font-size: 11pt;
+  display: inline-block;
+  background: #fff;
+  border: 2px solid #F661A0;
+  color: grey;
+  border: 1px solid #fff; }
+  .button p:hover {
+    color: grey; }
+  .button:hover {
+    color: grey; }
+
+.body-wrapper {
+  width: 100%;
+  margin-top: 60px; }
+
+input {
+  text-indent: 7.5pt;
+  font-family: "Open Sans", sans-serif;
+  padding-top: 2pt;
+  font-size: 12pt;
+  color: #fff; }
+
+.dropdown-menu li a {
+  color: grey;
+  font-family: "ubuntu-l"; }
+
+a {
+  text-decoration: none;
+  color: #039BE5; }
+  a:hover {
+    text-decoration: none;
+    color: #03A9F4; }
+
+.btn-primary {
+  color: grey;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-left: 50px; }
+
+.numbers-container {
+  width: auto;
+  margin-left: calc(50px + 1%);
+  margin-top: 38px; }
+  .numbers-container p {
+    display: inline-block;
+    margin-right: 5%;
+    margin-left: 2px;
+    font-size: 13pt;
+    font-family: "ubuntu-l"; }
+
+ul {
+  list-style-type: none; }
+
+.med-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.14); }
+
+.dynamic-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.14);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .dynamic-shadow:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.14);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+.fixed-width {
+  width: calc(100% - 200pt - 200pt);
+  margin-left: 200pt;
+  margin-right: 200pt; }
+
+.form-control {
+  background: #546E7A;
+  border: none;
+  border-radius: 2pt;
+  min-height: 33.2pt; }
+
+.text {
+  color: #455A64; }
+
+@media (max-width: 1250px) {
+  .fixed-width {
+    width: calc(100% - 20pt - 20pt);
+    margin-left: 20pt;
+    margin-right: 20pt; } }
+
+/*# sourceMappingURL=main.css.map */

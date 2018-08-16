@@ -1,0 +1,99 @@
+.navbar {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  border-radius: 0px;
+  background: #455A64;
+  z-index: 2;
+  top: 30px; }
+
+.logo {
+  display: inline-block;
+  float: left;
+  height: 32px;
+  margin-left: -5px;
+  margin-top: 14px;
+  margin-right: 73.33px; }
+
+.search {
+  width: 100%;
+  background: #546E7A;
+  height: 48px;
+  border: none;
+  border-radius: 2pt;
+  text-indent: 16.8pt; }
+  .search:focus {
+    background: #fff;
+    color: #90A4AE;
+    transition: background 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.14); }
+    .search:focus + button[type=submit] svg#search-icon {
+      fill: #91a2aa; }
+  .search::placeholder {
+    color: #90A4AE;
+    opacity: 1;
+    font-size: 15px; }
+
+#search-icon {
+  fill: #fff; }
+
+.hamburger {
+  padding-left: 2px;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  float: left;
+  margin-left: 20px;
+  margin-top: 16px;
+  font-size: 14pt;
+  color: #fff;
+  cursor: pointer; }
+
+#menu-toggle {
+  display: none; }
+  #menu-toggle:checked ~ .sidebar {
+    display: inline-block;
+    left: 0; }
+
+.sidebar {
+  left: -200pt;
+  width: 200pt;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
+  position: fixed;
+  transition: all 0.12s ease-in-out;
+  -webkit-transition: all 0.12s ease-in-out;
+  -moz-transition: all 0.12s ease-in-out;
+  -ms-transition: all 0.12s ease-in-out;
+  -o-transition: all 0.12s ease-in-out;
+  background: #546E7A; }
+  .sidebar ul {
+    padding-top: 114px;
+    list-style: none;
+    padding-left: 0; }
+    .sidebar ul li {
+      list-style-type: none;
+      padding-top: 2pt;
+      font-size: 12.5pt;
+      height: 38pt; }
+      .sidebar ul li a {
+        color: #fff;
+        padding-left: 50pt;
+        font-family: "Roboto";
+        margin-top: -18.5pt;
+        display: block; }
+      .sidebar ul li img {
+        margin-top: 9pt; }
+      .sidebar ul li:hover {
+        background: #4c606b; }
+
+.sidebar-label {
+  list-style-type: none;
+  padding-top: 6pt;
+  font-size: 12pt;
+  height: 34pt; }
+  .sidebar-label:hover {
+    background: rgba(0, 0, 0, 0); }
+
+/*# sourceMappingURL=navbar.css.map */

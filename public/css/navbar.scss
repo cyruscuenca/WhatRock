@@ -1,0 +1,123 @@
+$color_1: #546E7A;
+$color_2: #fff;
+$color_3: grey;
+$color_4: #90A4AE;
+$color_5: #039BE5;
+$color_6: #03A9F4;
+$color_7: #455A64;
+$font_family_1: "Raleway", sans-serif;
+$font_family_2: "Roboto";
+$font_family_3: "ubuntu-l";
+$font_family_4: "Open Sans", sans-serif;
+.navbar {
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	border-radius: 0px;
+	background: #455A64;
+	z-index: 2;
+	top: 30px;
+}
+.logo {
+	display: inline-block;
+	float: left;
+	height: 32px;
+	margin-left: -5px;
+	margin-top: 14px;
+	margin-right: 73.33px;
+}
+.search {
+	width: 100%;
+	background: #546E7A;
+	height: 48px;
+	border: none;
+	border-radius: 2pt;
+	text-indent: 16.8pt;
+	&:focus {
+		background: #fff;
+		color: $color_4;
+		transition: background 0.2s;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.14);
+		&+button[type=submit] {
+			svg#search-icon {
+				fill: #91a2aa;
+			}
+		}
+	}
+	&::placeholder {
+		color: $color_4;
+		opacity: 1;
+		font-size: 15px;
+	}
+}
+#search-icon {
+	fill: #fff;
+}
+.hamburger {
+	padding-left: 2px;
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+	float: left;
+	margin-left: 20px;
+	margin-top: 16px;
+	font-size: 14pt;
+	color: $color_2;
+	cursor: pointer;
+}
+#menu-toggle {
+	display: none;
+	&:checked {
+		&~.sidebar {
+			display: inline-block;
+			left: 0;
+		}
+	}
+}
+.sidebar {
+	left: -200pt;
+	width: 200pt;
+	height: 100%;
+	background: rgba(0, 0, 0, 0);
+	z-index: 1;
+	position: fixed;
+	transition: all 0.12s ease-in-out;
+	-webkit-transition: all 0.12s ease-in-out;
+	-moz-transition: all 0.12s ease-in-out;
+	-ms-transition: all 0.12s ease-in-out;
+	-o-transition: all 0.12s ease-in-out;
+	background: #546E7A;
+	ul {
+		li {
+			list-style-type: none;
+			padding-top: 2pt;
+			font-size: 12.5pt;
+			height: 38pt;
+			a {
+				color: $color_2;
+				padding-left: 50pt;
+				font-family: $font_family_2;
+				margin-top: -18.5pt;
+				display: block;
+			}
+			img {
+				margin-top: 9pt;
+			}
+			&:hover {
+				background: #4c606b;
+			}
+		}
+		padding-top: 114px;
+		list-style: none;
+		padding-left: 0;
+	}
+}
+.sidebar-label {
+	list-style-type: none;
+	padding-top: 6pt;
+	font-size: 12pt;
+	height: 34pt;
+	&:hover {
+		background: rgba(0, 0, 0, 0);
+	}
+}
