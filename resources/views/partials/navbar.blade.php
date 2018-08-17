@@ -16,9 +16,6 @@
           <div style="float: right;">
           <a style="border-radius: 2pt; display: inline-block; color: #fff; margin-right: 22.5pt; background: #00C853; font-weight: bold; height: 34px; width: 72px; margin-top: 12px;"  href="{{ route('login') }}"><p style="padding-left: 12px; margin-top: 6px; font-size: 11pt; color: #fff;">Sign in</p></a>
           </div>
-           <div style="float: right; margin-top: 11.5pt; margin-right: 35pt;">
-             <img style="height: 21pt;" src="{{ asset('images/translate.svg') }}">
-           </div>
       @else
       <li class="dropdown" style="float: right; list-style: none; margin-right: 22pt; margin-top: 15pt;">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" style="float: right;">
