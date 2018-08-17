@@ -1,7 +1,8 @@
-<div style="background: #37474F; background-size: cover; background-position: top; width: 100%;">
+<div style="background: #4a606b; background-image: url({{asset('images/topography.svg')}}); background-size: 62%; width: 100%;">
 	<div class="fixed-width" style="height: 240pt;">
 		<div style="width: 100%; padding-top: 22pt;">
-			<p style="margin-top: -5pt; display: inline-block; font-weight: bold; font-size: 33pt; color: #fff;">Welcome back,
+			<p style="margin-top: -5pt; display: inline-block; font-weight: bold; font-size: 33pt; color: #fff; text-shadow: 4px 4px 4px #37474F;
+">Welcome back,
 				@php {{
 				$name = auth()->user()->name;
 				$splitName = explode(' ', $name, 2);
@@ -32,8 +33,8 @@
 		<a href="{{route('admin/index')}}">
 		<button class="med-shadow" style="display: inline-block; background: #0288D1; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt; margin-left: 25pt;">ADMIN AREA</button>
 		</a>
-                @else
-                @endif
+    @else
+    @endif
 
 		@endif
 	</div>
