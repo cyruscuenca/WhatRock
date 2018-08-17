@@ -150,13 +150,13 @@ class TagsTableSeeder extends Seeder
         //Color
         $color_white = new Tag();
         $color_white->name = 'White';
-        $color_white->hex = '#fff';
+        $color_white->hex = '#fdfefe';
         $color_white->type_id = '5';
         $color_white->save();
 
         $color_black = new Tag();
         $color_black->name = 'Black';
-        $color_black->hex = '#000';
+        $color_black->hex = '#17202a';
         $color_black->type_id = '5';
         $color_black->save();
 
@@ -359,7 +359,7 @@ class TagsTableSeeder extends Seeder
         $hardness_10 = new Tag();
         $hardness_10->name = '10';
         $hardness_10->type_id = '6';
-        $hardness_10->save();        
+        $hardness_10->save();
 
         //answer_tag pivot table connections
 
