@@ -1,16 +1,3 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/.idea
-/.vagrant
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
-.env
-<<<<<<< HEAD
-=======
-.phpintel
->>>>>>> ad4c99515fa16c6ab5bb664e81b590884d0e7f65
+/storage
 /vendor
+.env

@@ -151,8 +151,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
-
+    'domain' => '.whatrock.local',
     /*
     |--------------------------------------------------------------------------
     | HTTPS Only Cookies

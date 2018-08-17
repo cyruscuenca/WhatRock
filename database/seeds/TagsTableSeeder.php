@@ -13,15 +13,13 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-    // Tags
-
-        // Misc Tags
+        //Misc Tags
         $fine_grained = new Tag();
         $fine_grained->name = 'Fine Grained';
         $fine_grained->type_id = '1';
         $fine_grained->save();
 
-        // Category
+        //Category
         $category_metamorphic = new Tag();
         $category_metamorphic->name = 'Metamorphic';
         $category_metamorphic->type_id = '2';
@@ -42,7 +40,7 @@ class TagsTableSeeder extends Seeder
         $category_mineral->type_id = '2';
         $category_mineral->save();
 
-        // Lustre
+        //Lustre
         $lustre_dull = new Tag();
         $lustre_dull->name = 'Dull';
         $lustre_dull->type_id = '3';
@@ -78,7 +76,7 @@ class TagsTableSeeder extends Seeder
         $lustre_adamantine->type_id = '3';
         $lustre_adamantine->save();
 
-        // Streak
+        //Streak
         $streak_white = new Tag();
         $streak_white->name = 'White';
         $streak_white->type_id = '4';
@@ -149,7 +147,7 @@ class TagsTableSeeder extends Seeder
         $streak_purple->type_id = '4';
         $streak_purple->save();
 
-        // Color
+        //Color
         $color_white = new Tag();
         $color_white->name = 'White';
         $color_white->hex = '#fff';
@@ -306,7 +304,64 @@ class TagsTableSeeder extends Seeder
         $color_dark_purple->type_id = '5';
         $color_dark_purple->save();
 
-        // answer_tag pivot table connections
+        //Hardness
+        $hardness_1 = new Tag();
+        $hardness_1->name = '1';
+        $hardness_1->type_id = '6';
+        $hardness_1->save();
+
+        $hardness_2 = new Tag();
+        $hardness_2->name = '2';
+        $hardness_2->type_id = '6';
+        $hardness_2->save();
+
+        $hardness_3 = new Tag();
+        $hardness_3->name = '3';
+        $hardness_3->type_id = '6';
+        $hardness_3->save();
+
+        $hardness_4 = new Tag();
+        $hardness_4->name = '4';
+        $hardness_4->type_id = '6';
+        $hardness_4->save();
+
+        $hardness_5 = new Tag();
+        $hardness_5->name = '5';
+        $hardness_5->type_id = '6';
+        $hardness_5->save();
+
+        $hardness_6 = new Tag();
+        $hardness_6->name = '6';
+        $hardness_6->type_id = '6';
+        $hardness_6->save();
+
+        $hardness_7 = new Tag();
+        $hardness_7->name = '7';
+        $hardness_7->type_id = '6';
+        $hardness_7->save();
+
+        $hardness_8 = new Tag();
+        $hardness_8->name = '8';
+        $hardness_8->type_id = '6';
+        $hardness_8->save();
+
+        $hardness_9 = new Tag();
+        $hardness_9->name = '9';
+        $hardness_9->type_id = '6';
+        $hardness_9->save();
+
+        $hardness_10 = new Tag();
+        $hardness_10->name = '10';
+        $hardness_10->type_id = '6';
+        $hardness_10->save();
+
+        //Cleavage and fracture
+        $hardness_10 = new Tag();
+        $hardness_10->name = '10';
+        $hardness_10->type_id = '6';
+        $hardness_10->save();        
+
+        //answer_tag pivot table connections
 
         //$category_igneous->answer()->save(new Answer(['columns' => 'values']));
     }

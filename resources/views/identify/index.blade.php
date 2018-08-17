@@ -2,13 +2,16 @@
 @section('content')
 <style type="text/css">
 .tag{
-	background-image: linear-gradient(to right, #fff 0%, #fff 100%);
-	background-attachment: fixed;
-	margin: 4.5pt 3.5px;
-	height: 25pt;
-	width: 85pt;
-	border-radius: 12.5pt;
+	height: 27pt;
+	border-radius: 13.5pt;
 	display: inline-block;
+	background: #607D8B;
+	color: #fff;
+	margin-left: 5pt;
+}
+.tag p{
+	margin: 5.5pt 20pt;
+	text-align: center;
 }
 .sidebar{
 }
@@ -16,14 +19,6 @@
 	background: #4c606b;
 }
 #sidebar-item-7-text{
-}
-.card{
-	min-height: 180pt;
-}
-.card:hover{
-	-webkit-filter: brightness(105%); /* Safari 6.0 - 9.0 */
-	filter: brightness(108%);
-	transition: filter .25s;
 }
 .fadeInUp{
 	animation-delay: .20;
@@ -43,91 +38,217 @@ a svg:hover .path4 {
 .fadeInLeft{
 	animation-duration: .36s;
 }
-</style>
-<div style="width: 100%; height: 190pt; margin-top: 60px; background: #37474F;">
-	<div style="text-align: left; padding-top: 22pt; width: 68%; margin: 0 auto;">
-		<p style="margin-left: -2.5pt; font-size: 42pt; font-family: 'Open Sans', sans-serif; color: #fff;"  class="animated fadeInLeft" id="question" data-level="{{ $question->level }}">{{ $question->content }}</p>
-		@foreach ($question->answer as $answer)
-		<button class="animated fadeInLeft" onclick="get(this.children[0].innerHTML);" type="button" style="margin-right: 10pt; height: 29pt; border-radius: 1.5pt; display: inline-block; border: none; margin-top: 2pt; color: #fff; background: {{ $answer->button_color }}; width: auto; "><p style="font-weight: bold; margin: 3pt 12.5pt; padding-top: 1.3pt; font-family: 'Roboto', sans-serif; font-size: 12.25pt; text-transform: uppercase;">{{ $answer->content }}</p></button>
-		@endforeach
-	</div>
+.pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5pt; border: 1pt solid #B0BEC5; height: 32pt; width: 32pt; color: #455A64; font-size: 12pt;}
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+	background: #455A64;
+	border: 1pt solid #455A64;
+}
+.accordion {
+	background: none;
+	color: #455A64;
+	font-weight: bold;
+	cursor: pointer;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	background:none;
+	outline:none;
+	padding:0;
+	margin-top: 13pt;
+}
+.accordion:active {
+	background:none;
+	outline:none;
+	padding:0;
+}
+#panel {
+	display: none;
+	overflow: hidden;
+	border: none;
+	background: none;
+	box-shadow: none;
+	font-weight: bold;
+	margin-bottom: 14pt;
+}
+.card{
+	height: 274pt;
+	transition: filter .25s;
+	margin-bottom: 18pt;
+	break-inside: avoid-column;
+	display: block;
+}
+.card:hover{
+	-webkit-filter: brightness(105%); /* Safari 6.0 - 9.0 */
+	filter: brightness(108%);
+	transition: filter .25s;
+}
+.card-container{
+	-moz-column-width: 225pt;
+	-webkit-column-width: 225pt;
+	column-width: 225pt;
+	column-gap: 18pt;
+	height: auto;
+}
+#answer-list{
+	margin: 0; padding: 0; margin-left: 2pt; height: 30pt;
+}
+#answer-list li{
+	margin-right: 12pt; height: 30pt; border-radius: 2pt; border: none; margin-top: 5pt; color: #fff; width: auto; display: inline-block; float: left;
 
-	<button class="" style="animation-duration: .4s; display: inline-block; float: right; background: #fff; border: none; border-radius: 1.6pt; font-family: 'Roboto', sans-serif; height: 30pt; margin-top: 24pt ; margin-right: 16%;">
-		<p style="font-weight: bold; padding: 0 13pt; font-size: 13pt; margin-top: 5.5pt; color: #2F3D43;">SKIP</p>
-	</button>
+}
+#answer-list li p{
+	color: #fff; font-weight: bold; margin: 0 16pt; margin-top: 5.7pt; font-family: 'Roboto', sans-serif; font-size: 12.25pt; text-transform: uppercase;
+}
+</style>
+<div style="width: 100%; height: 180pt; background: #37474F;">
+	<div class="fixed-width" style=" text-align: left; padding-top: 25pt;">
+		<p style="margin-left: -2.25pt; font-size: 38pt; font-family: 'Open Sans', sans-serif; color: #fff;"  class="animated fadeInLeft" id="question" data-level="{{ $question->level }}">{{ $question->content }}</p>
+		<ul id="answer-list">
+		@foreach ($question->answer as $answer)
+		<li class="animated fadeInLeft answer" onclick="getQuestion(this.children[0].innerHTML);" type="button" style="background: {{ $answer->button_color }};">
+			<p>{{ $answer->content }}</p>
+		</li>
+		@endforeach
+		</ul>
+	</div>
+	<div class="fixed-width">
+		<button class="" style="animation-duration: .4s; display: inline-block; float: right; background: #fff; border: none; border-radius: 2pt; font-family: 'Roboto', sans-serif; height: 30pt; margin-top: 15pt ;">
+			<p style="font-weight: bold; padding: 0 13pt; font-size: 13pt; margin-top: 5.5pt; color: #2F3D43;">SKIP</p>
+		</button>
+	</div>
 </div>
-<div style="max-width: 875pt; width: 68%; margin-left: auto; margin-right: auto; padding-bottom: 12.5%; ">
+<div class="fixed-width" style="padding-bottom: 25pt;">
 	<div style="width: 100%; display: inline-block;">
-		<div style=" width: 100%; margin-top: 10pt; font-family: 'Roboto', sans-serif; font-size: 12pt;">
-			<p class="animated fadeInUp" style="display: inline-block; float: left; color: #546E7A; font-weight: bold;">1,032 Results Found</p>
+		<button class="accordion"><p class="animated fadeInUp" style="display: inline-block; float: left; color: #546E7A; font-weight: bold;">1,032 Results Found</p>
 			<a class="animated fadeInUp" href="{{ route('/entries') }}" style="display: inline-block; float: right; color: #546E7A; font-weight: bold;">
 				<svg fill="#546E7A" style="width: 17.5pt; height: 17.5pt; margin-bottom: -4.2pt; margin-right: 3.8pt;" xmlns="http://www.w3.org/2000/svg">
-				<path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
-				<path d="M0 0h24v24H0z" fill="none"/>
-			</svg>FILTER
-		</a>
-	</div>
-	<div style="column-width: 22%; column-gap: 15pt; column-count: 4; height: auto; display: inline-block; overflow-y: hidden;;">
-		@foreach ($entries as $entry)
-		<article class="card animated fadeInUp" style="border-radius: 3pt 3pt 1.85pt 1.85pt; width: 100%; height: auto; margin-bottom: 15pt; background: {{ $colors->hex }}; display: inline-block; break-inside: avoid;">
-			<a href="{{ action('EntryController@show', [$entry->id]) }}">
-				<div style="height: 160pt; width: 100%; border-radius: 1.85pt 1.85pt 0 0; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center;">
-
-				</div>
-				<div style="display: block; letter-spacing: .25px; padding-left: 6%; font-size: 20pt; height: 28px; margin-top: 3.70%; margin-bottom: 3%; color: #fff; font-family: 'Open Sans', sans-serif;">
-					{{ $entry->title }}
-					<p style=" display: inline-block; font-family: 'Open Sans', sans-serif; letter-spacing: .25px;">
-						@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif
-					</p>
-				</div>
-				<div style="display: block; padding-left: 6.5%; font-family: 'Open Sans', sans-serif; margin-bottom: 3%; font-size: 11.5pt; float: left; margin-top: .4%;">
-					@foreach (categories as $category)
-					<a style="color: #fff;" href="../categories/{{ $category->name }}">{{ $category->name }}</a>
-					@endforeach
-				</div>
-				<div style="width: 100%; height: 58pt; padding-top: 28pt; padding-right: 14pt;">
-					<a style="color: #fff; font-family: 'Roboto'; float: right; font-size: 12.5pt;">PIN</a>
-				</div>
+					<path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+					<path d="M0 0h24v24H0z" fill="none"/>
+				</svg>FILTER
 			</a>
-		</article>
-		@endforeach
+		</button>
+		<div id="panel" style="margin-top: 2pt;">
+		</div>
+		<div class="card-container">
+			@foreach ($entries as $entry)
+			<a href="{{ action('EntryController@show', [$entry->slug]) }}">
+				<article class="card"  style="border-radius: 2pt 2pt 2pt 2pt; background: @foreach ($entry->hex as $hex) {{$hex}} @endforeach;color: {{$entry->getTextcolorAttribute()}};">
+					<div style="height: 176pt; width: 100%; border-radius: 1.85pt 1.85pt 0 0; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center;"></div>
+
+					<p style="margin-left: 15pt; margin-top: 8pt; font-size: 17.5pt; height: 20pt; width: 100%; float: left; color: {{$entry->getTextcolorAttribute()}};">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
+
+					@foreach ($entry->category as $category)
+
+					<a style="margin-left: 15pt; height: 35pt; width: 100%; font-size: 12pt; float: left; color: {{$entry->getTextcolorAttribute()}};" href="../categories/{{ $category }}">{{ $category }}</a>
+					@endforeach
+
+					<p style="margin-right: 15pt; float: right; color: {{$entry->getTextcolorAttribute()}}; font-family: 'Roboto'; font-size: 12.5pt;">PIN</p>
+				</article>
+			</a>
+			@endforeach
+		</div>
 	</div>
 </div>
-<div class="text-center">
+<div class="text-center" style="padding-bottom: 32pt;">
 	{!! $entries->links() !!}
 </div>
-</div>
-@endsection
+@include('partials.footer')
 
 <script type="text/javascript"
 src="http://code.jquery.com/jquery-3.3.1.min.js"
 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 crossorigin="anonymous">
+// AJAX setup
 $.ajaxSetup({
 	headers: {
 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 	}
 });
-</script>
 
+</script>
 <script type="text/javascript">
-	var url = "https://whatrock.local/questions/get";
-	function get(answer) {
-		var question = document.getElementById("question").innerHTML;
-		$.ajax({
-			type: "POST",
-			contentType: "application/json",
-			url: url,
-			data: JSON.stringify({
-				question: question,
-				answer: answer,
-			}),
-			processData: false,
-		})
-		.done(function(data) {
-			console.log(data )
+var url = "http://identify.whatrock.local/questions/get";
+function getQuestion(answer) {
+	var question = document.getElementById("question").innerHTML;
+	$.ajax({
+		type: "POST",
+		contentType: "application/json",
+		url: url,
+		data: JSON.stringify({
+			question: question,
+			answer: answer,
+		}),
+		processData: false,
+	})
+	.done(function(data) {
 
-			document.getElementById("question").innerHTML = data.question;
-		})
-	}
+		// Console log for debugging
+		console.log(data)
+
+		// Get question via DOM
+		document.getElementById("question").innerHTML = data.question;
+		// Define answer-list
+		var answerList = document.getElementById('answer-list');
+		// Create new empty answer
+		var newAnswer = document.createElement('li');
+		// Define panel
+		var tagList = document.getElementById('panel');
+		// Create new empty tag
+		var newTag = document.createElement('div');
+		// Populate tag
+		newTag.innerHTML = '<div class="tag"><p>'+data.tag+'</p></div>';
+		// Populate answer
+		// newAnswer.innerHTML = '<li class="animated fadeInLeft answer" onclick="get(this.children[0].innerHTML);" type="button" style="background: {{ $answer->button_color }};"><p>'+data.answer+'</p></li>';
+
+		// Console logs for debugging
+		//console.log(newAnswer);
+		console.log(newTag);
+
+		// Remove all answer buttons from #answer-list
+		while (answerList.firstChild) {
+		    answerList.removeChild(answerList.firstChild);
+		}
+
+		function renderAnswers(data) {
+	    for(var i = 0; i < data.answer.length; i++) {
+					var nodes;
+	        // nodes += "<li>" + data[i] + "</li>";
+					// Append newAnswer
+					var newAnswer = document.createElement('li');
+					newAnswer.innerHTML = data.answer[i].content;
+					answerList.appendChild(newAnswer);
+
+					console.log(newAnswer)
+	    }
+		}
+		renderAnswers(data);
+		//Append newTag to filter panel
+		tagList.appendChild(newTag);
+
+	})
+}
 </script>
+<script>
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+for (i = 0; i < acc.length; i++) {
+	acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.display === "block") {
+			panel.style.display = "none";
+		} else {
+			panel.style.display = "block";
+		}
+	});
+}
+
+</script>
+@endsection

@@ -13,9 +13,6 @@ class TypesTableSeeder extends Seeder
      */
     public function run()
     {
-        $type_category = new Type();
-        $type_category->name = 'Miscellaneous';
-        $type_category->save();
 
         $type_category = new Type();
         $type_category->name = 'Category';
@@ -42,8 +39,12 @@ class TypesTableSeeder extends Seeder
         $type_color->save();
 
         $type_color = new Type();
-        $type_color->name = 'Crystal Structure';
+        $type_color->name = 'Crystal structure';
         $type_color->save();
+
+        $type_category = new Type();
+        $type_category->name = 'Miscellaneous';
+        $type_category->save();
 
     }
 }

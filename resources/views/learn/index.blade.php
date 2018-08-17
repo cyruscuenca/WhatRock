@@ -60,7 +60,7 @@
 								<li><a class="text" href="{{route('/learn/properties/breakage')}}">Glaciers<a></li>
 							</ul>
 					</li>
-					<li><p class="text">Landscapes</p></li>
+					<li><a class="text" href="{{route('/learn/properties/breakage')}}">Landscapes<a></li>
 				</ul>
 		</div>
 		</div>

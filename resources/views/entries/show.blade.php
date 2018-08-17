@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <title>{{ $entry->title }} | WhatRock</title>
-
-
+<title>{{ $entry->title }} | WhatRock</title>
 <style type="text/css">
 ul{
 	list-style:none;
@@ -17,89 +15,119 @@ ul{
 	animation-duration: .40s;
 }
 a svg:hover .path4 {
-    fill: #afbbd2; 
+	fill: #afbbd2;
 }
 .path4{
 	fill: #cfd8e4;
 }
 </style>
-@foreach ($entry->color as $color)
-<div class="animated slideInRight" style="width: 275pt; height: 100%; position: fixed; background: {{ $color->hex }}; margin-top: 60px; float: right; color: #fff; right: 0;">
+<style>
+.accordion {
+	background: none;
+    color: #455A64;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+	background:none;
+	outline:none;
+	padding:0;
+	margin-top: 13pt;
+}
+.accordion:active {
+	background:none;
+	outline:none;
+	padding:0;
+}
+.panel {
+    display: none;
+    overflow: hidden;
+		background: none;
+		box-shadow: none;
+}
+</style>
+@foreach ($entry->hex as $hex)
+<div class="animated slideInRight med-shadow" style="width: 275pt; height: 100%; position: fixed; background: {{ $hex }}; margin-top: 60px; float: right; color: #fff; right: 0;">
 	@endforeach
 
 	<img style="width: 100%; " src="/storage/{{ $entry->photo->photo() }}" alt="Photo of {{$entry->title}}">
 
-	<p style="color: #fff; padding-top: 10pt; margin-left: 20pt; margin-top: 12pt;  font-size: 24pt; font-weight: bold;">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
+	<p style="color: {{$entry->getTextcolorAttribute()}}; margin-left: 20pt; margin-top: 20pt; font-size: 24pt; font-weight: bold;">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
 
-	<ul style="margin-left: 21pt; margin-top: 22pt; ">
+	<ul style="margin-left: 21pt; margin-top: 18pt; color: {{$entry->getTextcolorAttribute()}};">
 		<li>
 			@foreach ($entry->category as $category)
-			<p style="color: #fff; font-size: 11pt;"><strong>Category:</strong> <a style="color: #fff;" href="../categories/{{ $category->name }}">{{ $category->name }}</a></p>
+			<p style="font-size: 11pt;"><strong>Category:</strong> <a href="../categories/{{ $category }}">{{ $category }}</a></p>
 			@endforeach
 		</li>
 		<li style="margin-bottom: 30px;">
-			<p style="color: #fff; font-size: 11pt;"><strong>Subcategory:</strong> <a style="color: #fff;">Volcanic Glass</a></p>
+			<p style="font-size: 11pt;"><strong>Subcategory:</strong> <a style="color: #fff;">Volcanic Glass</a></p>
 		</li>
 		<li>
-			<p style="color: #fff; font-size: 11pt;"><strong>Mohs scale hardness:</strong> 5–6</p>
+			<p style="font-size: 11pt;"><strong>Mohs scale hardness:</strong> 5–6</p>
 		</li>
 		<li>
-			<p style="color: #fff; font-size: 11pt;"><strong>Optical properties:</strong> Translucent</p>
+			<p style="font-size: 11pt;"><strong>Optical properties:</strong> Translucent</p>
 		</li>
 		<li>
 			@foreach ($entry->color as $color)
-			<p style="color: #fff; font-size: 11pt;"><strong>Color:</strong> <a style="color: #fff;" href="../colors/{{ $color->name }}">{{ $color->name }}</a></p>
+			<p style="font-size: 11pt;"><strong>Color:</strong> <a style="color: #fff;" href="../colors/{{ $color }}">{{ $color }}</a></p>
 			@endforeach
 		</li>
 		<li>
 			@foreach ($entry->lustre as $lustre)
-			<p style="color: #fff; font-size: 11pt;"><strong>Lustre:</strong> <a style="color: #fff;" href="../lustres/{{ $lustre->name }}">{{ $lustre->name }}</a></p>
+			<p style="font-size: 11pt;"><strong>Lustre:</strong> <a style="color: #fff;" href="../lustres/{{ $lustre }}">{{ $lustre }}</a></p>
 			@endforeach
 		</li>
 		<li>
 			@foreach ($entry->streak as $streak)
-			<p style="color: #fff; font-size: 11pt;"><strong>Streak:</strong> <a style="color: #fff;" href="../streaks/{{ $streak->name }}">{{ $streak->name }}</a></p>
+			<p style="font-size: 11pt;"><strong>Streak:</strong> <a style="color: #fff;" href="../streaks/{{ $streak }}">{{ $streak }}</a></p>
 			@endforeach
 		</li>
-		<li>
-			<p style="color: #fff; font-size: 11pt;"><strong>Fracture:</strong> Conchoidal</p>
-		</li>
-		<li>
-			<p style="color: #fff; font-size: 11pt;"><strong>Specific gravity:</strong> c. 2.4</p>
-		</li>
+		<li><p style="font-size: 11pt;"><strong>Fracture:</strong> Conchoidal</p></li>
+		<li><p style="font-size: 11pt;"><strong>Specific gravity:</strong> c. 2.4</p></li>
 	</ul>
+			<p style="font-size: 11pt; margin-left: 21pt;"><strong>Last updated: </strong>{{ $entry->updated_at->diffForHumans() }}</p>
 </div>
-<article style="margin-top: 50px; max-width: 575pt; width: 55%; margin-right: auto; margin-left: auto;">
+<div style="height: 500pt;; width: 275pt; float: right; display: inline-block;"></div>
+<div style="width: calc(100% - 275pt); display: inline-block;">
+<article style="width: 600pt; margin-right: 50pt; float: right;">
 	<div>
 		@if($entry->photo)
 		<div>
-			
+
 		</div>
 		@endif
 	</div>
 	<div style="overflow-y: hidden; margin-top: calc(40px + 50px);">
+		<p class="animated fadeInUp" style="color: #455A64; font-weight: bold;">Summary</p>
 		<div class="animated fadeInUp" style="background: #fff; border-radius: 2pt;">
 			<p class="text" style="padding: 12pt 16pt;">{{ $entry->summary }}</p>
 		</div>
-		<div class="animated fadeInUp" style="animation-delay: .006s; border-radius: 2pt; background: #fff; margin-top: 40px;">
-			<div style="margin: 16pt; padding-top: 10pt; padding-bottom: 10pt;">
-				<p class="text">{!!html_entity_decode($entry->body)!!}</p>
+		<p class="animated fadeInUp" style="animation-delay: .03s; margin-top: 22pt; color: #455A64; font-weight: bold;">Body</p>
+		<div class="animated fadeInUp" style="animation-delay: .05s; border-radius: 2pt; background: #fff;">
+			<div style="margin: 10pt; padding: 8pt; padding-bottom: 10pt; color: #455A64; padding-top: 16pt; padding-bottom: 16pt;">
+				{!!html_entity_decode($entry->body)!!}
 				<a href="{{ action('EntryController@edit', [$entry->id]) }}">Edit</a>
 			</div>
 		</div>
-		<div class="animated fadeInUp" style="animation-delay: .15s; width: 100%; height: 30pt; margin-top: 30pt; margin-bottom:28pt;">
+		<button class="accordion">Contributers <img style="float: right;" src="{{asset('images/down-arrow-dark.svg')}}"></button>
+		<div class="panel" style="margin-top: 10pt;">
+			  <div style="padding-top: 10pt;">
+				  <div style="width: 34pt; height: 34pt; border-radius: 50%; background-image: linear-gradient(20deg, #43e97b 0%, #38f9d7 100%); display: inline-block;">
+              <p style="font-size: 16pt; padding-top: 4pt; padding-left: 11.5pt; font-weight: bold; color: #fff;" class="initial">{{ substr($entry->user->name, 0, 1) }}</p>
+          </div>
+					<p style="font-size: 14pt; color: #455A64; display: inline-block; margin-left: 12pt;">{{$entry->user->name}}</p>
+			</div>
+		</div>
+		<div class="animated fadeInUp" style="animation-delay: .18s; width: 100%; height: 30pt; margin-top: 30pt; margin-bottom:28pt;">
 			<div style="width: 30pt; height: 30pt; margin-left: calc(51% - 28pt); display: block;">
 				<a href="{{ url('/') }}">
 					<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-					<svg  
+					<svg
 					height="30pt" width="30pt"
-					xmlns:dc="http://purl.org/dc/elements/1.1/"
-					xmlns:cc="http://creativecommons.org/ns#"
-					xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-					xmlns:svg="http://www.w3.org/2000/svg"
-					xmlns="http://www.w3.org/2000/svg"
-					xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-					xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
 					sodipodi:docname="favicon.svg"
 					id="svg10"
 					preserveAspectRatio="xMidYMid meet"
@@ -111,15 +139,6 @@ a svg:hover .path4 {
 					<defs
 					id="defs14" />
 					<sodipodi:namedview
-					inkscape:current-layer="svg10"
-					inkscape:window-maximized="1"
-					inkscape:window-y="25"
-					inkscape:window-x="-9"
-					inkscape:cy="166.66667"
-					inkscape:cx="166.66667"
-					inkscape:zoom="0.708"
-					showgrid="false"
-					id="namedview12"
 					inkscape:window-height="1020"
 					inkscape:window-width="1920"
 					inkscape:pageshadow="2"
@@ -132,7 +151,6 @@ a svg:hover .path4 {
 					pagecolor="#ffffff" />
 					<metadata
 					id="metadata2">
-					Created by potrace 1.15, written by Peter Selinger 2001-2017
 					<rdf:RDF>
 					<cc:Work
 					rdf:about="">
@@ -162,4 +180,21 @@ a svg:hover .path4 {
 </div>
 </div>
 </article>
+</div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
 @endsection
