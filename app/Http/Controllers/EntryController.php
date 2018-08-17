@@ -49,7 +49,7 @@ class EntryController extends Controller
     {
         $rules = [
             'title' => ['required', 'min:2', 'max:40', 'unique:entries'],
-            'summary' => ['required', 'min:100', 'max:400', 'unique:entries'],
+            'summary' => ['required', 'min:100', 'max:450', 'unique:entries'],
             'body' => ['required', 'min:250', 'max:5000', 'unique:entries'],
             'photo_id' => ['required|image'],
             'photo_id' => ['dimensions:min_width=500,max_width=1920,min_height=500,max_height=1920'],
