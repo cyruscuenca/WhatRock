@@ -13,4 +13,8 @@ class Answer extends Model
     {
     	return $this->belongsToMany(Question::class);
     }
+    public function tag()
+    {
+    	return $this->belongsToMany(Tag::class);
+    }
 }
