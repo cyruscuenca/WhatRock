@@ -49,7 +49,7 @@ a svg:hover .path4 {
 }
 </style>
 @foreach ($entry->hex as $hex)
-<div class="animated slideInRight med-shadow" style="width: 275pt; height: 100%; position: fixed; background: {{ $hex }}; margin-top: 60px; float: right; color: #fff; right: 0;">
+<div class="animated slideInRight med-shadow" style="width: 275pt; height: 100%; position: fixed; background: {{ $hex }};float: right; color: #fff; right: 0;">
 	@endforeach
 
 	<img style="width: 100%; " src="/storage/{{ $entry->photo->photo() }}" alt="Photo of {{$entry->title}}">
