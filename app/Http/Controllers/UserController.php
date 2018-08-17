@@ -8,6 +8,8 @@ use App\Role;
 
 use App\User;
 
+use App\Entry;
+
 class UserController extends Controller
 {
     /**
@@ -19,7 +21,7 @@ class UserController extends Controller
     {
         $users = User::all();
         $roles = Role::pluck('name', 'id');
-        return view('admin.users.index', compact('users', 'roles'));
+        return view('users.index', compact('users', 'roles'));
     }
 
     public function list()
@@ -47,7 +49,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $users = User::all();
+        $roles = Role::pluck('name', 'id');
+        return view('users.index', compact('users', 'roles'));
     }
 
     /**
@@ -56,10 +60,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($name)
+    public function show($slug)
     {
-        $user = User::whereName($name)->first();
-        dd($user);
+        $user = User::whereSlug($slug)->first();
+        return view('users.show.index', compact('user'));
     }
 
     /**
@@ -68,6 +72,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function entries($slug)
+    {
+        $user = User::whereSlug($slug)->first();
+        $entries = Entry::where('user_id', $user->id)->latest()->paginate(12);
+        return view('users.show.entries', compact('user', 'entries'));
+    }
+
     public function edit($id)
     {
         //
@@ -97,5 +109,17 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function dashboard()
+    {
+        $user_id = auth()->user()->id;
+        $entries = Entry::where($user_id, 'author');
+        return view('dashboard.index');
+    }
+    public function userlist()
+    {
+        $users = User::latest()->paginate(12);
+        return view('admin.users.index')->with('users', $users);
     }
 }

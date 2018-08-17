@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Storage;
 use Carbon\Carbon;
 use App\{Entry, Photo, Tag};
+use Session;
+use Illuminate\Support\Facades\Auth;
 
 class EntryController extends Controller
 {
@@ -12,7 +14,7 @@ class EntryController extends Controller
     public function index()
     {
         // fetch entries with status of 1(published) from database
-        $entries = Entry::where('status', 1)->latest()->paginate(12);
+        $entries = Entry::where('status', 2)->latest()->paginate(12);
         $categories = Tag::where('type_id', 2)->pluck('name');
         $colors = Tag::where('type_id', 5)->pluck('hex');
         return view('entries.index', compact('entries', 'colors', 'categories'));
@@ -20,7 +22,7 @@ class EntryController extends Controller
 
     public function search(Request $request)
     {
-        if (Entry::where('status', 1)->latest()->paginate(8)){
+        if (Entry::where('status', 2)->latest()->paginate(8)){
             $term = $request->get('term');
             $entries = Entry::where(function($query) use ($request) {
             if($term = $request->get('term')) {
@@ -35,18 +37,38 @@ class EntryController extends Controller
 
     public function create()
     {
-        $categories = Tag::where('type_id', 2)->pluck('name');
-        $colors = Tag::where('type_id', 4)->pluck('name');
-        $streaks = Tag::where('type_id', 5)->pluck('name');
-        $lustres = Tag::where('type_id', 3)->pluck('name');
-        $tags = Tag::where('type_id', 1)->pluck('name');
+        $categories = Tag::where('type_id', 2)->pluck('name', 'id');
+        $colors = Tag::where('type_id', 5)->pluck('name', 'id');
+        $streaks = Tag::where('type_id', 4)->pluck('name', 'id');
+        $lustres = Tag::where('type_id', 3)->pluck('name', 'id');
+        $tags = Tag::where('type_id', 1)->pluck('name', 'id');
        	return view('entries.create', compact('categories', 'colors', 'tags', 'streaks', 'lustres'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $rules = [
+            'title' => ['required', 'min:2', 'max:40', 'unique:entries'],
+            'summary' => ['required', 'min:100', 'max:400', 'unique:entries'],
+            'body' => ['required', 'min:250', 'max:5000', 'unique:entries'],
+            'photo_id' => ['required|image'],
+            'photo_id' => ['dimensions:min_width=500,max_width=1920,min_height=500,max_height=1920'],
+            'category_id' => ['required'],
+            'lustre_id' => ['required'],
+            'streak_id' => ['required'],
+            'color_id' => ['required'],
+            'tag_id' => ['required'],
+        ];
+
+        $messages = [
+            'photo_id.mimes' => 'Your image must be a JPG/JPEG, or a PNG',
+        ];
+
+        $this->validate($request, $rules, $messages);
         $data = request()->all();
         $data['slug'] = str_slug(request()->title);
+        $data['user_id'] = Auth::user()->id;
+
 
         if ($file = request()->file('photo_id')) {
             $photo = $file->store('images', 'public');
@@ -54,42 +76,67 @@ class EntryController extends Controller
         }
 
         $entry = Entry::create($data);
+        $entry->tag()->detach();
 
-        if ($categoryIds = request()->category_id) {
-            $entry->tag()->sync($categoryIds);
+        if ($request->input('category_id') != NULL) {
+          $category_id = $request->input('category_id');
+          $entry->tag()->attach($category_id);
+        }
+        if ($request->input('lustre_id') != NULL) {
+          $lustre_id = $request->input('lustre_id');
+          $entry->tag()->attach($lustre_id);
+        }
+        if ($request->input('streak_id') != NULL) {
+          $streak_id = $request->input('streak_id');
+          $entry->tag()->attach($streak_id);
+        }
+        if (request()->color_id != NULL) {
+          $color_id = request()->color_id;
+          $entry->tag()->attach($color_id);
+        }
+        if (request()->tag_id != NULL) {
+          $tag_id = request()->tag_id;
+          $entry->tag()->attach($tag_id);
         }
 
-        if ($colorIds = request()->color_id) {
-            $entry->tag()->sync($colorIds);
-        }
-
-        if ($lustreIds = request()->lustre_id) {
-            $entry->tag()->sync($lustreIds);
-        }
-
-        if ($streakIds = request()->streak_id) {
-            $entry->tag()->sync($streakIds);
-        }
+        Session::flash('flash_message', 'Your entry has been submitted successfully!');
 
         return back();
     }
-    public function show($id)
+    public function show($slug)
     {
-        $entry = Entry::findOrFail($id);
+        $entry = Entry::whereSlug($slug)->first();
         return view('entries.show', compact('entry'));
     }
     public function edit($id)
     {
-        $categories = Tag::where('type_id', 2)->lists('name', 'id');
-        $colors = Tag::where('type_id', 4)->lists('name', 'id');
-        $streaks = Tag::where('type_id', 5)->lists('name', 'id');
-        $lustres = Tag::where('type_id', 3)->lists('name', 'id');
+        $categories = Tag::where('type_id', 2)->pluck('name', 'id');
+        $colors = Tag::where('type_id', 5)->pluck('name', 'id');
+        $streaks = Tag::where('type_id', 4)->pluck('name', 'id');
+        $lustres = Tag::where('type_id', 3)->pluck('name', 'id');
+        $tags = Tag::where('type_id', 1)->pluck('name', 'id');
         $entry = Entry::findOrFail($id);
-        return view('entries.edit', compact('entry', 'categories', 'colors', 'streaks', 'lustres'));
+        return view('entries.edit', compact('entry', 'categories', 'colors', 'streaks', 'lustres', 'tags'));
 
     }
-    public function update($id)
+    public function update($id, Request $request)
     {
+        $rules = [
+            'title' => ['required', 'min:2', 'max:40'],
+            'summary' => ['required', 'min:100', 'max:400'],
+            'body' => ['required', 'min:250', 'max:5000'],
+            'photo_id' => 'required|image',
+            'category_id' => ['required'],
+            'lustre_id' => ['required'],
+            'streak_id' => ['required'],
+            'color_id' => ['required'],
+            'tag_id' => ['required'],
+        ];
+
+        $messages = [
+            'photo_id.mimes' => 'Your image must be a JPG/JPEG, or a PNG',
+        ];
+        $this->validate($request, $rules, $messages);
         $input = request()->all();
         $entry = Entry::findOrFail($id);
         $directory = 'images';
