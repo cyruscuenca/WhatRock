@@ -8,7 +8,6 @@
   top: 30px; }
 
 .logo {
-  display: inline-block;
   float: left;
   height: 32px;
   margin-left: -5px;
@@ -95,5 +94,29 @@
   height: 34pt; }
   .sidebar-label:hover {
     background: rgba(0, 0, 0, 0); }
+.logo-icon{
+  float: left;
+  margin-top: 15px;
+  display: none;
+  margin-right: 30px;
+}
+
+.hide-on-desktop{
+  display: none;
+}
+@media (max-width: 1250px) {
+  .hide-on-tablet {
+    display: none; }
+  .show-on-tablet {
+    display: inline-block;
+  }
+}
+@media (max-width: 800px) {
+  .hide-on-mobile {
+    display: none; }
+  .show-on-mobile {
+    display: inline-block;
+  }
+  }
 
 /*# sourceMappingURL=navbar.css.map */

@@ -97,7 +97,7 @@
 		</a>
 	</div>
 	<div class="fixed-width" style="margin-top: 13.5%; margin-bottom: 15%; color: #607D8B;">
-		<div style="width: 520pt; display: inline-block;">
+		<div style="width: 500pt; display: inline-block;">
 			<p style="font-size: 30pt; font-weight: bold;">FAQ</p>
 			<div style="line-height: 32pt; font-weight: bold; font-size: 16pt;">
 				<p><img src="{{asset('images/right-arrow-dark.svg')}}" style="height: 24pt;"> Can I use photos and pages from learn.whatrock.org?</p>
@@ -107,7 +107,7 @@
 				<p><img src="{{asset('images/right-arrow-dark.svg')}}" style="height: 24pt;"> How is WhatRock different from Wikipedia?</p>
 			</div>
 		</div>
-		<img style="height: 180pt; display: inline-block; float: right; transform: rotate(12deg);" src="{{asset('images/illustrations/faq.svg')}}">
+		<img style="height: 180pt; float: right; transform: rotate(12deg);" src="{{asset('images/illustrations/faq.svg')}}" class="hide-on-tablet">
 	</div>
 	<div class="fixed-width" style="height: 400pt; margin-bottom: 15%;">
 		<img style="display: inline-block; float: left; height: 100%;" src="{{asset('images/illustrations/phone.svg')}}">
