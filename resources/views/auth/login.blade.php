@@ -87,7 +87,7 @@ style="fill-opacity:1" />
     </div>
   </div>
 </div>
-<div class="med-shadow" style="background: #455A64; height: 62pt; width: 285pt; display: block; margin: 0 auto; margin-top: 2vh; border-radius: 3pt;">
+<div class="med-shadow" style="background: #455A64; height: 62pt; width: 285pt; display: block; margin: 0 auto; margin-top: 1.5vh; border-radius: 3pt;">
   <ul class="login-list">
     <li><p>Terms</p></li>
     <li><p>Privacy</p></li>

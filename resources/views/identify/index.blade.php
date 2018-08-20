@@ -78,9 +78,10 @@ a svg:hover .path4 {
 }
 .card{
 	height: 274pt;
+	width: 220pt;
+	display: inline-block;
+	float: left;
 	transition: filter .25s;
-	margin-bottom: 18pt;
-	break-inside: avoid-column;
 	display: block;
 }
 .card:hover{
@@ -89,17 +90,13 @@ a svg:hover .path4 {
 	transition: filter .25s;
 }
 .card-container{
-	-moz-column-width: 225pt;
-	-webkit-column-width: 225pt;
-	column-width: 225pt;
-	column-gap: 18pt;
-	height: auto;
+
 }
 #answer-list{
 	margin: 0; padding: 0; margin-left: 2pt; height: 30pt;
 }
 #answer-list li{
-	margin-right: 12pt; height: 30pt; border-radius: 2pt; border: none; margin-top: 5pt; color: #fff; width: auto; display: inline-block; float: left;
+	margin-right: 12pt; height: 30pt; border-radius: 2pt; border: none; margin-top: 5pt; color: #fff; width: auto; display: inline-block; float: left; cursor: pointer;
 
 }
 #answer-list li p{
@@ -135,10 +132,12 @@ a svg:hover .path4 {
 		</button>
 		<div id="panel" style="margin-top: 2pt;">
 		</div>
+		<div class="pinned-card-container">
+		</div>
 		<div class="card-container">
 			@foreach ($entries as $entry)
 			<a href="{{ action('EntryController@show', [$entry->slug]) }}">
-				<article class="card"  style="border-radius: 2pt 2pt 2pt 2pt; background: @foreach ($entry->hex as $hex) {{$hex}} @endforeach;color: {{$entry->getTextcolorAttribute()}};">
+				<article class="card"  style="border-radius: 2pt 2pt 2pt 2pt; background: @foreach ($entry->hex as $hex) {{$hex}} @endforeach; color: {{$entry->getTextcolorAttribute()}};">
 					<div style="height: 176pt; width: 100%; border-radius: 1.85pt 1.85pt 0 0; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center;"></div>
 
 					<p style="margin-left: 15pt; margin-top: 8pt; font-size: 17.5pt; height: 20pt; width: 100%; float: left; color: {{$entry->getTextcolorAttribute()}};">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
@@ -148,7 +147,7 @@ a svg:hover .path4 {
 					<a style="margin-left: 15pt; height: 35pt; width: 100%; font-size: 12pt; float: left; color: {{$entry->getTextcolorAttribute()}};" href="../categories/{{ $category }}">{{ $category }}</a>
 					@endforeach
 
-					<p style="margin-right: 15pt; float: right; color: {{$entry->getTextcolorAttribute()}}; font-family: 'Roboto'; font-size: 12.5pt;">PIN</p>
+					<p style="margin-right: 15pt; float: right; color: {{$entry->getTextcolorAttribute()}}; font-family: 'Roboto'; font-size: 12.5pt; cursor: pointer;">PIN</p>
 				</article>
 			</a>
 			@endforeach
@@ -173,8 +172,8 @@ $.ajaxSetup({
 
 </script>
 <script type="text/javascript">
-var url = "http://identify.whatrock.local/questions/get";
 function getQuestion(answer) {
+	var url = "http://identify.whatrock.local/questions/get";
 	var question = document.getElementById("question").innerHTML;
 	$.ajax({
 		type: "POST",
@@ -202,14 +201,8 @@ function getQuestion(answer) {
 		// Create new empty tag
 		var newTag = document.createElement('div');
 		// Populate tag
-		newTag.innerHTML = '<div class="tag"><p>'+data.tag+'</p></div>';
-		// Populate answer
-		// newAnswer.innerHTML = '<li class="animated fadeInLeft answer" onclick="get(this.children[0].innerHTML);" type="button" style="background: {{ $answer->button_color }};"><p>'+data.answer+'</p></li>';
-
-		// Console logs for debugging
-		//console.log(newAnswer);
-		console.log(newTag);
-
+		newTag.innerHTML = '<p>'+data.tag+'</p>';
+		newTag.className = 'tag';
 		// Remove all answer buttons from #answer-list
 		while (answerList.firstChild) {
 		    answerList.removeChild(answerList.firstChild);
@@ -217,22 +210,54 @@ function getQuestion(answer) {
 
 		function renderAnswers(data) {
 	    for(var i = 0; i < data.answer.length; i++) {
-					var nodes;
-	        // nodes += "<li>" + data[i] + "</li>";
-					// Append newAnswer
 					var newAnswer = document.createElement('li');
-					newAnswer.innerHTML = data.answer[i].content;
+					newAnswer.innerHTML = '<p>'+data.answer[i].content+'</p>';
+					newAnswer.setAttribute('class', 'animated fadeInLeft answer');
+					newAnswer.setAttribute('onclick', 'getQuestion(this.children[0].innerHTML);');
+					newAnswer.setAttribute('style', 'background: '+data.answer[i].button_color+';');
+					newAnswer.setAttribute('type', 'button');
 					answerList.appendChild(newAnswer);
-
 					console.log(newAnswer)
 	    }
 		}
 		renderAnswers(data);
-		//Append newTag to filter panel
+		// Append newTag
 		tagList.appendChild(newTag);
+
+		// If there are tags, use them to filter the entries
+		if (document.querySelectorAll('.tag > p') != null) {
+			getEntries();
+		}
 
 	})
 }
+function getEntries() {
+	var url = "http://identify.whatrock.local/entries/get";
+	//var tags = document.querySelectorAll('.tag > p');
+	var tags = [].slice.call(document.querySelectorAll('.tag'));
+	for (var i = 0; i < tags.length; i++) {
+		tags[i] = tags[i].document.querySelectorAll('.tag > p').innerHTML;
+	}
+	//console.log(tags[1] +"TAGS");
+
+	/*$.ajax({
+		type: "POST",
+		contentType: "application/json",
+		url: url,
+		data: JSON.stringify({
+			tags: tags,
+		}),
+		processData: false,
+	})
+	.done(function(data) {
+
+		// Console log for debugging
+		console.log(data)
+
+	})
+
+}
+*/
 </script>
 <script>
 

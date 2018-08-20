@@ -10,10 +10,10 @@ div {}
 
 </style>
 <div style="background:linear-gradient(rgba(207, 216, 220, 1),rgba(207, 216, 220, 0.15)),url({{asset('images/slider/blue-sky.jpg')}}); background-size: cover; background-position: top; width: 100%;">
-	<div class="fixed-width" style="margin-top: 60px; height: 240pt;">
+	<div class="fixed-width" style="height: 240pt;">
 		<div style="width: 100%; padding-top: 22pt;">
 			<p style="margin-top: -5pt; display: inline-block; font-weight: bold; font-size: 28pt; color: #455A64;">Welcome back,
-				@php {{ 
+				@php {{
 				$name = auth()->user()->name;
 				$splitName = explode(' ', $name, 2);
 
