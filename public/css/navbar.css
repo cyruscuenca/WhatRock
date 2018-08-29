@@ -108,14 +108,14 @@
   .hide-on-tablet {
     display: none; }
   .show-on-tablet {
-    display: inline-block;
+    display: block;
   }
 }
 @media (max-width: 800px) {
   .hide-on-mobile {
     display: none; }
   .show-on-mobile {
-    display: inline-block;
+    display: block;
   }
   }
 

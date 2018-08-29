@@ -68,6 +68,7 @@ class EntryController extends Controller
         $data = request()->all();
         $data['slug'] = str_slug(request()->title);
         $data['user_id'] = Auth::user()->id;
+        //$data['status'] = request()->status;
 
 
         if ($file = request()->file('photo_id')) {

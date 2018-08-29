@@ -93,34 +93,118 @@ a svg:hover .path4 {
 
 }
 #answer-list{
-	margin: 0; padding: 0; margin-left: 2pt; height: 30pt;
+	margin: 0;
+	padding: 0;
+	margin-left: 2pt;
+	height: 30pt;
 }
 #answer-list li{
-	margin-right: 12pt; height: 30pt; border-radius: 2pt; border: none; margin-top: 5pt; color: #fff; width: auto; display: inline-block; float: left; cursor: pointer;
-
+	margin-right: 12pt;
+	height: 100%;
+	border-radius: 2pt;
+	border: none;
+	margin-top: 5pt;
+	color: #fff;
+	width: auto;
+	float: left;
+	cursor: pointer;
 }
 #answer-list li p{
-	color: #fff; font-weight: bold; margin: 0 16pt; margin-top: 5.7pt; font-family: 'Roboto', sans-serif; font-size: 12.25pt; text-transform: uppercase;
+	color: #fff;
+	font-weight: bold;
+	margin: 0 16pt;
+	margin-top: 5.7pt;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12.25pt;
+	text-transform: uppercase;
 }
+#question-container{
+	width: 100%;
+	height: 180pt;
+	background: #37474F;
+}
+#question{
+	font-size: 38pt;
+	color: #fff;
+}
+.skip-btn{
+	margin-top: 40pt;
+	float: right;
+	animation-duration: .4s;
+	background: #fff;
+	border: none;
+	border-radius: 2pt;
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
+}
+.skip-btn p{
+	margin: 0 10pt;
+	margin-top: 2pt;
+	font-weight: bold;
+	font-size: 13pt;
+	color: #2F3D43;
+}
+@media (max-width: 800px) {
+		#question-container{
+			background: none;
+		}
+		#question{
+			font-size: 30pt;
+			color: #546E7A;
+		}
+		#answer-list{
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			height: 60px;
+			margin: 0 -18pt;
+			background: #455A64;
+		}
+		#answer-list li{
+			margin: 0;
+			height: 50px;
+			margin-top: 5px;
+			width: calc(50% - 43px);
+			text-align: center;
+			margin-left: 7px;
+		}
+		#answer-list li p{
+			margin-top: 13px;
+			font-size: 14pt;
+		}
+		.skip-btn{
+			border-radius: 0;
+			margin: 0;
+			width: 66px;
+			text-align: center;
+			background: #455A64;
+		}
+		.skip-btn img{
+			height: 30px;
+			margin-top: 4px;
+			margin-left: 5px;
+		}
+		#entries-container{
+			display: none;
+		}
+  }
 </style>
-<div style="width: 100%; height: 180pt; background: #37474F;">
+<div id="question-container">
 	<div class="fixed-width" style=" text-align: left; padding-top: 25pt;">
-		<p style="margin-left: -2.25pt; font-size: 38pt; font-family: 'Open Sans', sans-serif; color: #fff;"  class="animated fadeInLeft" id="question" data-level="{{ $question->level }}">{{ $question->content }}</p>
-		<ul id="answer-list">
+		<p style="margin-left: -2.25pt; font-family: 'Open Sans', sans-serif;"  class="animated fadeInLeft" id="question" data-level="{{ $question->level }}">{{ $question->content }}</p>
+		<ul id="answer-list" class="animated fadeInUp" style="animation-delay: .15s; 	animation-duration: .3s;">
 		@foreach ($question->answer as $answer)
-		<li class="animated fadeInLeft answer" onclick="getQuestion(this.children[0].innerHTML);" type="button" style="background: {{ $answer->button_color }};">
+		<li class="answer" onclick="getQuestion(this.children[0].innerHTML);" type="button" style="background: {{ $answer->button_color }};">
 			<p>{{ $answer->content }}</p>
 		</li>
 		@endforeach
+		<button class="skip-btn">
+			<img class="hide-on-desktop show-on-mobile" src="{{asset('images/skip-icon.svg')}}"><p class="hide-on-mobile">SKIP</p>
+		</button>
 		</ul>
 	</div>
-	<div class="fixed-width">
-		<button class="" style="animation-duration: .4s; display: inline-block; float: right; background: #fff; border: none; border-radius: 2pt; font-family: 'Roboto', sans-serif; height: 30pt; margin-top: 15pt ;">
-			<p style="font-weight: bold; padding: 0 13pt; font-size: 13pt; margin-top: 5.5pt; color: #2F3D43;">SKIP</p>
-		</button>
-	</div>
 </div>
-<div class="fixed-width" style="padding-bottom: 25pt;">
+<div id="entries-container" class="fixed-width" style="padding-bottom: 25pt;">
 	<div style="width: 100%; display: inline-block;">
 		<button class="accordion"><p class="animated fadeInUp" style="display: inline-block; float: left; color: #546E7A; font-weight: bold;">1,032 Results Found</p>
 			<a class="animated fadeInUp" href="{{ route('/entries') }}" style="display: inline-block; float: right; color: #546E7A; font-weight: bold;">
@@ -238,6 +322,7 @@ function getEntries() {
 	for (var i = 0; i < tags.length; i++) {
 		tags[i] = tags[i].document.querySelectorAll('.tag > p').innerHTML;
 	}
+}
 	//console.log(tags[1] +"TAGS");
 
 	/*$.ajax({

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <style type="text/css">
-
 </style>
 <div style="height: 610pt; background: #ECEFF1; width: 100%;">
 	<div class="fixed-width" style="padding-top: 75pt; margin-left: auto; margin-right: auto; display: block;">

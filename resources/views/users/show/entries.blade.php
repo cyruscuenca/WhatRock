@@ -62,39 +62,29 @@
 	width: 95%;
 }
 </style>
-<div class="fixed-width" style="margin: 18pt auto;">
-	<div style="width: calc(100% - 225pt); display: inline-block;">
-		<p style="font-weight: bold; color: #455A64; font-size: 14pt;">Entries</p>
+<div class="fixed-width" style="margin-bottom: 125px;">
+	<div style="width: 100%; display: inline-block; margin-top: 12pt; margin-bottom: 4pt;">
+		<p style="font-weight: bold; color: #455A64; font-size: 18pt;">Entries</p>
 	</div>
-	<div class="card-container">
 			@foreach ($entries as $entry)
-			<a href="{{ action('EntryController@show', [$entry->slug]) }}">
-			<article class="card"  style="border-radius: 2pt 2pt 2pt 2pt; background: @foreach ($entry->hex as $hex) {{$hex}} @endforeach;color: {{$entry->getTextcolorAttribute()}};">
-				<div style="height: 200pt; width: 100%; border-radius: 1.85pt 1.85pt 0 0; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center;"></div>
-
-					<p style="margin-left: 15pt; margin-top: 8pt; font-size: 17.5pt; height: 20pt; width: 100%; float: left; color: {{$entry->getTextcolorAttribute()}};">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
-
-					@foreach ($entry->category as $category)
-
-					<a style="margin-left: 15pt; height: 35pt; width: 100%; font-size: 12pt; float: left; color: {{$entry->getTextcolorAttribute()}};" href="../categories/{{ $category }}">{{ $category }}</a>
+			<a style="display: block; width: 100%; max-width: 600px;">
+				<div style="height: 170pt; width: calc(100% - 200pt); display: inline-block;">
+					<div style="margin-left: 20pt; margin-top: -5pt;">
+					<p style="font-size: 20pt; color: #607D8B; font-weight: bold;">{{$entry->title}}</p>
+					@foreach($entry->category as $category)
+					<p style="font-size: 12pt; margin-top: -6pt;">{{$category}}</p>
 					@endforeach
-		</article>
-		</a>
+					<p class="hide-on-mobile" style="font-size: 12pt; color: #607D8B; padding-bottom: 5pt; padding-top: 7pt;">{{ str_limit($entry->summary, 175) }}</p>
+					<a href="{{ action('EntryController@show', [$entry->slug]) }}" style="margin-left: auto; font-size: 12pt;">
+						View
+					</a>
+					</div>
+				</div>
+				<div class="dynamic-shadow" style="height: 150pt; width: 200pt; border-radius: 3pt; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center; display: inline-block; float: left;">
+				</div>
+				</a>
 		@endforeach
-	</div>
-	<div class="user-stats-container">
-		<p style="font-weight: bold; color: #455A64; font-size: 14pt;">Quick info</p>
-		<div class="user-stats">
-			<ul>
-				<li><img src="{{asset('images/entry-dark.svg')}}" style="margin-right: 18pt;">Entry count: 28</li>
-				<li><img src="{{asset('images/edu-dark.svg')}}" style="margin-right: 18pt;">Lesson count: 0</li>
-				<li><img src="{{asset('images/location-dark.svg')}}" style="margin-right: 18pt; float: left;"><div style="float: right; width: 149.2pt; height: 20pt">Santa Rosa, California USA</div></li>
-			</ul>
-		</div>
-	</div>
-		<div class="text-center" style="padding-right: 235pt; width: 100%;">
-			{!! $entries->links() !!}
-		</div>
+
 </div>
 @include('partials.footer')
 

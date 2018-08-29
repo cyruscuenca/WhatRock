@@ -56,14 +56,14 @@ a svg:hover .path4 {
 
 	<p style="color: {{$entry->getTextcolorAttribute()}}; margin-left: 20pt; margin-top: 20pt; font-size: 24pt; font-weight: bold;">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
 
-	<ul style="margin-left: 21pt; margin-top: 18pt; color: {{$entry->getTextcolorAttribute()}};">
+	<ul style="margin-left: 21pt; margin-top: 16pt; color: {{$entry->getTextcolorAttribute()}};">
 		<li>
 			@foreach ($entry->category as $category)
-			<p style="font-size: 11pt;"><strong>Category:</strong> <a href="../categories/{{ $category }}">{{ $category }}</a></p>
+			<p style="font-size: 11pt;"><strong>Category:</strong><a href="../categories/{{ $category }}"> {{ $category }}</a></p>
 			@endforeach
 		</li>
 		<li style="margin-bottom: 30px;">
-			<p style="font-size: 11pt;"><strong>Subcategory:</strong> <a style="color: #fff;">Volcanic Glass</a></p>
+			<p style="font-size: 11pt;"><strong>Subcategory:</strong><a style=""> Volcanic Glass</a></p>
 		</li>
 		<li>
 			<p style="font-size: 11pt;"><strong>Mohs scale hardness:</strong> 5–6</p>
@@ -73,23 +73,23 @@ a svg:hover .path4 {
 		</li>
 		<li>
 			@foreach ($entry->color as $color)
-			<p style="font-size: 11pt;"><strong>Color:</strong> <a style="color: #fff;" href="../colors/{{ $color }}">{{ $color }}</a></p>
+			<p style="font-size: 11pt;"><strong>Color:</strong> <a style="" href="../colors/{{ $color }}">{{ $color }}</a></p>
 			@endforeach
 		</li>
 		<li>
 			@foreach ($entry->lustre as $lustre)
-			<p style="font-size: 11pt;"><strong>Lustre:</strong> <a style="color: #fff;" href="../lustres/{{ $lustre }}">{{ $lustre }}</a></p>
+			<p style="font-size: 11pt;"><strong>Lustre:</strong> <a style="" href="../lustres/{{ $lustre }}">{{ $lustre }}</a></p>
 			@endforeach
 		</li>
 		<li>
 			@foreach ($entry->streak as $streak)
-			<p style="font-size: 11pt;"><strong>Streak:</strong> <a style="color: #fff;" href="../streaks/{{ $streak }}">{{ $streak }}</a></p>
+			<p style="font-size: 11pt;"><strong>Streak:</strong> <a style="" href="../streaks/{{ $streak }}">{{ $streak }}</a></p>
 			@endforeach
 		</li>
 		<li><p style="font-size: 11pt;"><strong>Fracture:</strong> Conchoidal</p></li>
 		<li><p style="font-size: 11pt;"><strong>Specific gravity:</strong> c. 2.4</p></li>
+		<li style="font-size: 11pt; margin-top: 24pt;"><strong>Last updated: </strong>{{ $entry->updated_at->diffForHumans() }}</li>
 	</ul>
-			<p style="font-size: 11pt; margin-left: 21pt;"><strong>Last updated: </strong>{{ $entry->updated_at->diffForHumans() }}</p>
 </div>
 <div style="height: 500pt;; width: 275pt; float: right; display: inline-block;"></div>
 <div style="width: calc(100% - 275pt); display: inline-block;">
@@ -103,17 +103,17 @@ a svg:hover .path4 {
 	</div>
 	<div style="overflow-y: hidden; margin-top: calc(40px + 50px);">
 		<p class="animated fadeInUp" style="color: #455A64; font-weight: bold;">Summary</p>
-		<div class="animated fadeInUp" style="background: #fff; border-radius: 2pt;">
+		<div class="animated fadeInUp dynamic-shadow" style="background: #fff; border-radius: 2pt;">
 			<p class="text" style="padding: 12pt 16pt;">{{ $entry->summary }}</p>
 		</div>
 		<p class="animated fadeInUp" style="animation-delay: .03s; margin-top: 22pt; color: #455A64; font-weight: bold;">Body</p>
-		<div class="animated fadeInUp" style="animation-delay: .05s; border-radius: 2pt; background: #fff;">
+		<div class="animated fadeInUp dynamic-shadow" style="animation-delay: .05s; border-radius: 2pt; background: #fff;">
 			<div style="margin: 10pt; padding: 8pt; padding-bottom: 10pt; color: #455A64; padding-top: 16pt; padding-bottom: 16pt;">
 				{!!html_entity_decode($entry->body)!!}
 				<a href="{{ action('EntryController@edit', [$entry->id]) }}">Edit</a>
 			</div>
 		</div>
-		<button class="accordion">Contributers <img style="float: right;" src="{{asset('images/down-arrow-dark.svg')}}"></button>
+		<button class="accordion animated fadeInUp">Contributers <img style="float: right;" src="{{asset('images/down-arrow-dark.svg')}}"></button>
 		<div class="panel" style="margin-top: 10pt;">
 			  <div style="padding-top: 10pt;">
 				  <div style="width: 34pt; height: 34pt; border-radius: 50%; background-image: linear-gradient(20deg, #43e97b 0%, #38f9d7 100%); display: inline-block;">
@@ -174,7 +174,6 @@ a svg:hover .path4 {
 		style="fill-opacity:1" />
 	</g>
 </svg>
-
 </a>
 </div>
 </div>

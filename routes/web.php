@@ -69,6 +69,7 @@ Route::domain('www.whatrock.local')->group(function () {
 	Route::get('about', 'PagesController@about')->name('about');
 	Route::get('partners', 'PagesController@partners');
 	Route::get('contribute', 'PagesController@contribute');
+	Route::get('developers', 'PagesController@developers')->name('developers');
 
 	Route::resource('/admin/users', 'UserController');
 	Route::get('list'. 'UserController@list');

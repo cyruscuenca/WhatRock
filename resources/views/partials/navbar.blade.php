@@ -19,7 +19,7 @@
        style="fill-opacity:1" />
        </g>
        </svg></a>
-         <div style="height: 47.5px; width: 34%; position: relative; display: inline-block; float: left; margin-top: 5.25px; margin-left: -1pt;">
+         <div class="hide-on-tablet" style="height: 47.5px; width: 34%; position: relative; float: left; margin-top: 5.25px; margin-left: -1pt;">
          {!! Form::open(['action' => 'EntryController@search', 'method' => 'GET', 'role' => 'search']) !!}
             {!! Form::text('term', Request::get('term'), ['class' => 'search hide-on-tablet', 'placeholder' => 'Search entries and lessons']) !!}
               <button style="z-index: 2; position: absolute; display: inline-block; border: none; background: rgba(0,0,0,0); top: 9pt; right: 2.6pt;" type="submit">
@@ -32,7 +32,7 @@
          </div>
       @guest
           <div style="float: right;">
-          <a style="border-radius: 2pt; display: inline-block; color: #fff; margin-right: 22pt; background: #00C853; font-weight: bold; height: 34px; margin-top: 12px;"  href="{{ route('login') }}"><p style="margin: 0 14px; margin-top: 6px; font-size: 11pt; color: #fff;">Sign in</p></a>
+          <a style="border-radius: 2pt; display: inline-block; color: #fff; margin-right: 18pt; background: #00C853; font-weight: bold; height: 34px; margin-top: 12px;"  href="{{ route('login') }}"><p style="margin: 0 14px; margin-top: 6px; font-size: 11pt; color: #fff;">Sign in</p></a>
           </div>
       @else
       <li class="dropdown" style="float: right; list-style: none; margin-right: 22pt; margin-top: 15pt;">
@@ -68,7 +68,7 @@
           </li>
       </ul>
       </li>
-      <div style="float: right; margin-right: 22pt; margin-top: 10pt;">
+      <div class="hide-on-mobile" style="float: right; margin-right: 22pt; margin-top: 10pt;">
          <div class="dropdown" style="display: inline-block;">
           <img class="dropdown-toggle" data-toggle="dropdown" style="height: 21pt; margin-right: 20pt; margin-top: .75pt;" src="{{ asset('images/apps.svg') }}">
           <ul class="dropdown-menu" style="border-radius: 2pt; width: 180pt; float: right; list-style-type: none; margin-left: -160pt; border: none; background: #455A64; margin-top: 7pt; color: #fff; font-size: 12pt;">

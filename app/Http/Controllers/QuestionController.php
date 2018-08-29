@@ -56,7 +56,6 @@ class QuestionController extends Controller
     {
         // Define $question as requested value.
         $tags =  $request->input('tags');
-
         $entries = $tags;
 
         return response()->json([

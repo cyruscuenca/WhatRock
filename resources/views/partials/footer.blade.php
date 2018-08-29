@@ -45,7 +45,7 @@
 			<li><a style="color: #fff" href="">Advertise</a></li>
 		</ul>
 		<ul class="footer-menu-column">
-			<li><a style="font-weight: bold; color: #fff;">Developers</a></li>
+			<li><a href="{{route('developers')}}" style="font-weight: bold; color: #fff;">Developers</a></li>
 			<li><a style="color: #fff" href="{{route('about')}}">About</a></li>
 			<li><a style="color: #fff" href="">Feedback</a></li>
 		</ul>

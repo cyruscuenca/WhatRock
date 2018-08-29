@@ -118,7 +118,7 @@ ul {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.14); }
 
 .dynamic-shadow {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.12);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
   .dynamic-shadow:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.14);
@@ -133,15 +133,30 @@ ul {
   background: #546E7A;
   border: none;
   border-radius: 2pt;
-  min-height: 33.2pt; }
+  min-height: 33.2pt;
+}
 
 .text {
-  color: #455A64; }
-
+  color: #455A64;
+}
+.hide-on-desktop{
+  display: none;
+}
 @media (max-width: 1250px) {
   .fixed-width {
-    width: calc(100% - 20pt - 20pt);
-    margin-left: 20pt;
-    margin-right: 20pt; } }
-
+    width: calc(100% - 18pt - 18pt);
+    margin-left: 18pt;
+    margin-right: 18pt;
+  }
+  .hide-on-desktop{
+    display: block;
+  }
+  }
+  @media (max-width: 800px) {
+    .hide-on-mobile {
+      display: none; }
+    .show-on-mobile {
+      display: block;
+    }
+}
 /*# sourceMappingURL=main.css.map */

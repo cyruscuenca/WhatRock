@@ -19,7 +19,7 @@
 		<a href="{{route('entries/create')}}">
 			<button class="med-shadow" style="display: inline-block; background: #0288D1; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt; margin-right: 25pt;">CREATE AN ENTRY</button>
 		</a>
-		<a href="{{route('userlist')}}">
+		<a href="{{route('users/entries', auth()->user()->slug)}}">
 			<button class="med-shadow" style="display: inline-block; background: #0288D1; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt; margin-right: 25pt;">YOUR ENTRIES</button>
 		</a>
 		<a href="{{route('userlist')}}">
@@ -31,7 +31,7 @@
 		@if ( auth()->check() )
      		    @if (auth()->user()->hasRole('administrator'))
 		<a href="{{route('admin/index')}}">
-		<button class="med-shadow" style="display: inline-block; background: #0288D1; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt; margin-left: 25pt;">ADMIN AREA</button>
+		<button class="med-shadow" style="display: inline-block; background: #00C853; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt; margin-left: 25pt;">ADMIN AREA</button>
 		</a>
     @else
     @endif
