@@ -2,7 +2,7 @@
 <div style="background: #4a606b; background-image: url({{asset('images/topography.svg')}}); background-size: 62%; width: 100%; ">
 	<div class="fixed-width" style="height: 240pt;">
 		<div style="width: 100%; padding-top: 22pt;">
-			<p style="margin-top: -8pt; text-shadow: 4px 4px 4px #37474F; display: inline-block; font-weight: bold; font-size: 36pt; color: #fff;">{{$user->name}}&nbsp&nbsp&nbsp<i style="font-size: 27pt; color: #01b74d;" class="fas fa-user-shield"></i></p>
+			<p style="margin-top: -8pt; text-shadow: 4px 4px 4px #37474F; display: inline-block; font-weight: bold; font-size: 36pt; color: #fff;">{{$user->first_name . ' ' . $user->last_name}}&nbsp&nbsp&nbsp<i style="font-size: 27pt; color: #01b74d;" class="fas fa-user-shield"></i></p>
 			<button class="med-shadow" style="display: inline-block; background: #0288D1; float: right; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt;">MESSAGE</button>
 		</div>
 		<div style="width: 100%; padding-top: 104pt; font-size: 11pt;">
