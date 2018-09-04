@@ -44,8 +44,8 @@ class VerifyEmail extends Notification
     {
         return (new MailMessage)
                     ->line('Please verify your account using the link below.')
-                    ->action('Verify email', route('verify', $this->user->token;))
-                    ->line('Thank you for WhatRock!');
+                    ->action('Verify email', route('verify', $this->user->token))
+                    ->line('Thank you for using WhatRock.org!');
     }
 
     /**
