@@ -1,10 +1,47 @@
 @extends('layouts.app')
 @section('content')
 <script src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
-<script>tinymce.init({ selector: ".body-area",
-					   skin: "wr-light"});
+<script>
+  tinymce.init({
+  selector: '.body-area',
+  height: 400,
+  menubar: true,
+  paste_data_images: true,
+  plugins: [
+      "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+      "searchreplace wordcount visualblocks visualchars code fullscreen",
+      "insertdatetime media nonbreaking save table contextmenu directionality",
+      "emoticons template paste textcolor colorpicker textpattern"
+    ],
+    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    toolbar2: "print preview media | forecolor backcolor emoticons",
+    image_advtab: true,
+    file_picker_callback: function(callback, value, meta) {
+      if (meta.filetype == 'image') {
+        $('#upload').trigger('click');
+        $('#upload').on('change', function() {
+          var file = this.files[0];
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            callback(e.target.result, {
+              alt: ''
+            });
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+    },
+    templates: [{
+      title: 'Test template 1',
+      content: 'Test 1'
+    }, {
+      title: 'Test template 2',
+      content: 'Test 2'
+    }]
+  });
 </script>
 <style type="text/css">
+.hidden{display:none;}
 	.form-control {
 		background: #B0BEC5;
 		border-radius: 2pt;
@@ -17,7 +54,7 @@
 		min-height: 350pt;
 	}
 </style>
-@include('partials.dashrow')
+@include('partials.dashmenu')
 
 	<div class="fixed-width" style="margin-bottom: 50pt;">
 		<div style="padding-top: 9pt;">
@@ -89,6 +126,7 @@
 				{!! Form::close() !!}
 
 			</div>
+			 <input name="image" type="file" id="upload" class="hidden" onchange="">
 	</div>
 <script type="text/javascript"
 src="http://code.jquery.com/jquery-3.3.1.min.js"

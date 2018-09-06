@@ -15,38 +15,7 @@
 		min-height: 350pt;
 	}
 </style>
-<div style="background:linear-gradient(rgba(207, 216, 220, 1),rgba(207, 216, 220, 0.15)),url({{asset('images/slider/blue-sky.jpg')}}); background-size: cover; background-position: top; width: 100%;">
-	<div class="fixed-width" style="margin-top: 60px; height: 240pt;">
-		<div style="width: 100%; padding-top: 22pt;">
-			<p style="margin-top: -5pt; display: inline-block; font-weight: bold; font-size: 28pt; color: #455A64;">Welcome back,
-				@php {{ 
-				$name = auth()->user()->name;
-				$splitName = explode(' ', $name, 2);
-
-				$first_name = $splitName[0];
-				$last_name = !empty($splitName[1]) ? $splitName[1] : '';
-
-				echo $first_name;
-			}}
-		@endphp!</p>
-		<button class="med-shadow" style="display: inline-block; background: #0288D1; float: right; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt;">SETTINGS</button>
-	</div>
-	<div style="width: 100%; padding-top: 110pt; font-size: 11pt;">
-		<a href="{{route('entries/create')}}">
-			<button class="med-shadow" style="display: inline-block; background: #0288D1; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt; margin-right: 25pt;">CREATE AN ENTRY</button>
-		</a>
-		<a href="{{route('userlist')}}">
-			<button class="med-shadow" style="display: inline-block; background: #0288D1; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt; margin-right: 25pt;">LIST ENTRIES</button>
-		</a>
-		<a href="{{route('userlist')}}">
-		<button class="med-shadow" style="display: inline-block; background: #0288D1; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt; margin-right: 25pt;">MANAGE USERS</button>
-		</a>
-		<a href="{{route('dashboard')}}">
-		<button class="med-shadow" style="display: inline-block; background: #0288D1; border: none; color: #fff; border-radius: 2pt; font-weight: bold; padding: 7pt 14pt;">DASHBOARD</button>
-		</a>
-	</div>
-</div>
-</div>
+@includ('partials.dashmenu')
 	<div class="fixed-width" style="margin-bottom: 50pt;">
 		<div style="padding-top: 9pt;">
 			<p style="font-size: 18pt; font-weight: bold; color: #546E7A;">Edit an Entry</p>

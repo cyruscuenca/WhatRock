@@ -1,21 +1,17 @@
 @extends('layouts.app')
 @section('content')
+@include('partials.admin-menu')
 <style type="text/css">
-div {}
-.bg-dark { background: black }
-.bg-light { background: pink }
-
-.light {  color: #000;}
-.dark {  color: #fff;}
-
+	.settings-menu ul li:nth-child(5) {
+		border-right: 5px solid #0288D1;
+	}
 </style>
-@include('partials.dashrow')
-
 <div style="height: 800pt; width: 100%;">
 	<div class="fixed-width" style="margin-top: 20pt;">
+		<div style="width: calc(100% - 200pt); float: right;">
 		<div style="width: 100%; float: left; display: inline-block;">
 			<p style="font-size: 15pt; font-weight: bold; color: #455A64;">Users</p>
-			<div style="border-radius: 2pt; width: 100%; height: 500pt; background: rgba(207,216,220,1);">
+			<div style="border-radius: 2pt; width: 100%; height: 500pt; background: #BDBDBD;">
 				<div class="table-responsive" style="width: 95%; margin: 0 auto; color: #37474F;">
 					<table class="table" style="margin-top: 10pt;">
 						<thead>
@@ -53,6 +49,7 @@ div {}
 			</div>
 		</div>
 	</div>
+	</div>
 
 <script type="text/javascript"
 src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -64,5 +61,4 @@ $.ajaxSetup({
 	}
 });
 </script>
-@include('partials.footer')
 @endsection

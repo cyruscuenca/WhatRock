@@ -9,27 +9,37 @@ div {}
 .dark {  color: #fff;}
 
 </style>
-@include('partials.dashrow')
-<div style="height: 910pt; width: 100%;">
+@include('partials.dashmenu')
+<div style="height: 975pt; width: 100%;">
 	<div class="fixed-width" style="margin-top: 10pt;">
+		<div style="width: calc(100% - 200pt); float: right;">
 		<div style="width: 70%; float: left; display: inline-block;">
-			<p style="font-size: 12pt; font-weight: bold; color: #546E7A; margin-top: -2pt;">Notifications</p>
-			<div style="border-radius: 2pt; width: 100%; height: 400pt; background: #5f7c89;">
+			@if ( auth()->user()->bio == null )
+			<div style="margin-bottom: 12px; border-radius: 2pt; width: 100%; background: #EF5350; color: #E0E0E0;">
+				<div style="padding: 18px;">
+				<p style="font-size: 12pt;">Your profile is missing a bio and location. You will not be able to contribute until this information is added.</p>
+				<a style="color: #E0E0E0; font-size: 12pt; font-weight: bold;" href="">ADD INFO</a>
+				</div>
+			</div>
+			@endif
+			<p style="font-size: 12pt; font-weight: bold; color: #424242; margin-top: 0pt;">Notifications</p>
+			<div style="border-radius: 2pt; width: 100%; height: 400pt; background: #BDBDBD;">
 
 			</div>
-			<p style="font-size: 12pt; font-weight: bold; color: #546E7A; margin-top: 5pt; margin-bottom: 4pt;">Statistics</p>
-			<div style="border-radius: 2pt; width: 100%; height: 400pt; background: #5f7c89;">
+			<p style="font-size: 12pt; font-weight: bold; color: #424242; margin-top: 7pt; margin-bottom: 6pt;">Statistics</p>
+			<div style="border-radius: 2pt; width: 100%; height: 400pt; background: #BDBDBD;">
 
 			</div>
 		</div>
 		<div style="width: calc(30% - 25pt); float: right; display: inline-block;">
-			<p style="font-size: 12pt; font-weight: bold; color: #546E7A; margin-top: -2pt;">Entries</p>
-			<div style="width: 100%; height: 600pt; border-radius: 2pt; background: #5f7c89;">
+			<p style="font-size: 12pt; font-weight: bold; color: #424242;">Entries</p>
+			<div style="width: 100%; height: 600pt; border-radius: 2pt; background: #BDBDBD;">
 			</div>
 			<div style="margin-top: 10pt;">
 				<a style="font-weight: bold; font-size: 11.5pt; float: right;" href="">List All Entries</a>
 			</div>
 		</div>
+	</div>
 	</div>
 </div>
 <script type="text/javascript"
@@ -42,5 +52,4 @@ $.ajaxSetup({
 	}
 });
 </script>
-@include('partials.footer')
 @endsection

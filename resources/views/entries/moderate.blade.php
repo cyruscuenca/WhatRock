@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.dashrow')
+@include('partials.admin-menu')
+<style type="text/css">
+	.settings-menu ul li:nth-child(4) {
+		border-right: 5px solid #0288D1;
+	}
+</style>
 <table style="margin-top: 60px;" class="table table-striped fixed-width">
 						<thead>
 							<tr>
