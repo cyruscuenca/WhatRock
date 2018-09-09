@@ -129,11 +129,11 @@
 		<p>The latest geology news aggregated from around the web.</p>
 	</article>
 	</a>
-	<a href="https://reddit.com/r/whatisthisrock">
+	<a href="https://reddit.com/r/whatsthisrock">
 	<article>
 		<div style="background-image: url({{asset('images/reddit.jpg')}}); width: 100%; height: 221px; border-radius: 2px 2px 0 0; background-size: cover; background-position: center;"></div>
 		<h2>Reddit Community</h2>
-		<p>Check out the reddit community at reddit.com/r/whatisthisrock</p>
+		<p>Check out the reddit community at reddit.com/r/whatsthisrock</p>
 	</article>
 	</a>
 	<a href="{{route('maps')}}">
