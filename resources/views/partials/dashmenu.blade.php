@@ -6,10 +6,6 @@
 	.form-control::placeholder {
 		color: #757575;
 	}
-	textarea {
-		text-indent: 9pt;
-		font-family: 'Open Sans';
-	}
 	ul, li {
 		margin: 0;
 		padding: 0;
@@ -33,11 +29,11 @@
 </style>
 <section class="settings-menu" style="width: 200pt; height: 100%; background: #424242; float: left; position: fixed;">
 	<ul>
-		<li><p style="font-weight: bold; font-size: 15pt;">MY DASHBOARD</p></li>
+		<li style="border-bottom: 1px solid #616161; margin-bottom: 10pt; padding-bottom: 12pt;"><a href="{{ route('dashboard') }}" style="font-weight: bold;">MY DASHBOARD</a></li>
 		@if (auth()->user()->hasRole('administrator'))
 		<li><a href="{{ route('admin/index') }}">Admin area</a></li>
 		@endif
-		<li><a href="{{ route('advanced') }}">Create an entry</a></li>
+		<li><a href="{{ route('entries/create') }}">Create an entry</a></li>
 		<li><a href="{{ route('advanced') }}">My entries</a></li>
 		<li><a href="{{ route('advanced') }}">Notifications</a></li>
 		<li><a href="{{ route('settings') }}">Settings</a></li>

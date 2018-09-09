@@ -1,6 +1,11 @@
 <div class="navbar">
          <label for="menu-toggle" class="hamburger noselect">&#9776;</label>
-         <a href="http://www.whatrock.local:8000"><img src="{{ asset('images/logorock.png') }}" class="hide-on-mobile logo"><svg
+       @guest
+         <a href="http://www.whatrock.local:8000">
+       @else
+         <a href="{{ route('www/index') }}">
+       @endguest
+       <img src="{{ asset('images/logorock.png') }}" class="hide-on-mobile logo"><svg
          class="show-on-mobile logo-icon"
          height="30px" width="30px"
          sodipodi:docname="favicon.svg"
@@ -52,7 +57,7 @@
                 <a style="color: #fff; display: block; margin-top: 15pt; font-size: 12pt;" href="{{route('users/show', auth()->user()->slug)}}"><img style="margin-right: 15pt;" src="{{ asset('images/user.svg') }}">Profile</a>
                   <a style="color: #fff; display: block; margin-top: 15pt; font-size: 12pt;" href="{{ route('dashboard') }}"><img style="margin-right: 15pt;" src="{{ asset('images/dashboard.svg') }}">Dashboard</a>
                   <a style="color: #fff; display: block; margin-top: 15pt; font-size: 12pt;" href="{{ url('/help') }}"><img style="margin-right: 15pt;" src="{{ asset('images/help.svg') }}">Help</a>
-                  <a style="color: #fff; display: block; margin-top: 15pt; font-size: 12pt; margin-left: -1.75pt;" href="{{ url('/help') }}"><img style=" width: 20pt; margin-right: 14.5pt;" src="{{ asset('images/settings.svg') }}">Settings</a>
+                  <a href="{{ route('settings') }}" style="color: #fff; display: block; margin-top: 15pt; font-size: 12pt; margin-left: -1.75pt;" href="{{ url('/help') }}"><img style=" width: 20pt; margin-right: 14.5pt;" src="{{ asset('images/settings.svg') }}">Settings</a>
                   <a style="color: #fff; display: block; margin-top: 15pt; font-size: 12pt;" href="{{ url('/dashboard') }}"><img style="margin-right: 15pt;" src="{{ asset('images/feedback.svg') }}">Feedback</a>
                   <a style="color: #fff; display: block; margin-top: 15pt; font-size: 12pt;" href="{{ url('/dashboard') }}"><img style="margin-right: 15pt;" src="{{ asset('images/translate.svg') }}">Language</a>
                   <a style="color: #fff; display: block; margin-top: 15pt; font-size: 12pt; margin-bottom: 15pt;" href="{{ route('logout') }}"
@@ -105,7 +110,7 @@
           <a style="border-radius: 2pt; display: inline-block; color: #fff; font-weight: bold; height: 34px;"  href="{{ route('register') }}"><p style="margin: 0 14px; margin-top: 6px; font-size: 11pt; color: #424242;">Register</p></a>
         </div>
         @else
-        <li id="sidebar-item-1"><img style="padding-left: 15pt;" src="{{ asset('images/home-dark.svg') }}"><a id="sidebar-item-1-text" href="{{ url('dashboard') }}">Home</a></li>
+        <li id="sidebar-item-1"><img style="padding-left: 15pt;" src="{{ asset('images/dashboard-dark.svg') }}"><a id="sidebar-item-1-text" href="{{ route('dashboard') }}">Dashboard</a></li>
         <li id="sidebar-item-2"><img style="padding-left: 15pt;" src="{{ asset('images/profile-dark.svg') }}"><a id="sidebar-item-2-text" href="{{route('users/show', auth()->user()->slug)}}">Profile</a></li>
         <li id="sidebar-item-3" style="margin-bottom: 5pt;"><img style="padding-left: 15pt;" src="{{ asset('images/bell-dark.svg') }}"><a id="sidebar-item-3-text" href="{{ url('notifications') }}">Notifications</a></li>
         @endguest

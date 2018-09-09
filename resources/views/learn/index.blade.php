@@ -25,7 +25,7 @@
 		list-style-type: square;
 	}
 	#sidebar-item-6{
-		background: #546E7A;
+		background: #9E9E9E;
 	}
 </style>
 

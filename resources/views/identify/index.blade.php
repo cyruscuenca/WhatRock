@@ -83,7 +83,7 @@ a svg:hover .path4 {
 }
 .card {
 	display: grid;
-	height: 350px;
+	height: 359px;
 	transition: filter .15s;
 }
 .card h3{
@@ -231,7 +231,7 @@ a svg:hover .path4 {
 		<div class="card-container">
 			@foreach ($entries as $entry)
 			<a class="card" style="border-radius: 2pt 2pt 2pt 2pt; background: @foreach ($entry->hex as $hex) {{$hex}} @endforeach; color: {{$entry->getTextcolorAttribute()}};" href="{{ action('EntryController@show', [$entry->slug]) }}">
-	        <div style="width: 100%; height: 225px; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center;">
+	        <div style="border-radius: 2px 2px 0 0; width: 100%; height: 225px; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center;">
 	        </div>
 	            <h3 style="color: {{$entry->getTextcolorAttribute()}};"> {{$entry->title}}</h3>
 	            @foreach($entry->category as $category)
@@ -259,6 +259,7 @@ $.ajaxSetup({
 </script>
 <script type="text/javascript">
 function getQuestion(answer) {
+	console.log(answer);
 	var url = "http://identify.whatrock.local:8000/questions/get";
 	var question = document.getElementById("question").innerHTML;
 	$.ajax({
@@ -298,6 +299,7 @@ function getQuestion(answer) {
 		}
 		renderAnswers(data);
 		if(data.tag.length != 0) {
+			console.log(data.tag);
 			// Define panel
 			var tagList = document.getElementById('panel');
 			// Create new empty tag

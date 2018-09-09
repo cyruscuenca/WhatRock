@@ -10,7 +10,7 @@
 	<div class="fixed-width" style="margin-top: 20pt;">
 		<div style="width: calc(100% - 200pt); float: right;">
 		<div style="width: 100%; float: left; display: inline-block;">
-			<p style="font-size: 15pt; font-weight: bold; color: #455A64;">Users</p>
+			<p style="font-size: 15pt; font-weight: bold; color: #424242;">Users</p>
 			<div style="border-radius: 2pt; width: 100%; height: 500pt; background: #BDBDBD;">
 				<div class="table-responsive" style="width: 95%; margin: 0 auto; color: #37474F;">
 					<table class="table" style="margin-top: 10pt;">
@@ -27,7 +27,7 @@
 							<tr>
 								@foreach($users as $user)
 								<tr>
-									<td><a href="{{route('users/show', $user->slug)}}">{{ $user->name }}</a></td>
+									<td><a href="{{route('users/show', $user->slug)}}">{{ $user->first_name . ' ' . $user->last_name }}</a></td>
 									<td>{{ $user->email }}</td>
 									<td>{{ $user->created_at->diffForHumans() }}</td>
 									<td>

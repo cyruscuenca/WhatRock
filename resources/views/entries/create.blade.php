@@ -55,10 +55,10 @@
 	}
 </style>
 @include('partials.dashmenu')
-
-	<div class="fixed-width" style="margin-bottom: 50pt;">
+	<div class="fixed-width"">
+		<div style="width: calc(100% - 200pt); float: right;">
 		<div style="padding-top: 9pt;">
-			<p style="font-size: 18pt; font-weight: bold; color: #546E7A;">Create an Entry</p>
+			<p style="font-size: 18pt; font-weight: bold; color: #424242;">Create an Entry</p>
 		</div>
 		@if (count($errors))
 		<div class="alert alert-danger" style="width: calc(75% - 18pt); list-style-type: none;">
@@ -124,9 +124,10 @@
 				</div>
 				</div>
 				{!! Form::close() !!}
+			 <input name="image" type="file" id="upload" class="hidden" onchange="">
 
 			</div>
-			 <input name="image" type="file" id="upload" class="hidden" onchange="">
+		</div>
 	</div>
 <script type="text/javascript"
 src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -180,5 +181,4 @@ $.ajaxSetup({
 	  readURL(this);
 	});
 </script>
-@include('partials.footer')
 @endsection

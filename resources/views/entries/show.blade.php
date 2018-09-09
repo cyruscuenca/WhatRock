@@ -72,9 +72,11 @@ a svg:hover .path4 {
     font-weight: bold;
 }
 </style>
-<div style="z-index: 1; position: fixed; width: 300px; height: 100%; right: 0; background: #BDBDBD;">
-	<p style="color: #424242; margin-left: 20pt; margin-top: 20px; font-size: 24pt; font-weight: bold; font-family: 'Open Sans', serif;">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
-	<ul style="margin-left: 21pt; margin-top: 16px; color: #424242;">
+@foreach($entry->hex as $hex)
+<div style="z-index: 1; position: fixed; width: 300px; height: 100%; right: 0; background: {{$hex}};">
+@endforeach
+	<p style="color: #EEE; margin-left: 20pt; margin-top: 20px; font-size: 24pt; font-weight: bold; font-family: 'Open Sans', serif;">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
+	<ul style="margin-left: 21pt; margin-top: 16px; color: #EEE;">
 		<li>@foreach ($entry->category as $category)<p style="font-size: 11pt;"><strong>Category:</strong><a href="../categories/{{ $category }}"> {{ $category }}</a></p>@endforeach</li>
 		<li style="margin-bottom: 30px;"><p style="font-size: 11pt;"><strong>Subcategory:</strong><a> Volcanic Glass</a></p></li>
 		<li><p style="font-size: 11pt;"><strong>Mohs scale hardness:</strong> 5–6</p></li>
@@ -103,9 +105,9 @@ a svg:hover .path4 {
 			<div class="panel" style="margin-top: 10pt;">
 				<div style="padding-top: 10pt;">
 					<div style="width: 34pt; height: 34pt; border-radius: 50%; background-image: linear-gradient(20deg, #43e97b 0%, #38f9d7 100%); display: inline-block;">
-						<p style="font-size: 16pt; padding-top: 4pt; padding-left: 11.5pt; font-weight: bold; color: #fff;" class="initial">{{ substr($entry->user->name, 0, 1) }}</p>
+						<p style="font-size: 16pt; padding-top: 4pt; padding-left: 11.5pt; font-weight: bold; color: #fff;" class="initial">{{ substr($entry->user->first_name, 0, 1) }}</p>
 					</div>
-					<p class="entry-text" style="display: inline-block; margin-left: 10pt; font-weight: bold;">{{$entry->user->name}}</p>
+					<p class="entry-text" style="display: inline-block; margin-left: 10pt; font-weight: bold;">{{$entry->user->first_name . ' ' . $entry->user->last_name}}</p>
 				</div>
 			</div>
 			<div class="animated fadeInUp" style="animation-delay: .18s; width: 100%; height: 30pt; margin-top: 30pt; margin-bottom:28pt;">
