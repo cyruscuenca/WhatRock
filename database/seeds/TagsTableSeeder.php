@@ -209,7 +209,7 @@ class TagsTableSeeder extends Seeder
         $color_red->save();
 
         $color_dark_red = new Tag();
-        $color_dark_red->name = 'Red';
+        $color_dark_red->name = 'Dark Red';
         $color_dark_red->hex = '#C62828';
         $color_dark_red->type_id = '5';
         $color_dark_red->save();
