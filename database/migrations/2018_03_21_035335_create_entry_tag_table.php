@@ -28,6 +28,6 @@ class CreateEntryTagTable extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('entry_tag');
+      //Schema::dropIfExists('entry_tag');
     }
 }

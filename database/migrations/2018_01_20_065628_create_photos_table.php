@@ -15,7 +15,6 @@ class CreatePhotosTable extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('title');
             $table->string('photo');
             $table->timestamps();
         });
@@ -28,6 +27,6 @@ class CreatePhotosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photos');
+        //Schema::dropIfExists('photos');
     }
 }

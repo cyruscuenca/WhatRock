@@ -27,11 +27,10 @@ class CreateAnswerTagTable extends Migration
      */
     public function down()
     {
-      Schema::table('answer_tag', function($table)
-      {
-      $table->dropForeign('answer_id');
-      $table->dropForeign('tag_id');
-      });
+      //Schema::table('answer_tag', function($table) {
+      //$table->dropForeign('answer_id');
+      //$table->dropForeign('tag_id');
+      //});
 
     }
 }
