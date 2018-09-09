@@ -8,11 +8,14 @@
 </style>
 <div class="fixed-width">
 	<div style="width: calc(100% - 200pt); float: right;">
-		<div style="width: 50%; margin-top: 22pt;">
+		<div style="width: 50%; margin-top: 22pt; display: inline-block; float: left;">
 		  <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1544_RC03/embed_loader.js"></script>
 		  <script type="text/javascript">
 		    trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"whats this rock","geo":"US","time":"today 12-m"},{"keyword":"what rock is this","geo":"US","time":"today 12-m"},{"keyword":"whatrock","geo":"US","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"geo=US&q=whats%20this%20rock,what%20rock%20is%20this,whatrock&date=today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
 		  </script>
+		</div>
+		<div class="med-shadow" style="width: 50%; height: 366px; margin-top: 22pt; display: inline-block; background: #fff; float: left; text-align: center; vertical-align: middle;">
+		  <img style="width: 50%; margin: auto; margin-top: 25%;" src="{{asset('images/ga-logo.png')}}">
 		</div>
 	</div>
 </div>
