@@ -260,7 +260,7 @@ $.ajaxSetup({
 <script type="text/javascript">
 function getQuestion(answer) {
 	console.log(answer);
-	var url = "http://identify.whatrock.local:8000/questions/get";
+	var url = "http://identify.whatrock.local/questions/get";
 	var question = document.getElementById("question").innerHTML;
 	$.ajax({
 		type: "POST",

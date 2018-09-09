@@ -11,7 +11,7 @@ div {}
 </style>
 @include('partials.dashmenu')
 <div style="height: 975pt; width: 100%;">
-	<div class="fixed-width" style="margin-top: 10pt;">
+	<div style="margin: 18pt;">
 		<div style="width: calc(100% - 200pt); float: right;">
 		<div style="width: 70%; float: left; display: inline-block;">
 			@if ( auth()->user()->bio == null )
