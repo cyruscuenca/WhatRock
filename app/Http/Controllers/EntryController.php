@@ -11,9 +11,18 @@ use Illuminate\Support\Facades\Auth;
 class EntryController extends Controller
 {
 
+    public function home()
+    {
+        // fetch entries with status of 2(published) from database
+        $entries = Entry::where('status', 2)->latest()->paginate(4);
+        $categories = Tag::where('type_id', 2)->pluck('name');
+        $colors = Tag::where('type_id', 5)->pluck('hex');
+        return view('index', compact('entries', 'colors', 'categories'));
+    }
+
     public function index()
     {
-        // fetch entries with status of 1(published) from database
+        // fetch entries with status of 2(published) from database
         $entries = Entry::where('status', 2)->latest()->paginate(12);
         $categories = Tag::where('type_id', 2)->pluck('name');
         $colors = Tag::where('type_id', 5)->pluck('hex');
@@ -52,33 +61,29 @@ class EntryController extends Controller
             'summary' => ['required', 'min:100', 'max:450', 'unique:entries'],
             'body' => ['required', 'min:250', 'max:5000', 'unique:entries'],
             'photo_id' => ['required|image'],
-            'photo_id' => ['dimensions:min_width=500,max_width=1920,min_height=500,max_height=1920'],
+            'photo_id' => ['dimensions:min_width=480,max_width=1920,min_height=480,max_height=1920'],
             'category_id' => ['required'],
             'lustre_id' => ['required'],
             'streak_id' => ['required'],
             'color_id' => ['required'],
             'tag_id' => ['required'],
         ];
-
         $messages = [
-            'photo_id.mimes' => 'Your image must be a JPG/JPEG, or a PNG',
+            'photo_id.mimes' => 'Your image must be a .jpg, .jpeg, or a .png',
         ];
-
         $this->validate($request, $rules, $messages);
         $data = request()->all();
         $data['slug'] = str_slug(request()->title);
         $data['user_id'] = Auth::user()->id;
         //$data['status'] = request()->status;
-
-
         if ($file = request()->file('photo_id')) {
+            $filename = $file->store('images', 'public');
             $photo = $file->store('images', 'public');
-            $data['photo_id'] = Photo::create(['title' => $photo, 'photo' => $photo])->id;
-        }
 
+            $data['photo_id'] = Photo::create(['photo' => $photo])->id;
+        }
         $entry = Entry::create($data);
         $entry->tag()->detach();
-
         if ($request->input('category_id') != NULL) {
           $category_id = $request->input('category_id');
           $entry->tag()->attach($category_id);
@@ -99,9 +104,7 @@ class EntryController extends Controller
           $tag_id = request()->tag_id;
           $entry->tag()->attach($tag_id);
         }
-
         Session::flash('flash_message', 'Your entry has been submitted successfully!');
-
         return back();
     }
     public function show($slug)
