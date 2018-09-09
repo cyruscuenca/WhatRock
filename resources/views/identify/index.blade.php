@@ -5,7 +5,7 @@
 	height: 27pt;
 	border-radius: 13.5pt;
 	display: inline-block;
-	background: #607D8B;
+	background: #424242;
 	color: #fff;
 	margin-left: 5pt;
 }
@@ -16,7 +16,7 @@
 .sidebar{
 }
 #sidebar-item-7{
-	background: #4c606b;
+	background: #9E9E9E;
 }
 #sidebar-item-7-text{
 }
@@ -76,21 +76,31 @@ a svg:hover .path4 {
 	font-weight: bold;
 	margin-bottom: 14pt;
 }
-.card{
-	height: 274pt;
-	width: 220pt;
-	display: inline-block;
-	float: left;
-	transition: filter .25s;
-	display: block;
+.card-container {
+    display: grid;
+	grid-template-columns:repeat(auto-fill, minmax(275px, 1fr));
+    grid-gap: 2rem;
 }
-.card:hover{
+.card {
+	display: grid;
+	height: 350px;
+	transition: filter .15s;
+}
+.card h3{
+	font-weight: bold;
+	margin-left: 20px;
+	margin-top: -10px;
+	font-size: 20pt;
+}
+.card p{
+	margin-left: 20px;
+	margin-top: -30px;
+	font-size: 12pt;
+}
+.card:hover {
 	-webkit-filter: brightness(105%); /* Safari 6.0 - 9.0 */
 	filter: brightness(108%);
-	transition: filter .25s;
-}
-.card-container{
-
+	transition: filter .15s;
 }
 #answer-list{
 	margin: 0;
@@ -121,7 +131,7 @@ a svg:hover .path4 {
 #question-container{
 	width: 100%;
 	height: 180pt;
-	background: #37474F;
+	background: #616161;
 }
 #question{
 	font-size: 38pt;
@@ -142,7 +152,7 @@ a svg:hover .path4 {
 	margin-top: 2pt;
 	font-weight: bold;
 	font-size: 13pt;
-	color: #2F3D43;
+	color: #212121;
 }
 @media (max-width: 800px) {
 		#question-container{
@@ -150,7 +160,7 @@ a svg:hover .path4 {
 		}
 		#question{
 			font-size: 30pt;
-			color: #546E7A;
+			color: #424242;
 		}
 		#answer-list{
 			position: fixed;
@@ -158,7 +168,7 @@ a svg:hover .path4 {
 			width: 100%;
 			height: 60px;
 			margin: 0 -18pt;
-			background: #455A64;
+			background: #424242;
 		}
 		#answer-list li{
 			margin: 0;
@@ -177,7 +187,7 @@ a svg:hover .path4 {
 			margin: 0;
 			width: 66px;
 			text-align: center;
-			background: #455A64;
+			background: #424242;
 		}
 		.skip-btn img{
 			height: 30px;
@@ -191,24 +201,24 @@ a svg:hover .path4 {
 </style>
 <div id="question-container">
 	<div class="fixed-width" style=" text-align: left; padding-top: 25pt;">
-		<p style="margin-left: -2.25pt; font-family: 'Open Sans', sans-serif;"  class="animated fadeInLeft" id="question" data-level="{{ $question->level }}">{{ $question->content }}</p>
-		<ul id="answer-list" class="animated fadeInUp" style="animation-delay: .15s; 	animation-duration: .3s;">
+		<p style="font-family: 'Open Sans', sans-serif;"  class="animated fadeInLeft" id="question" data-level="{{ $question->level }}">{{ $question->content }}</p>
+		<ul id="answer-list" class="animated fadeInUp" style="animation-delay: .15s; animation-duration: .3s;">
 		@foreach ($question->answer as $answer)
 		<li class="answer" onclick="getQuestion(this.children[0].innerHTML);" type="button" style="background: {{ $answer->button_color }};">
 			<p>{{ $answer->content }}</p>
 		</li>
 		@endforeach
 		<button class="skip-btn">
-			<img class="hide-on-desktop show-on-mobile" src="{{asset('images/skip-icon.svg')}}"><p class="hide-on-mobile">SKIP</p>
+			<img class="hide-on-desktop show-on-mobile" src="{{asset('images/skip-icon.svg')}}"><p class="hide-on-mobile" style="color: #424242;">SKIP</p>
 		</button>
 		</ul>
 	</div>
 </div>
 <div id="entries-container" class="fixed-width" style="padding-bottom: 25pt;">
 	<div style="width: 100%; display: inline-block;">
-		<button class="accordion"><p class="animated fadeInUp" style="display: inline-block; float: left; color: #546E7A; font-weight: bold;">1,032 Results Found</p>
-			<a class="animated fadeInUp" href="{{ route('/entries') }}" style="display: inline-block; float: right; color: #546E7A; font-weight: bold;">
-				<svg fill="#546E7A" style="width: 17.5pt; height: 17.5pt; margin-bottom: -4.2pt; margin-right: 3.8pt;" xmlns="http://www.w3.org/2000/svg">
+		<button class="accordion"><p class="animated fadeInUp" style="display: inline-block; float: left; color: #424242; font-weight: bold;">1,032 Results Found</p>
+			<a class="animated fadeInUp" href="{{ route('/entries') }}" style="display: inline-block; float: right; color: #424242; font-weight: bold;">
+				<svg fill="#424242" style="width: 17.5pt; height: 17.5pt; margin-bottom: -4.2pt; margin-right: 3.8pt;" xmlns="http://www.w3.org/2000/svg">
 					<path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
 					<path d="M0 0h24v24H0z" fill="none"/>
 				</svg>FILTER
@@ -220,20 +230,14 @@ a svg:hover .path4 {
 		</div>
 		<div class="card-container">
 			@foreach ($entries as $entry)
-			<a href="{{ action('EntryController@show', [$entry->slug]) }}">
-				<article class="card"  style="border-radius: 2pt 2pt 2pt 2pt; background: @foreach ($entry->hex as $hex) {{$hex}} @endforeach; color: {{$entry->getTextcolorAttribute()}};">
-					<div style="height: 176pt; width: 100%; border-radius: 1.85pt 1.85pt 0 0; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center;"></div>
-
-					<p style="margin-left: 15pt; margin-top: 8pt; font-size: 17.5pt; height: 20pt; width: 100%; float: left; color: {{$entry->getTextcolorAttribute()}};">{{ $entry->title }}@if(!is_null($entry->alt_title)) ({{ $entry->alt_title }})@endif</p>
-
-					@foreach ($entry->category as $category)
-
-					<a style="margin-left: 15pt; height: 35pt; width: 100%; font-size: 12pt; float: left; color: {{$entry->getTextcolorAttribute()}};" href="../categories/{{ $category }}">{{ $category }}</a>
-					@endforeach
-
-					<p style="margin-right: 15pt; float: right; color: {{$entry->getTextcolorAttribute()}}; font-family: 'Roboto'; font-size: 12.5pt; cursor: pointer;">PIN</p>
-				</article>
-			</a>
+			<a class="card" style="border-radius: 2pt 2pt 2pt 2pt; background: @foreach ($entry->hex as $hex) {{$hex}} @endforeach; color: {{$entry->getTextcolorAttribute()}};" href="{{ action('EntryController@show', [$entry->slug]) }}">
+	        <div style="width: 100%; height: 225px; background-image: url(/storage/{{ $entry->photo->photo() }}); background-size: cover; background-position: center;">
+	        </div>
+	            <h3 style="color: {{$entry->getTextcolorAttribute()}};"> {{$entry->title}}</h3>
+	            @foreach($entry->category as $category)
+	            <p style="color: {{$entry->getTextcolorAttribute()}};" href="../categories/{{ $category }}">{{ $category }}</p>
+	            @endforeach
+	  	    </a>
 			@endforeach
 		</div>
 	</div>
@@ -242,7 +246,6 @@ a svg:hover .path4 {
 	{!! $entries->links() !!}
 </div>
 @include('partials.footer')
-
 <script type="text/javascript"
 src="http://code.jquery.com/jquery-3.3.1.min.js"
 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -253,11 +256,10 @@ $.ajaxSetup({
 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 	}
 });
-
 </script>
 <script type="text/javascript">
 function getQuestion(answer) {
-	var url = "http://identify.whatrock.local/questions/get";
+	var url = "http://identify.whatrock.local:8000/questions/get";
 	var question = document.getElementById("question").innerHTML;
 	$.ajax({
 		type: "POST",
@@ -270,28 +272,18 @@ function getQuestion(answer) {
 		processData: false,
 	})
 	.done(function(data) {
-
 		// Console log for debugging
 		console.log(data)
-
 		// Get question via DOM
 		document.getElementById("question").innerHTML = data.question;
 		// Define answer-list
 		var answerList = document.getElementById('answer-list');
 		// Create new empty answer
 		var newAnswer = document.createElement('li');
-		// Define panel
-		var tagList = document.getElementById('panel');
-		// Create new empty tag
-		var newTag = document.createElement('div');
-		// Populate tag
-		newTag.innerHTML = '<p>'+data.tag+'</p>';
-		newTag.className = 'tag';
 		// Remove all answer buttons from #answer-list
 		while (answerList.firstChild) {
 		    answerList.removeChild(answerList.firstChild);
 		}
-
 		function renderAnswers(data) {
 	    for(var i = 0; i < data.answer.length; i++) {
 					var newAnswer = document.createElement('li');
@@ -302,17 +294,26 @@ function getQuestion(answer) {
 					newAnswer.setAttribute('type', 'button');
 					answerList.appendChild(newAnswer);
 					console.log(newAnswer)
-	    }
+	    	}
 		}
 		renderAnswers(data);
-		// Append newTag
-		tagList.appendChild(newTag);
-
-		// If there are tags, use them to filter the entries
-		if (document.querySelectorAll('.tag > p') != null) {
-			getEntries();
+		if(data.tag.length != 0) {
+			// Define panel
+			var tagList = document.getElementById('panel');
+			// Create new empty tag
+			var newTag = document.createElement('div');
+			// Populate tag
+			newTag.innerHTML = '<p>'+data.tag+'</p>';
+			// Set class
+			newTag.className = 'tag';
+			// Append newTag
+			tagList.appendChild(newTag);
 		}
-
+		// If there are tags, use them to filter the entries
+		if (document.querySelectorAll('.tag').length != 0) {
+			getEntries(document.querySelectorAll('.tag > p'));
+			console.log(document.querySelectorAll('.tag > p'));
+		}
 	})
 }
 function getEntries() {
@@ -345,7 +346,6 @@ function getEntries() {
 */
 </script>
 <script>
-
 var acc = document.getElementsByClassName("accordion");
 var i;
 for (i = 0; i < acc.length; i++) {
@@ -359,6 +359,5 @@ for (i = 0; i < acc.length; i++) {
 		}
 	});
 }
-
 </script>
 @endsection
