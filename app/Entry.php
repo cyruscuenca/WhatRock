@@ -47,7 +47,7 @@ class Entry extends Model
     }
         public function getTextcolorAttribute()
     {
-        $textcolor = "#fff";
+        $textcolor = "#E0E0E0";
         $dbcolor = $this->tag()->where('type_id', 5)->first()->hex;
         if($dbcolor == "#fdfefe" || $dbcolor == "#FDD835" || $dbcolor == "#FBC02D")
         {

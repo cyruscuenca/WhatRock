@@ -10,6 +10,8 @@ use App\User;
 
 use App\Entry;
 
+use Illuminate\Support\Facades\Auth;
+
 class UserController extends Controller
 {
     /**
@@ -80,9 +82,18 @@ class UserController extends Controller
         return view('users.show.entries', compact('user', 'entries'));
     }
 
+    public function about()
+    {
+        $users = User::all();
+        $roles = Role::pluck('name', 'id');
+        return view('users.about', compact('users', 'roles'));
+    }
+
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+        return view('dashboard.settings', compact('user'));
+
     }
 
     /**
@@ -92,12 +103,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        $input = $request->all();
+        $rules = [
+            'first_name' => ['required', 'min:2', 'max:50'],
+            'last_name' => ['required', 'min:2', 'max:50'],
+            'city' => ['max:50'],
+            'country' => ['max:50'],
+            'bio' => ['max:50'],
+        ];
+
+        $this->validate($request, $rules);
+        $input = request()->all();
         $user = User::findOrFail($id);
+
         $user->update($input);
-        return back();
+
+        return redirect('/');
     }
 
     /**
@@ -117,6 +139,23 @@ class UserController extends Controller
         $entries = Entry::where($user_id, 'author');
         return view('dashboard.index');
     }
+
+    public function settings()
+    {
+        $users = User::all();
+        $roles = Role::pluck('name', 'id');
+        // Settings has no index. Settings links go to account.blade.php
+        return view('dashboard.settings.account', compact('users', 'roles'));
+    }
+
+    public function advanced()
+    {
+        $users = User::all();
+        $roles = Role::pluck('name', 'id');
+        // Settings has no index. Settings links go to account.blade.php
+        return view('dashboard.settings.advanced', compact('users', 'roles'));
+    }
+    
     public function userlist()
     {
         $users = User::latest()->paginate(12);

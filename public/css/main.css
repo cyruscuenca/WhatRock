@@ -7,41 +7,40 @@
   font-family: "ubuntu-l";
   src: url(../fonts/Ubuntu-L.ttf) format("truetype"); }
 /*# sourceMappingURL=main.css.map */
-* {
-  font-family: "Raleway", sans-serif; }
+* { }
 
 html {
   min-height: 101%;
-  background: #ECEFF1;
+  background: #E0E0E0;
   overflow-x: hidden; }
 
 body {
-  background: #ECEFF1;
+  background: #E0E0E0;
   overflow-x: hidden; }
 
 h1 {
-  color: #546E7A; }
+  color: #424242; }
 
 h2 {
-  color: #546E7A; }
+  color: #424242; }
 
 h3 {
-  color: #546E7A; }
+  color: #424242; }
 
 h4 {
-  color: #546E7A; }
+  color: #424242; }
 
 h5 {
-  color: #546E7A; }
+  color: #424242; }
 
 h6 {
-  color: #546E7A; }
+  color: #424242; }
 
 .standard-btn {
   background: #607D8B;
   padding: 6.5pt 14pt;
   color: #fff;
-  border-radius: 2pt;
+  border-radius: 2px;
   font-weight: bold;
   font-size: 12pt;
   border: none; }
@@ -115,7 +114,7 @@ ul {
   list-style-type: none; }
 
 .med-shadow {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.14); }
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
 
 .dynamic-shadow {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.12);
@@ -142,7 +141,7 @@ ul {
 .hide-on-desktop{
   display: none;
 }
-@media (max-width: 1250px) {
+@media (max-width: 1600px) {
   .fixed-width {
     width: calc(100% - 18pt - 18pt);
     margin-left: 18pt;

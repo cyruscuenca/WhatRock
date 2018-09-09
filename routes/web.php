@@ -23,16 +23,17 @@ Route::domain('store.whatrock.local')->group(function () {
 	Route::get('/properties', 'PagesController@properties')->name('/learn/properties');
 });
 Route::domain('www.whatrock.local')->group(function () {
-	Route::get('/', function () {
-		return view('index');
-	});
+	Route::view('/', 'index')->where('/', '.*')->name('www/index');
+	Route::get('/', 'EntryController@home')->name('www/index');
+
 	Route::get('/search/', 'EntryController@search')->name('/search');
 
 	View::share('entry', App\Entry::all());
 
 	Auth::routes();
-
 	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+	Route::get('/verify/{token}', 'VerifyController@verify')->name('verify');
+
 
 	Route::get('/entries/trash', 'EntryController@trash');
 	Route::get('/entries/trash/{id}/restore', 'EntryController@restore');
@@ -40,9 +41,11 @@ Route::domain('www.whatrock.local')->group(function () {
 
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/dashboard', 'UserController@dashboard')->name('dashboard');
+	Route::get('/dashboard/settings/account', 'UserController@settings')->name('settings');
+	Route::get('/dashboard/settings/advanced', 'UserController@advanced')->name('advanced');
 	Route::get('/admin/users/list', 'UserController@userlist')->name('userlist');
 	Route::get('/users', 'UserController@index')->name('users/index');
-	Route::get('/users/{slug}/index', 'UserController@show')->name('users/show');
+	Route::get('/users/{slug}', 'UserController@show')->name('users/show');
 	Route::get('/users/{slug}/entries', 'UserController@entries')->name('users/entries');
 
 	Route::get('/entries', 'EntryController@index')->name('/entries');
@@ -56,7 +59,7 @@ Route::domain('www.whatrock.local')->group(function () {
 	Route::patch('/entries/{id}', 'EntryController@update');
 	Route::delete('/entries/{id}', 'EntryController@softDestroy');
 
-	Route::get('admin/index', 'AdminController@index')->middleware('admin')->name('admin/index');
+	Route::get('admin', 'AdminController@index')->middleware('admin')->name('admin/index');
 	Route::get('admin/entries/moderate', 'AdminController@moderate')->middleware('admin')->name('admin/entries/moderate');
 
 	Route::get('mod', 'ModController@index')->middleware('mod');
@@ -67,9 +70,14 @@ Route::domain('www.whatrock.local')->group(function () {
 	Route::resource('subcategories', 'SubcategoryController');
 
 	Route::get('about', 'PagesController@about')->name('about');
-	Route::get('partners', 'PagesController@partners');
-	Route::get('contribute', 'PagesController@contribute');
-	Route::get('developers', 'PagesController@developers')->name('developers');
+	Route::get('partners', 'PagesController@partners')->name('partners');
+	Route::get('contribute', 'PagesController@contribute')->name('contribute');
+	Route::get('help', 'PagesController@help')->name('help');
+	Route::get('terms', 'PagesController@terms')->name('terms');
+	Route::get('news', 'PagesController@news')->name('news');
+	Route::get('earthquakes', 'PagesController@earthquakes')->name('earthquakes');
+	Route::get('maps', 'PagesController@maps')->name('maps');
+
 
 	Route::resource('/admin/users', 'UserController');
 	Route::get('list'. 'UserController@list');
