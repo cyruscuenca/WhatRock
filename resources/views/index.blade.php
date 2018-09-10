@@ -16,29 +16,29 @@
 }
 .entry-cont {
 	display: grid;
-	grid-template-columns:repeat(auto-fill, minmax(275px, 1fr));
-  grid-gap: 2rem;
+	grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+  	grid-gap: 2rem;
 	margin-bottom: 100px;
 }
 .entry-cont article {
 	display: grid;
 	text-align: left;
 	border-radius: 3px;
-	background: #424242;
+	background: #fff;
 }
 .entry-cont article img {
 	border-radius: 2px 2px 0 0;
 }
 .entry-cont article h2{
 	font-weight: bold;
-	color: #fff;
+	color: #424242;
 	padding-bottom: 6pt;
 	font-family: 'Open Sans';
 	font-size: 20pt;
 	margin-left: 12pt;
 }
 .entry-cont article p{
-	color: #EEEEEE;
+	color: #424242;
 	line-height: 200%;
 	font-family: 'Open Sans';
 	margin: 0 14pt;
@@ -46,28 +46,28 @@
 }
 .extras-cont {
 	display: grid;
-	grid-template-columns:repeat(auto-fill, minmax(275px, 1fr));
-  grid-gap: 2rem;
+	grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+  	grid-gap: 2rem;
 }
 .extras-cont article {
 	display: grid;
 	text-align: left;
 	border-radius: 3px;
-	background: #424242;
+	background: #fff;
 }
 .extras-cont article img {
 	border-radius: 2px 2px 0 0;
 }
 .extras-cont article h2{
 	font-weight: bold;
-	color: #fff;
+	color: #424242;
 	padding-bottom: 6pt;
 	font-family: 'Open Sans';
 	font-size: 20pt;
 	margin-left: 12pt;
 }
 .extras-cont article p{
-	color: #EEEEEE;
+	color: #424242;
 	line-height: 200%;
 	font-family: 'Open Sans';
 	margin: 0 14pt;
@@ -127,7 +127,7 @@
 	</a>
 	<a href="https://reddit.com/r/whatsthisrock">
 	<article>
-		<div style="background-image: url({{asset('images/reddit.jpg')}}); width: 100%; height: 217px; border-radius: 2px 2px 0 0; background-size: cover; background-position: center;"></div>
+		<img style="width: 100%;" src="{{asset('images/reddit.png')}}">
 		<h2>Reddit Community</h2>
 		<p>Check out the reddit community at reddit.com/r/whatsthisrock</p>
 	</article>
