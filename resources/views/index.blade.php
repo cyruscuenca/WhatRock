@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <style type="text/css">
+body, html {
+	background: #BDBDBD;
+}
 .navbar {
 	border-bottom: 1px solid #424242;
-}
-body, html{
-	background: #757575;
 }
 .welcome-card{
 	height: 76%;
@@ -61,6 +61,7 @@ body, html{
 	border-radius: 3px;
 	background: #424242;
 }
+
 .extras-cont article img {
 	border-radius: 2px 2px 0 0;
 }
@@ -114,7 +115,7 @@ body, html{
 		</div>
 	</div>
 </div>
-<div style="width: 100%; background: #757575; position: relative;">
+<div style="width: 100%; position: relative;">
 	<div class="fixed-width" style="height: 85pt; margin-top: -25pt;">
 	<h2 style="font-weight: bold; color: #424242; padding-top: 24pt; float: left; font-family: 'Open Sans';">Extras</h2>
 	<a class="standard-btn" style="float: right; margin-top: 37pt; background: #424242;">MORE</a>
